@@ -109,16 +109,6 @@
                     <div class="card-title" id="homePremiumPicksTitle">Premium Picks</div>
                     <div id="homeVideoPicks" class="video-picks"></div>
                 </div>
-                <div id="membershipCard" class="premium-picks-card" style="background: linear-gradient(135deg, rgba(0,242,255,0.1) 0%, rgba(255,0,255,0.1) 100%); border: 1px solid var(--neon-cyan);">
-                    <div class="card-title">⭐ Membership</div>
-                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
-                        <div style="padding: 8px; background: rgba(0,242,255,0.05); border-radius: 4px;">
-                            <strong id="currentMembershipLevel">📱 Free Plan</strong>
-                        </div>
-                        <button onclick="upgradeMembership('premium')" class="card-button" style="font-size: 11px; padding: 8px; background: var(--neon-cyan); color: var(--dark-bg); font-weight: 700;">💎 Go Premium</button>
-                        <button onclick="upgradeMembership('ultra')" class="card-button" style="font-size: 11px; padding: 8px; background: var(--neon-pink); color: white; font-weight: 700;">⭐ Go Ultra</button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -334,38 +324,6 @@
             <a id="pdfOpenLink" class="card-button" target="_blank" rel="noreferrer">Open in New Tab</a>
         </div>
         <canvas id="pdfCanvas"></canvas>
-    </div>
-</div>
-
-<div id="loginModal" class="modal">
-    <div class="modal-content login-content" style="max-width: 400px; padding: 40px;">
-        <span class="close" onclick="closeLoginModal()">&times;</span>
-        <h2 style="color: var(--neon-cyan); margin-bottom: 20px; text-align: center;">Login to ASTRON</h2>
-        <div style="display: flex; flex-direction: column; gap: 15px;">
-            <div>
-                <label style="color: var(--neon-cyan); font-weight: 600; display: block; margin-bottom: 8px;">Username</label>
-                <input id="loginUsername" type="text" placeholder="Enter username" style="width: 100%; padding: 12px; background: rgba(0,242,255,0.05); border: 1px solid var(--neon-cyan); color: white; border-radius: 6px;">
-            </div>
-            <div>
-                <label style="color: var(--neon-cyan); font-weight: 600; display: block; margin-bottom: 8px;">
-                    <input id="rememberMeCheckbox" type="checkbox" style="margin-right: 8px; cursor: pointer;"> Remember me for 30 days
-                </label>
-            </div>
-            <button onclick="performLogin()" class="card-button" style="background: var(--neon-cyan); color: var(--dark-bg); font-weight: 700; padding: 12px; border-radius: 6px; cursor: pointer;">Login</button>
-        </div>
-        <hr style="margin: 20px 0; border: 1px solid rgba(0,242,255,0.2);">
-        <h3 style="color: var(--neon-cyan); font-size: 14px; margin-bottom: 10px;">Membership Levels</h3>
-        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
-            <div style="padding: 8px; border-left: 3px solid #666;">
-                <strong>📱 Free:</strong> Basic content access
-            </div>
-            <div style="padding: 8px; border-left: 3px solid var(--neon-cyan);">
-                <strong style="color: var(--neon-cyan);">💎 Premium:</strong> Books, PDFs, Old Papers
-            </div>
-            <div style="padding: 8px; border-left: 3px solid var(--neon-pink);">
-                <strong style="color: var(--neon-pink);">⭐ Ultra:</strong> All + Model Papers + Priority
-            </div>
-        </div>
     </div>
 </div>
 

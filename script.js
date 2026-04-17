@@ -24,128 +24,9 @@ let currentPdf = null;
 let currentPdfPage = 1;
 let totalPdfPages = 0;
 
-// Session & Membership System
-let sessionUser = null;
-let membershipLevel = 'free'; // free, premium, ultra
-const SESSION_KEY = 'astron_session';
-const MEMBERSHIP_KEY = 'astron_membership';
-const REMEMBER_KEY = 'astron_remember';
-
-// Premium features restriction check
-function isPremiumFeature(feature) {
-    const premiumFeatures = {
-        'books_download': { minLevel: 'premium', message: 'Book downloads available only for Premium members' },
-        'pdf_viewer': { minLevel: 'premium', message: 'PDF viewer available only for Premium members' },
-        'model_papers': { minLevel: 'ultra', message: 'Model papers available only for Ultra members' },
-        'old_papers': { minLevel: 'premium', message: 'Old papers available only for Premium members' }
-    };
-    
-    const featureReq = premiumFeatures[feature];
-    if (!featureReq) return true; // feature doesn't exist, allow
-    
-    const levels = { 'free': 0, 'premium': 1, 'ultra': 2 };
-    return levels[membershipLevel] >= levels[featureReq.minLevel];
-}
-
-// Initialize session from localStorage
-function initializeSession() {
-    const rememberData = localStorage.getItem(REMEMBER_KEY);
-    const sessionData = localStorage.getItem(SESSION_KEY);
-    const savedMembership = localStorage.getItem(MEMBERSHIP_KEY) || 'free';
-    
-    membershipLevel = savedMembership;
-    
-    if (rememberData) {
-        try {
-            const parsed = JSON.parse(rememberData);
-            if (parsed.username && parsed.timestamp && (Date.now() - parsed.timestamp < 30 * 24 * 60 * 60 * 1000)) {
-                sessionUser = { username: parsed.username, loginTime: Date.now() };
-                updateUIForSession();
-                return;
-            }
-        } catch (e) {
-            console.warn('Remember data corrupted, clearing');
-            localStorage.removeItem(REMEMBER_KEY);
-        }
-    }
-    
-    if (sessionData) {
-        try {
-            sessionUser = JSON.parse(sessionData);
-            updateUIForSession();
-        } catch (e) {
-            localStorage.removeItem(SESSION_KEY);
-        }
-    }
-}
-
-function updateUIForSession() {
-    if (sessionUser) {
-        const userIndicator = document.getElementById('userIndicator');
-        if (userIndicator) {
-            userIndicator.textContent = `👤 ${sessionUser.username} [${membershipLevel.toUpperCase()}]`;
-            userIndicator.style.display = 'inline-block';
-        }
-    }
-    
-    // Update membership card
-    const membershipLevel_text = {
-        'free': '📱 Free Plan',
-        'premium': '💎 Premium Plan',
-        'ultra': '⭐ Ultra Plan'
-    };
-    const membershipLevelEl = document.getElementById('currentMembershipLevel');
-    if (membershipLevelEl) {
-        membershipLevelEl.textContent = membershipLevel_text[membershipLevel];
-    }
-}
-
-function login(username, rememberMe = false) {
-    if (!username || username.length < 2) {
-        alert('Please enter a valid username');
-        return false;
-    }
-    
-    sessionUser = { username, loginTime: Date.now() };
-    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionUser));
-    
-    if (rememberMe) {
-        const rememberData = { username, timestamp: Date.now() };
-        localStorage.setItem(REMEMBER_KEY, JSON.stringify(rememberData));
-    } else {
-        localStorage.removeItem(REMEMBER_KEY);
-    }
-    
-    updateUIForSession();
-    return true;
-}
-
-function logout() {
-    sessionUser = null;
-    localStorage.removeItem(SESSION_KEY);
-    localStorage.removeItem(REMEMBER_KEY);
-    membershipLevel = 'free';
-    localStorage.removeItem(MEMBERSHIP_KEY);
-    location.reload();
-}
-
-function upgradeMembership(level) {
-    if (!['free', 'premium', 'ultra'].includes(level)) return;
-    if (!sessionUser) {
-        alert('Please login first to upgrade membership');
-        return;
-    }
-    membershipLevel = level;
-    localStorage.setItem(MEMBERSHIP_KEY, level);
-    updateUIForSession();
-    alert(`✅ Membership upgraded to ${level.toUpperCase()}`);
-}
-
 window.addEventListener('DOMContentLoaded', init);
 
 async function init() {
-    initializeSession();
-    updateUIForSession();
     setLanguageSelectValue(uiLanguage);
     populateAllClassSelectors();
     populateCourses(currentFilter);
@@ -498,11 +379,6 @@ function renderAdminNewsList() {
 }
 
 function openBookViewer(bookIndex) {
-    if (!isPremiumFeature('pdf_viewer')) {
-        alert('🔒 PDF Viewer is a Premium feature. Upgrade your membership to access.');
-        return;
-    }
-
     const books = getBookCatalog();
     const book = books[bookIndex];
     if (!book?.file) {
@@ -891,11 +767,6 @@ function loadBooks() {
 }
 
 function downloadBook(bookIndex) {
-    if (!isPremiumFeature('books_download')) {
-        alert('🔒 Book downloads are a Premium feature. Upgrade your membership to access.');
-        return;
-    }
-
     const books = getBookCatalog();
     const book = books[bookIndex];
     if (!book?.file) {

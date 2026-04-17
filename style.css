@@ -6,28 +6,6 @@
     --dark-bg: #0a0e27;
     --darker-bg: #050812;
     --accent: #00d9ff;
-    --animation-duration: 0.6s;
-    --animation-enabled: 1;
-}
-
-/* Performance optimization for low-end systems */
-@media (prefers-reduced-motion: reduce) {
-    :root {
-        --animation-duration: 0.1s;
-    }
-    
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* System detection for older browsers/devices */
-@media (max-width: 1366px) {
-    * {
-        animation-duration: 0.5s;
-    }
 }
 
 * {
@@ -59,26 +37,26 @@ body {
 
 @keyframes floatPulse {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); } /* Reduced movement for performance */
+    50% { transform: translateY(-20px); }
 }
 
 @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-blue); } /* Reduced intensity */
-    50% { box-shadow: 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-blue); }
+    0%, 100% { box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-blue); }
+    50% { box-shadow: 0 0 40px var(--neon-cyan), 0 0 80px var(--neon-blue); }
 }
 
 @keyframes neonGlow {
     0%, 100% { 
-        text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-blue), 0 0 15px var(--neon-purple);
+        text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple);
     }
     50% { 
-        text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-pink);
+        text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-blue), 0 0 60px var(--neon-pink);
     }
 }
 
 @keyframes slideInLeft {
     from {
-        transform: translateX(-50px); /* Reduced distance */
+        transform: translateX(-100%);
         opacity: 0;
     }
     to {
@@ -89,7 +67,7 @@ body {
 
 @keyframes slideInRight {
     from {
-        transform: translateX(50px); /* Reduced distance */
+        transform: translateX(100%);
         opacity: 0;
     }
     to {
@@ -100,7 +78,7 @@ body {
 
 @keyframes fadeInUp {
     from {
-        transform: translateY(20px); /* Reduced distance */
+        transform: translateY(50px);
         opacity: 0;
     }
     to {
@@ -111,7 +89,7 @@ body {
 
 @keyframes scaleIn {
     from {
-        transform: scale(0.9); /* Reduced scale change */
+        transform: scale(0.8);
         opacity: 0;
     }
     to {

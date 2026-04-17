@@ -22,21 +22,3 @@ export const booksDatabase = [
     { class: 10, subject: 'Science', title: 'Class 10 Science Book', file: 'class10-science-eng.pdf', language: 'english' },
     { class: 12, subject: 'Physics', title: 'Class 12 Physics Book', file: 'class12-physics-eng.pdf', language: 'english' }
 ];
-        id: 11,
-        class: 12,
-        subject: 'Physics',
-        language: 'english',
-        title: 'Class 12 Physics Notes',
-        description: 'Electricity, electromagnetism, optics and wave formulas',
-        downloadUrl: 'downloads/class12-physics.pdf'
-    },
-    {
-        id: 12,
-        class: 12,
-        subject: 'Chemistry',
-        language: 'english',
-        title: 'Class 12 Chemistry Notes',
-        description: 'Ionic/covalent bonds, periodicity, reactions and mole concept',
-        downloadUrl: 'downloads/astron-study-guide.txt'
-    }
-];

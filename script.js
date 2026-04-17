@@ -120,7 +120,7 @@ function selectCourse(courseId) {
 }
 
 function populateAllClassSelectors() {
-    const allClasses = [...courseDatabase.school, ...courseDatabase.college, ...courseDatabase.university];
+    const allClasses = courseDatabase.school;
     const selectorIds = ['classSelect', 'videoClassSelect', 'practiceClassSelect', 'testClassSelect', 'bookClassSelect'];
 
     selectorIds.forEach(selectId => {

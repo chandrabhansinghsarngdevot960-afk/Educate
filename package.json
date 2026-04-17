@@ -4,6 +4,10 @@
   "description": "",
   "main": "script.js",
   "scripts": {
+    "scrape": "python scripts/rbse_scraper.py",
+    "automate": "python scripts/automate.py",
+    "start": "python -m http.server 8000",
+    "electron": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

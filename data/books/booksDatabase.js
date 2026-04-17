@@ -22,22 +22,6 @@ export const booksDatabase = [
     { class: 10, subject: 'Science', title: 'Class 10 Science Book', file: 'class10-science-eng.pdf', language: 'english' },
     { class: 12, subject: 'Physics', title: 'Class 12 Physics Book', file: 'class12-physics-eng.pdf', language: 'english' }
 ];
-        subject: 'भौतिकी',
-        language: 'hindi',
-        title: 'कक्षा 12 भौतिकी नोट्स',
-        description: 'विद्युत चुंबकत्व, प्रकाशिकी, और सरल तरंगो के नोट्स',
-        downloadUrl: 'downloads/class12-physics.pdf'
-    },
-    {
-        id: 10,
-        class: 12,
-        subject: 'रसायन विज्ञान',
-        language: 'hindi',
-        title: 'कक्षा 12 रसायन विज्ञान नोट्स',
-        description: 'आयनिक और सहसंयोजक बंधन, रसायनिक अभिक्रियाएँ',
-        downloadUrl: 'downloads/astron-study-guide.txt'
-    },
-    {
         id: 11,
         class: 12,
         subject: 'Physics',

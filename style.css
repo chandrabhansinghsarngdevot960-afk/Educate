@@ -612,6 +612,8 @@ body {
     background: radial-gradient(circle at 30% 30%, var(--neon-cyan), var(--neon-blue), var(--neon-purple));
     animation: floatPulse 4s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
     box-shadow: 0 0 80px rgba(0, 242, 255, 0.5), inset -40px -40px 80px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: -1;
 }
 
 /* COURSE SECTION */

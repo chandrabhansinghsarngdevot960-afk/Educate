@@ -88,7 +88,16 @@ function updateSectionContent(sectionName) {
 
 function populateCourses(category) {
     currentFilter = category;
-    const courses = courseDatabase[category] || [];
+    let courses = [];
+    
+    if (category === 'school') {
+        courses = courseDatabase.school || [];
+    } else if (category === 'college') {
+        courses = []; // No college data yet
+    } else if (category === 'university') {
+        courses = []; // No university data yet
+    }
+    
     const coursesGrid = document.getElementById('coursesGrid');
 
     document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
@@ -97,6 +106,11 @@ function populateCourses(category) {
 
     if (!coursesGrid) return;
     coursesGrid.innerHTML = '';
+
+    if (courses.length === 0) {
+        coursesGrid.innerHTML = `<p class="empty-state">${category === 'school' ? 'No courses available' : 'Coming soon...'}</p>`;
+        return;
+    }
 
     courses.forEach((course, index) => {
         const card = document.createElement('div');
@@ -225,7 +239,7 @@ function updateHomeNews() {
         card.className = 'mini-video-card';
         card.innerHTML = `
             <div>${video.title}</div>
-            <div class="news-meta">${video.teacher} • ${video.views.toLocaleString()} ${t('views')}</div>
+            <div class="news-meta">Class ${video.class} • ${video.subject}</div>
         `;
         picksContainer.appendChild(card);
     });
@@ -252,7 +266,7 @@ function performSearch(query) {
     const normalized = query.toLowerCase();
     const results = [];
 
-    courseDatabase.school.concat(courseDatabase.college, courseDatabase.university).forEach(course => {
+    courseDatabase.school.forEach(course => {
         if (course.name.toLowerCase().includes(normalized) || course.nameEn.toLowerCase().includes(normalized)) {
             results.push({ type: 'Course', title: course.name, description: course.nameEn, section: 'courses' });
         }
@@ -265,8 +279,8 @@ function performSearch(query) {
     });
 
     videosDatabase.forEach(video => {
-        if ([video.title, video.subject, video.teacher].some(field => field?.toLowerCase().includes(normalized))) {
-            results.push({ type: 'Video', title: video.title, description: video.subject, section: 'videos' });
+        if ([video.title, video.subject].some(field => field?.toLowerCase().includes(normalized))) {
+            results.push({ type: 'Video', title: video.title, description: `Class ${video.class} • ${video.subject}`, section: 'videos' });
         }
     });
 
@@ -283,8 +297,8 @@ function performSearch(query) {
     });
 
     getBookCatalog().forEach(book => {
-        if ([book.title, book.subject, book.author, book.board, book.language].some(field => field?.toLowerCase().includes(normalized))) {
-            results.push({ type: 'Book', title: book.title, description: `${book.subject} • ${book.board || 'Any'}`, section: 'books' });
+        if ([book.title, book.subject, book.language].some(field => field?.toLowerCase().includes(normalized))) {
+            results.push({ type: 'Book', title: book.title, description: `${book.subject} • ${book.language}`, section: 'books' });
         }
     });
 

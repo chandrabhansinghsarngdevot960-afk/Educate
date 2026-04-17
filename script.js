@@ -154,11 +154,6 @@ async function loadNewsData() {
     } catch (error) {
         console.warn('Unable to load news.json', error);
     }
-
-    const savedNews = JSON.parse(localStorage.getItem('astronAdminNews') || '[]');
-    if (Array.isArray(savedNews) && savedNews.length > 0) {
-        newsItems = [...savedNews, ...newsItems];
-    }
 }
 
 async function loadAutoBooks() {
@@ -323,58 +318,6 @@ function displaySearchResults(results, query) {
             container.classList.add('hidden');
         };
         container.appendChild(item);
-    });
-}
-
-function toggleAdminPanel() {
-    const panel = document.getElementById('adminPanel');
-    if (!panel) return;
-    panel.classList.toggle('hidden');
-    if (!panel.classList.contains('hidden')) {
-        renderAdminNewsList();
-    }
-}
-
-function addAdminNewsItem() {
-    const headline = document.getElementById('adminNewsHeadline')?.value.trim();
-    const source = document.getElementById('adminNewsSource')?.value.trim() || 'RBSE';
-    const date = document.getElementById('adminNewsDate')?.value || new Date().toISOString().split('T')[0];
-    if (!headline) {
-        alert('Please enter a headline.');
-        return;
-    }
-
-    const newItem = {
-        id: Date.now(),
-        headline,
-        source,
-        date
-    };
-
-    const savedNews = JSON.parse(localStorage.getItem('astronAdminNews') || '[]');
-    const updatedNews = [newItem, ...(Array.isArray(savedNews) ? savedNews : [])];
-    localStorage.setItem('astronAdminNews', JSON.stringify(updatedNews));
-    newsItems = [newItem, ...newsItems];
-    updateHomeNews();
-    renderAdminNewsList();
-    document.getElementById('adminNewsHeadline').value = '';
-    document.getElementById('adminNewsSource').value = '';
-}
-
-function renderAdminNewsList() {
-    const list = document.getElementById('adminNewsList');
-    if (!list) return;
-    list.innerHTML = '';
-    const savedNews = JSON.parse(localStorage.getItem('astronAdminNews') || '[]');
-    if (!Array.isArray(savedNews) || savedNews.length === 0) {
-        list.innerHTML = '<p class="empty-state">No admin news items saved yet.</p>';
-        return;
-    }
-    savedNews.forEach(item => {
-        const row = document.createElement('div');
-        row.className = 'admin-news-row';
-        row.innerHTML = `<strong>${item.headline}</strong><span>${item.source} • ${item.date}</span>`;
-        list.appendChild(row);
     });
 }
 
@@ -813,7 +756,7 @@ function updateAllTexts() {
     }
     const premiumPicksTitle = document.getElementById('homePremiumPicksTitle');
     if (premiumPicksTitle) {
-        premiumPicksTitle.textContent = trans.premiumPicks || 'Premium Picks';
+        premiumPicksTitle.textContent = 'Video Picks';
     }
 
     document.getElementById('coursesHeader').textContent = trans.courses;
@@ -910,9 +853,5 @@ window.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
         closeModal();
         closePdfModal();
-    }
-    if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'n') {
-        event.preventDefault();
-        toggleAdminPanel();
     }
 });

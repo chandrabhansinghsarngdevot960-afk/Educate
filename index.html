@@ -105,8 +105,8 @@
                     <div class="card-title" id="homeLiveNewsTitle">Live News</div>
                     <div id="homeNewsList" class="news-list"></div>
                 </div>
-                <div class="premium-picks-card">
-                    <div class="card-title" id="homePremiumPicksTitle">Premium Picks</div>
+                <div class="picks-card">
+                    <div class="card-title" id="homePremiumPicksTitle">Video Picks</div>
                     <div id="homeVideoPicks" class="video-picks"></div>
                 </div>
             </div>
@@ -200,7 +200,7 @@
             <select id="practiceSubjectSelect" onchange="loadPracticeQuestions()">
                 <option value="">विषय / Subject</option>
             </select>
-            <select id="difficultySelect" onchange="filterPracticeQuestions()">
+            <select id="difficultySelect" onchange="loadPracticeQuestions()">
                 <option value="">कठिनाई / Difficulty</option>
                 <option value="easy">आसान / Easy</option>
                 <option value="medium">माध्यम / Medium</option>
@@ -271,23 +271,6 @@
         </div>
     </div>
 
-</div>
-
-<div id="adminPanel" class="admin-panel hidden">
-    <div class="admin-panel-inner">
-        <div class="admin-header">
-            <h3>Admin News Editor</h3>
-            <button class="close" onclick="toggleAdminPanel()">&times;</button>
-        </div>
-        <p class="admin-note">Press Ctrl+Shift+N to open. Adds live news locally for preview.</p>
-        <div class="admin-fields">
-            <input id="adminNewsHeadline" type="text" placeholder="News headline">
-            <input id="adminNewsSource" type="text" placeholder="Source (e.g. RBSE)">
-            <input id="adminNewsDate" type="date" value="2026-04-15">
-        </div>
-        <button class="card-button admin-save" onclick="addAdminNewsItem()">Add News</button>
-        <div id="adminNewsList" class="admin-news-list"></div>
-    </div>
 </div>
 
 <!-- MODALS -->

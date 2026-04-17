@@ -446,7 +446,7 @@ body {
 }
 
 .live-news-card,
-.premium-picks-card {
+.picks-card {
     padding: 24px;
     background: rgba(0, 242, 255, 0.08);
     border: 2px solid rgba(0, 242, 255, 0.18);
@@ -458,7 +458,7 @@ body {
 }
 
 .live-news-card .card-title,
-.premium-picks-card .card-title {
+.picks-card .card-title {
     font-size: 20px;
     color: var(--neon-cyan);
     letter-spacing: 0.7px;

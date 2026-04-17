@@ -87,6 +87,17 @@ function updateUIForSession() {
             userIndicator.style.display = 'inline-block';
         }
     }
+    
+    // Update membership card
+    const membershipLevel_text = {
+        'free': '📱 Free Plan',
+        'premium': '💎 Premium Plan',
+        'ultra': '⭐ Ultra Plan'
+    };
+    const membershipLevelEl = document.getElementById('currentMembershipLevel');
+    if (membershipLevelEl) {
+        membershipLevelEl.textContent = membershipLevel_text[membershipLevel];
+    }
 }
 
 function login(username, rememberMe = false) {
@@ -466,6 +477,11 @@ function renderAdminNewsList() {
 }
 
 function openBookViewer(bookId) {
+    if (!isPremiumFeature('pdf_viewer')) {
+        alert('🔒 PDF Viewer is a Premium feature. Upgrade your membership to access.');
+        return;
+    }
+    
     const book = getBookCatalog().find(b => b.id === bookId);
     if (!book?.downloadUrl) {
         alert(`${book?.title || 'Book'} ${t('notAvailable')}`);
@@ -845,6 +861,11 @@ function loadBooks() {
 }
 
 function downloadBook(bookId) {
+    if (!isPremiumFeature('books_download')) {
+        alert('🔒 Book downloads are a Premium feature. Upgrade your membership to access.');
+        return;
+    }
+    
     const book = getBookCatalog().find(b => b.id === bookId);
     if (!book?.downloadUrl) {
         alert(`${book?.title || 'Book'} ${t('download')} ${t('notAvailable')}`);
@@ -949,7 +970,12 @@ const exposedFunctions = {
     filterTests,
     startTest,
     selectAnswer,
-    showAnswer
+    showAnswer,
+    login,
+    logout,
+    upgradeMembership,
+    openBookViewer,
+    downloadBook
 };
 Object.entries(exposedFunctions).forEach(([name, fn]) => {
     window[name] = fn;
@@ -969,6 +995,28 @@ function changeLanguage() {
 
 function t(key) {
     return translations[uiLanguage]?.[key] || translations.hindi[key] || key;
+}
+
+function showLoginModal() {
+    const modal = document.getElementById('loginModal');
+    if (modal) modal.classList.add('show');
+}
+
+function closeLoginModal() {
+    const modal = document.getElementById('loginModal');
+    if (modal) modal.classList.remove('show');
+    document.getElementById('loginUsername').value = '';
+    document.getElementById('rememberMeCheckbox').checked = false;
+}
+
+function performLogin() {
+    const username = document.getElementById('loginUsername').value.trim();
+    const rememberMe = document.getElementById('rememberMeCheckbox').checked;
+    
+    if (login(username, rememberMe)) {
+        closeLoginModal();
+        alert(`✅ Welcome, ${username}!`);
+    }
 }
 
 function animateOnScroll() {

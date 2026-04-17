@@ -145,19 +145,33 @@ function populateAllClassSelectors() {
 }
 
 async function loadNewsData() {
+    // Tumhare index.html mein ye IDs honi chahiye
+    const newsContainer = document.getElementById('homeNewsTicker') || document.querySelector('.news-container');
+    
     try {
-        const response = await fetch('data/news.json');
-        if (response.ok) {
-            const data = await response.json();
-            newsItems = data.filter(item => item.headline).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        const response = await fetch('./data/news/news.json');
+        const data = await response.json();
+        
+        if (newsContainer && data.news) {
+            newsContainer.innerHTML = data.news.map(item => `
+                <div class="news-item" style="
+                    padding: 15px;
+                    margin-bottom: 12px;
+                    border-left: 4px solid var(--neon-cyan);
+                    background: rgba(0, 242, 255, 0.05);
+                    box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.1);
+                    color: #fff;
+                    font-size: 0.95rem;
+                    border-radius: 4px;
+                    animation: fadeInUp 0.4s ease forwards;
+                ">
+                    <span style="color: var(--neon-cyan); margin-right: 10px;">⚡</span> ${item}
+                </div>
+            `).join('');
         }
     } catch (error) {
-        console.warn('Unable to load news.json', error);
-    }
-
-    const savedNews = JSON.parse(localStorage.getItem('astronAdminNews') || '[]');
-    if (Array.isArray(savedNews) && savedNews.length > 0) {
-        newsItems = [...savedNews, ...newsItems];
+        console.error("News load error:", error);
+        if (newsContainer) newsContainer.innerHTML = "<p style='color:var(--neon-pink)'>Update ho raha hai...</p>";
     }
 }
 

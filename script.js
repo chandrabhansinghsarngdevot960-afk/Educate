@@ -145,6 +145,7 @@ window.addEventListener('DOMContentLoaded', init);
 
 async function init() {
     initializeSession();
+    updateUIForSession();
     setLanguageSelectValue(uiLanguage);
     populateAllClassSelectors();
     populateCourses(currentFilter);

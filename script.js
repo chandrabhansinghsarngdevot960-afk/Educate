@@ -282,13 +282,33 @@ async function loadNewsData() {
 
 async function loadAutoBooks() {
     try {
-        const response = await fetch('data/books/autoBooks.json');
-        if (response.ok) {
-            const data = await response.json();
-            autoBooksData = Array.isArray(data) ? data : [];
+        // Load from links.json for real PDFs
+        const linksResponse = await fetch('data/links.json');
+        if (linksResponse.ok) {
+            const linksData = await linksResponse.json();
+            autoBooksData = linksData.map(link => ({
+                id: link.id,
+                class: link.class,
+                subject: link.subject,
+                title: link.title,
+                language: link.language,
+                author: link.board || 'NCERT',
+                size: link.size,
+                board: link.board,
+                downloadUrl: link.url
+            }));
+        }
+
+        // Also try loading from autoBooks.json for any additional scraped content
+        const autoBooksResponse = await fetch('data/books/autoBooks.json');
+        if (autoBooksResponse.ok) {
+            const scrapedData = await autoBooksResponse.json();
+            if (Array.isArray(scrapedData) && scrapedData.length > 0) {
+                autoBooksData = [...autoBooksData, ...scrapedData];
+            }
         }
     } catch (error) {
-        console.warn('Unable to load autoBooks.json', error);
+        console.warn('Unable to load books data', error);
     }
 }
 

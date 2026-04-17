@@ -1,79 +1,27 @@
 export const booksDatabase = [
-    {
-        id: 1,
-        class: 10,
-        subject: 'गणित',
-        language: 'hindi',
-        title: 'कक्षा 10 गणित नोट्स',
-        description: 'वर्ग, आयत, त्रिकोणमिति और समीकरणों के सरल नोट्स',
-        downloadUrl: 'downloads/class10-math.pdf'
-    },
-    {
-        id: 2,
-        class: 10,
-        subject: 'विज्ञान',
-        language: 'hindi',
-        title: 'कक्षा 10 विज्ञान नोट्स',
-        description: 'विद्युत, चुंबकत्व, प्रकाश और आधुनिक विज्ञान के नोट्स',
-        downloadUrl: 'downloads/class10-science.pdf'
-    },
-    {
-        id: 3,
-        class: 10,
-        subject: 'Math',
-        language: 'english',
-        title: 'Class 10 Math Notes',
-        description: 'Algebra, geometry, trigonometry and equations explained',
-        downloadUrl: 'downloads/class10-math.pdf'
-    },
-    {
-        id: 4,
-        class: 10,
-        subject: 'Science',
-        language: 'english',
-        title: 'Class 10 Science Notes',
-        description: 'Electricity, magnetism, light and modern science study notes',
-        downloadUrl: 'downloads/class10-science.pdf'
-    },
-    {
-        id: 5,
-        class: 11,
-        subject: 'भौतिकी',
-        language: 'hindi',
-        title: 'कक्षा 11 भौतिकी नोट्स',
-        description: 'गतिकी, बल, ऊर्जा और तरंगों के प्रमुख सूत्र',
-        downloadUrl: 'downloads/class11-physics.pdf'
-    },
-    {
-        id: 6,
-        class: 11,
-        subject: 'रसायन विज्ञान',
-        language: 'hindi',
-        title: 'कक्षा 11 रसायन विज्ञान नोट्स',
-        description: 'रासायनिक बंधों, अणु संरचना, और प्रतिक्रियाओं की सूची',
-        downloadUrl: 'downloads/astron-study-guide.txt'
-    },
-    {
-        id: 7,
-        class: 11,
-        subject: 'Physics',
-        language: 'english',
-        title: 'Class 11 Physics Notes',
-        description: 'Motion, forces, work, energy, and waves in one study guide',
-        downloadUrl: 'downloads/class11-physics.pdf'
-    },
-    {
-        id: 8,
-        class: 11,
-        subject: 'Chemistry',
-        language: 'english',
-        title: 'Class 11 Chemistry Notes',
-        description: 'Periodic table, atoms, bonding, and organic basics',
-        downloadUrl: 'downloads/astron-study-guide.txt'
-    },
-    {
-        id: 9,
-        class: 12,
+    // Class 5 Books
+    { class: 5, subject: 'गणित', title: 'Class 5 Math Book', file: 'class5-math.pdf', language: 'hindi' },
+    { class: 5, subject: 'विज्ञान', title: 'Class 5 Science Book', file: 'class5-science.pdf', language: 'hindi' },
+
+    // Class 8 Books
+    { class: 8, subject: 'गणित', title: 'Class 8 Math Book', file: 'class8-math.pdf', language: 'hindi' },
+    { class: 8, subject: 'विज्ञान', title: 'Class 8 Science Book', file: 'class8-science.pdf', language: 'hindi' },
+
+    // Class 10 Books
+    { class: 10, subject: 'गणित', title: 'Class 10 Math Book', file: 'class10-math.pdf', language: 'hindi' },
+    { class: 10, subject: 'विज्ञान', title: 'Class 10 Science Book', file: 'class10-science.pdf', language: 'hindi' },
+    { class: 10, subject: 'सामाजिक अध्ययन', title: 'Class 10 Social Science Book', file: 'class10-social.pdf', language: 'hindi' },
+
+    // Class 12 Books
+    { class: 12, subject: 'भौतिकी', title: 'Class 12 Physics Book', file: 'class12-physics.pdf', language: 'hindi' },
+    { class: 12, subject: 'रसायन विज्ञान', title: 'Class 12 Chemistry Book', file: 'class12-chemistry.pdf', language: 'hindi' },
+    { class: 12, subject: 'जीव विज्ञान', title: 'Class 12 Biology Book', file: 'class12-biology.pdf', language: 'hindi' },
+
+    // English Medium Books
+    { class: 10, subject: 'Math', title: 'Class 10 Math Book', file: 'class10-math-eng.pdf', language: 'english' },
+    { class: 10, subject: 'Science', title: 'Class 10 Science Book', file: 'class10-science-eng.pdf', language: 'english' },
+    { class: 12, subject: 'Physics', title: 'Class 12 Physics Book', file: 'class12-physics-eng.pdf', language: 'english' }
+];
         subject: 'भौतिकी',
         language: 'hindi',
         title: 'कक्षा 12 भौतिकी नोट्स',

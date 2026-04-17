@@ -497,18 +497,19 @@ function renderAdminNewsList() {
     });
 }
 
-function openBookViewer(bookId) {
+function openBookViewer(bookIndex) {
     if (!isPremiumFeature('pdf_viewer')) {
         alert('🔒 PDF Viewer is a Premium feature. Upgrade your membership to access.');
         return;
     }
-    
-    const book = getBookCatalog().find(b => b.id === bookId);
-    if (!book?.downloadUrl) {
+
+    const books = getBookCatalog();
+    const book = books[bookIndex];
+    if (!book?.file) {
         alert(`${book?.title || 'Book'} ${t('notAvailable')}`);
         return;
     }
-    const url = book.downloadUrl;
+    const url = `downloads/${book.file}`;
     const modal = document.getElementById('pdfModal');
     const titleEl = document.getElementById('pdfTitle');
     const openLink = document.getElementById('pdfOpenLink');
@@ -700,17 +701,25 @@ function loadVideos() {
                 <p>${t('teacher')}: ${video.teacher}</p>
                 <p>👁️ ${video.views.toLocaleString()} ${t('views')}</p>
             </div>
-            <button class="card-button" onclick="playVideo('${video.youtubeId}', '${video.title}')">${t('play')}</button>
+            <button class="card-button" onclick="playVideo('${video.url}', '${video.title}')">${t('play')}</button>
         `;
         videosGrid.appendChild(card);
     });
 }
 
-function playVideo(youtubeId, title) {
+function playVideo(videoUrl, title) {
     const modal = document.getElementById('videoModal');
     const iframe = document.getElementById('videoPlayer');
     const titleEl = document.getElementById('videoTitle');
     if (!modal || !iframe || !titleEl) return;
+
+    // Extract YouTube ID from URL
+    let youtubeId = '';
+    if (videoUrl.includes('youtube.com/watch?v=')) {
+        youtubeId = videoUrl.split('v=')[1].split('&')[0];
+    } else if (videoUrl.includes('youtu.be/')) {
+        youtubeId = videoUrl.split('youtu.be/')[1].split('?')[0];
+    }
 
     iframe.src = `https://www.youtube.com/embed/${youtubeId}`;
     titleEl.textContent = title;
@@ -864,42 +873,43 @@ function loadBooks() {
         const card = document.createElement('div');
         card.className = 'book-card';
         card.style.animation = `fadeInUp 0.6s ease ${index * 0.08}s both`;
-        const isPdf = book.downloadUrl?.toLowerCase().endsWith('.pdf');
+        const isPdf = book.file?.toLowerCase().endsWith('.pdf');
         card.innerHTML = `
             <div class="card-title">${book.title}</div>
             <div class="card-description">
-                <p>${t('author')}: ${book.author || 'ASTRON'}</p>
-                <p>${t('size')}: ${book.size || 'PDF'}</p>
-                <p>${t('board')}: ${(book.board || 'Any').toUpperCase()}</p>
+                <p>${t('author')}: ${book.language === 'hindi' ? 'RBSE' : 'RBSE'}</p>
+                <p>${t('size')}: PDF</p>
+                <p>${t('board')}: RBSE</p>
             </div>
             <div class="book-actions">
-                <button class="card-button" onclick="downloadBook(${book.id})">${t('download')}</button>
-                ${isPdf ? `<button class="card-button secondary" onclick="openBookViewer(${book.id})">Open</button>` : ''}
+                <button class="card-button" onclick="downloadBook(${index})">${t('download')}</button>
+                ${isPdf ? `<button class="card-button secondary" onclick="openBookViewer(${index})">Open</button>` : ''}
             </div>
         `;
         booksGrid.appendChild(card);
     });
 }
 
-function downloadBook(bookId) {
+function downloadBook(bookIndex) {
     if (!isPremiumFeature('books_download')) {
         alert('🔒 Book downloads are a Premium feature. Upgrade your membership to access.');
         return;
     }
-    
-    const book = getBookCatalog().find(b => b.id === bookId);
-    if (!book?.downloadUrl) {
+
+    const books = getBookCatalog();
+    const book = books[bookIndex];
+    if (!book?.file) {
         alert(`${book?.title || 'Book'} ${t('download')} ${t('notAvailable')}`);
         return;
     }
 
-    const extension = book.downloadUrl.toLowerCase().endsWith('.pdf') ? '.pdf' : '.txt';
     const link = document.createElement('a');
-    link.href = book.downloadUrl;
-    link.download = book.title.replace(/[^a-z0-9]+/gi, '_') + extension;
+    link.href = `downloads/${book.file}`;
+    link.download = book.file;
     document.body.appendChild(link);
     link.click();
     link.remove();
+}
 }
 
 function updateAllTexts() {

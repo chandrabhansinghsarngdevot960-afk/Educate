@@ -873,9 +873,6 @@ const exposedFunctions = {
     startTest,
     selectAnswer,
     showAnswer,
-    login,
-    logout,
-    upgradeMembership,
     openBookViewer,
     downloadBook
 };
@@ -897,28 +894,6 @@ function changeLanguage() {
 
 function t(key) {
     return translations[uiLanguage]?.[key] || translations.hindi[key] || key;
-}
-
-function showLoginModal() {
-    const modal = document.getElementById('loginModal');
-    if (modal) modal.classList.add('show');
-}
-
-function closeLoginModal() {
-    const modal = document.getElementById('loginModal');
-    if (modal) modal.classList.remove('show');
-    document.getElementById('loginUsername').value = '';
-    document.getElementById('rememberMeCheckbox').checked = false;
-}
-
-function performLogin() {
-    const username = document.getElementById('loginUsername').value.trim();
-    const rememberMe = document.getElementById('rememberMeCheckbox').checked;
-    
-    if (login(username, rememberMe)) {
-        closeLoginModal();
-        alert(`✅ Welcome, ${username}!`);
-    }
 }
 
 function animateOnScroll() {

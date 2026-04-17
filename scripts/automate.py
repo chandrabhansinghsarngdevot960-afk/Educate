@@ -11,7 +11,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 SCRAPER_SCRIPT = ROOT / 'scripts' / 'rbse_scraper.py'
 LAST_RUN_FILE = ROOT / 'data' / 'last_scraper_run.json'
 

@@ -220,7 +220,7 @@ function updateHomeNews() {
 
     const premiumVideos = videosDatabase
         .slice()
-        .sort((a, b) => b.views - a.views)
+        .sort(() => Math.random() - 0.5) // Random sort since no views property
         .filter(video => video.language === 'english' || video.language === 'hindi')
         .slice(0, 3);
 
@@ -727,7 +727,6 @@ function startTest(testId) {
 function loadBooks() {
     const classId = parseInt(document.getElementById('bookClassSelect')?.value, 10);
     const subject = document.getElementById('bookSubjectSelect')?.value;
-    const board = document.getElementById('bookBoardSelect')?.value;
     const booksGrid = document.getElementById('booksGrid');
     if (!booksGrid) return;
 
@@ -737,7 +736,6 @@ function loadBooks() {
     }
 
     let books = getBookCatalog().filter(b => b.class === classId && b.subject === subject);
-    if (board) books = books.filter(b => b.board === board);
 
     if (books.length === 0) {
         booksGrid.innerHTML = `<p class="empty-state">${t('noDataFound') || 'No books found'}</p>`;

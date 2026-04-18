@@ -3,31 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDCB - Rajasthan Board</title>
+    <title>EDCB | RBSE Digital Portal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header><h1 class="neon-text">EDCB</h1></header>
-    
-    <div class="main-container">
-        <div class="dignitary-grid">
-            <div class="card"><img id="cm-photo" src="" alt="CM"><h3>Hon'ble CM</h3></div>
-            <div class="card"><img id="edu-photo" src="" alt="Minister"><h3>Education Minister</h3></div>
+
+    <header class="main-nav">
+        <div class="logo-section">
+            <h1 class="neon-text">EDCB</h1>
+            <span>Board of Secondary Education, Rajasthan</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="leader-row">
+            <div class="leader-card neon-border">
+                <img id="cm-photo" src="" alt="CM">
+                <p>Shri Bhajan Lal Sharma<br><small>Hon'ble Chief Minister</small></p>
+            </div>
+            <div class="leader-card neon-border">
+                <img id="edu-photo" src="" alt="Minister">
+                <p>Shri Madan Dilawar<br><small>Hon'ble Education Minister</small></p>
+            </div>
         </div>
 
-        <div class="content-layout">
-            <section class="card">
-                <h2 class="neon-blue">Latest News</h2>
-                <div id="news-list"></div>
+        <div class="rbse-grid">
+            <aside class="sidebar glass">
+                <h3>Quick Links</h3>
+                <a href="#"><i class="fas fa-link"></i> Examination</a>
+                <a href="#"><i class="fas fa-link"></i> Results</a>
+                <a href="#"><i class="fas fa-link"></i> Books/Model Papers</a>
+                <a href="#"><i class="fas fa-link"></i> Notifications</a>
+            </aside>
+
+            <section class="main-content">
+                <div class="glass center-img-box neon-border">
+                    <img id="main-building" src="" alt="Board Building">
+                    <div class="center-text">Board Main Exam 2026 🆕</div>
+                </div>
             </section>
 
-            <section class="card">
-                <h2 class="neon-blue">YouTube Videos</h2>
-                <div id="video-grid"></div>
+            <section class="news-panel glass neon-border">
+                <div class="news-header">NEWS UPDATE</div>
+                <div id="news-list">
+                    </div>
             </section>
+        </div>
+
+        <div class="video-area glass">
+            <h3 class="neon-text">Digital Classroom</h3>
+            <div id="video-grid"></div>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 Copyrights CB | EDCB Hub</p>
+    </footer>
 
     <script src="data.js"></script>
     <script src="script.js"></script>

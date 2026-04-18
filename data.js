@@ -1,15 +1,18 @@
 const myNews = [
-    { title: "Main Examination Results - 2026", link: "https://rajeduboard.rajasthan.gov.in" },
-    { title: "Syllabus 2026 PDF Download", link: "syllabus.pdf" },
-    { title: "Important Update for 10th/12th", link: "#" }
+    { title: "Main Examination Results - 2026 STATISTICS", link: "#" },
+    { title: "ACCOUNTS (CENTER / EXAMINER BILL ETC.)", link: "#" },
+    { title: "SCRUTINY-2026 Apply Online", link: "#" },
+    { title: "Provisional Ans.Key for Objection of M.G. Sarvoday Exam", link: "#" }
 ];
 
 const myVideos = [
-    { id: "dQw4w9WgXcQ", title: "RBSE Prep Class 1" },
-    { id: "j_R6_6Uf1W8", title: "Maths Special" }
+    { id: "dQw4w9WgXcQ", title: "Maths Class X" },
+    { id: "3JZ_D3ELwOQ", title: "Physics XII" }
 ];
 
 const photos = {
-    cm: "https://via.placeholder.com/150", // Yahan photo ka link ya path dalein
-    minister: "https://via.placeholder.com/150"
+    // RBSE Site se photos ke real links ya apne assets folder ka path
+    cm: "https://rajeduboard.rajasthan.gov.in/IMAGE/cm-new.jpg", 
+    minister: "https://rajeduboard.rajasthan.gov.in/IMAGE/edu-min-new.jpg",
+    building: "https://rajeduboard.rajasthan.gov.in/IMAGE/board-building.jpg"
 };

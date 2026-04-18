@@ -105,16 +105,16 @@ const edcbData = {
         {
             category: 'Revision & Concepts',
             videos: [
-                { id: 'tQhd0Tg3WQI', title: 'Class 10 Science Revision', classes: ['10'] },
-                { id: 'a1Y73sPHKxw', title: 'Class 10 Maths Shortcuts', classes: ['10'] },
-                { id: 'Z8ZxdR6NH2s', title: 'Class 12 Physics Concepts', classes: ['12'] }
+                { id: 'iq6wgLpb700', title: 'Class 8 Science Revision', classes: ['8'] },
+                { id: '2C69bUljvwQ', title: 'Class 10 Maths Shortcuts', classes: ['10'] },
+                { id: 'uZADT4tuwQw', title: 'Class 12 Physics Concepts', classes: ['12'] }
             ]
         },
         {
             category: 'Exam Strategy',
             videos: [
                 { id: 'nahJhRJ_q2E', title: 'Study Plan for Class 8', classes: ['8'] },
-                { id: 'qMKpC1zJtb8', title: 'Time Management for Class 10', classes: ['10'] },
+                { id: 'c9Nvdx9Cbbk', title: 'Time Management for Class 10', classes: ['10'] },
                 { id: 'G8NKn-5_HtI', title: 'Scoring 95+ in Class 12', classes: ['12'] }
             ]
         },

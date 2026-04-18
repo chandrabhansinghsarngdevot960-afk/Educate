@@ -8,22 +8,14 @@ const EDCB = {
 
         this.cacheElements();
         this.connectHandlers();
-        this.buildClassOptions();
-        this.renderClassButtons();
         this.loadDashboard(this.currentClass);
         this.loadStudentImages();
-        this.toggleUrlField();
     },
 
     cacheElements() {
-        this.classButtons = document.getElementById('class-buttons');
-        this.resultClass = document.getElementById('result-class');
         this.resultForm = document.getElementById('result-form');
-        this.resultRoll = document.getElementById('result-roll');
         this.resultOutput = document.getElementById('result-output');
         this.resetButton = document.getElementById('reset-result');
-        this.resultUrl = document.getElementById('result-url');
-        this.urlField = document.getElementById('url-field');
         this.downloadGrid = document.getElementById('download-grid');
         this.videoGrid = document.getElementById('video-grid');
         this.liveTicker = document.getElementById('live-ticker');
@@ -43,49 +35,8 @@ const EDCB = {
         });
 
         this.resetButton.addEventListener('click', () => {
-            this.resultRoll.value = '';
-            this.resultUrl.value = '';
             this.resultOutput.innerHTML = '';
         });
-
-        this.resultClass.addEventListener('change', () => {
-            this.currentClass = this.resultClass.value;
-            this.updateActiveClass();
-            this.loadDashboard(this.currentClass);
-            this.toggleUrlField();
-        });
-    },
-
-    buildClassOptions() {
-        const classes = edcbData.classes;
-        this.resultClass.innerHTML = classes.map(value => `
-            <option value="${value}">Class ${value}</option>
-        `).join('');
-        this.resultClass.value = this.currentClass;
-    },
-
-    renderClassButtons() {
-        this.classButtons.innerHTML = edcbData.classes.map(value => `
-            <button type="button" data-class="${value}" class="${value === this.currentClass ? 'active' : ''}">
-                Class ${value}
-            </button>
-        `).join('');
-
-        this.classButtons.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', () => {
-                this.currentClass = button.dataset.class;
-                this.updateActiveClass();
-                this.loadDashboard(this.currentClass);
-            });
-        });
-    },
-
-    updateActiveClass() {
-        this.classButtons.querySelectorAll('button').forEach(button => {
-            button.classList.toggle('active', button.dataset.class === this.currentClass);
-        });
-        this.resultClass.value = this.currentClass;
-        this.toggleUrlField();
     },
 
     loadStudentImages() {
@@ -207,8 +158,7 @@ const EDCB = {
     },
 
     onResultSearch() {
-        const classKey = this.resultClass.value;
-        const roll = this.resultRoll.value.trim();
+        const classKey = this.currentClass;
         let resultUrl = '';
 
         if (classKey === '8') {
@@ -216,14 +166,9 @@ const EDCB = {
         } else if (classKey === '10') {
             resultUrl = 'https://www.fastresult.in/board-results/2026/rajasthan/10th-r26/';
         } else if (classKey === '12') {
-            resultUrl = this.resultUrl.value.trim();
-            if (!resultUrl) {
-                this.resultOutput.innerHTML = `<p>Please enter the result URL for Class 12.</p>`;
-                return;
-            }
+            resultUrl = 'https://example.com/class12/results';
         }
 
-        // Show loading animation
         this.resultOutput.innerHTML = `
             <div class="loading-animation">
                 <div class="neon-loader"></div>
@@ -231,10 +176,8 @@ const EDCB = {
             </div>
         `;
 
-        // Redirect after animation
         setTimeout(() => {
-            // Open in branded window
-            const brandedUrl = `result.html?url=${encodeURIComponent(resultUrl)}&class=${classKey}&roll=${roll}`;
+            const brandedUrl = `result.html?url=${encodeURIComponent(resultUrl)}&class=${classKey}`;
             window.open(brandedUrl, '_blank', 'width=1200,height=800');
             this.resultOutput.innerHTML = `<p>Opening official RBSE result portal...</p>`;
         }, 2000);

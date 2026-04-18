@@ -36,7 +36,7 @@ const edcbData = {
         },
         '10': {
             Official_PDF_Links: {
-                Syllabus: 'https://example.com/class10/syllabus.pdf',
+                Syllabus: '',
                 Model_Papers: 'https://example.com/class10/model-papers.pdf',
                 Old_Question_Papers: 'https://example.com/class10/old-papers.pdf'
             },

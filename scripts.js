@@ -89,7 +89,7 @@ const EDCB = {
     },
 
     loadStudentImages() {
-        const images = ['TOP/student1.png', 'TOP/student2.png'];
+        const images = ['TOP/.png', 'TOP/student2.png'];
         images.forEach((src, index) => {
             const imgId = `student-preview-${index + 1}`;
             const img = document.getElementById(imgId);

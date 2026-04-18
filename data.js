@@ -3,7 +3,7 @@ const edcbData = {
     classData: {
         '8': {
             Official_PDF_Links: {
-                Syllabus: 'https://example.com/class8/syllabus.pdf',
+                Syllabus: 'https://rajeduboard.rajasthan.gov.in/anudeshika-etc/10_2026.pdf',
                 Model_Papers: 'https://example.com/class8/model-papers.pdf',
                 Old_Question_Papers: 'https://example.com/class8/old-papers.pdf'
             },

@@ -1,18 +1,19 @@
 const myNews = [
-    { title: "Main Examination Results - 2026 STATISTICS", link: "#" },
+    { title: "Main Examination Results - 2026 STATISTICS", link: "https://rajeduboard.rajasthan.gov.in" },
     { title: "ACCOUNTS (CENTER / EXAMINER BILL ETC.)", link: "#" },
-    { title: "SCRUTINY-2026 Apply Online", link: "#" },
-    { title: "Provisional Ans.Key for Objection of M.G. Sarvoday Exam", link: "#" }
+    { title: "SCRUTINY-2026 Apply Online Now", link: "#" },
+    { title: "Provisional Ans.Key for Objection of M.G. Sarvoday Exam", link: "#" },
+    { title: "Download New Syllabus 2026 PDF", link: "https://example.com/syllabus.pdf" }
 ];
 
 const myVideos = [
-    { id: "dQw4w9WgXcQ", title: "Maths Class X" },
-    { id: "3JZ_D3ELwOQ", title: "Physics XII" }
+    { id: "dQw4w9WgXcQ", title: "Maths Class X - Prep" },
+    { id: "3JZ_D3ELwOQ", title: "Science Class XII - Logic" }
 ];
 
 const photos = {
-    // RBSE Site se photos ke real links ya apne assets folder ka path
-    cm: "https://share.google/GRYHJqpJXQSa8vKMv", 
-    minister: "https://rajeduboard.rajasthan.gov.in/IMAGE/edu-min-new.jpg",
-    building: "https://rajeduboard.rajasthan.gov.in/IMAGE/board-building.jpg"
+    // Ye links 100% chalenge, baad mein aap apni files se replace kar sakte hain
+    cm: "https://picsum.photos/seed/cm/200/250", 
+    minister: "https://picsum.photos/seed/minister/200/250",
+    building: "https://picsum.photos/seed/board/800/400"
 };

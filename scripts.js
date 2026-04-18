@@ -11,6 +11,7 @@ const EDCB = {
         this.buildClassOptions();
         this.renderClassButtons();
         this.loadDashboard(this.currentClass);
+        this.toggleUrlField();
     },
 
     cacheElements() {
@@ -63,13 +64,28 @@ const EDCB = {
         `).join('');
     },
 
-    toggleUrlField() {
-        if (this.resultClass.value === '12') {
-            this.urlField.style.display = 'block';
-        } else {
-            this.urlField.style.display = 'none';
-            this.resultUrl.value = '';
-        }
+    renderClassButtons() {
+        this.classButtons.innerHTML = edcbData.classes.map(value => `
+            <button type="button" data-class="${value}" class="${value === this.currentClass ? 'active' : ''}">
+                Class ${value}
+            </button>
+        `).join('');
+
+        this.classButtons.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                this.currentClass = button.dataset.class;
+                this.updateActiveClass();
+                this.loadDashboard(this.currentClass);
+            });
+        });
+    },
+
+    updateActiveClass() {
+        this.classButtons.querySelectorAll('button').forEach(button => {
+            button.classList.toggle('active', button.dataset.class === this.currentClass);
+        });
+        this.resultClass.value = this.currentClass;
+        this.toggleUrlField();
     },
 
     loadDashboard(classKey) {
@@ -193,69 +209,6 @@ const EDCB = {
             window.open(brandedUrl, '_blank', 'width=1200,height=800');
             this.resultOutput.innerHTML = `<p>Opening official RBSE result portal...</p>`;
         }, 2000);
-    },
-
-    buildMarksheet(record) {
-        const total = record.subjects.reduce((sum, item) => sum + item.marks, 0);
-        const maxTotal = record.subjects.reduce((sum, item) => sum + item.max, 0);
-        const percent = ((total / maxTotal) * 100).toFixed(2);
-        const grade = percent >= 75 ? 'A+' : percent >= 60 ? 'A' : percent >= 50 ? 'B' : percent >= 35 ? 'C' : 'D';
-        const status = percent >= 35 ? 'Passed' : 'Reappear';
-
-        const subjectRows = record.subjects.map(subject => `
-            <tr>
-                <td>${subject.name}</td>
-                <td>${subject.max}</td>
-                <td>${subject.marks}</td>
-            </tr>
-        `).join('');
-
-        return `
-            <div class="mark-sheet">
-                <header>
-                    <div>
-                        <h3>RBSE Digital Marksheet</h3>
-                        <p>Class ${record.class} • Roll No. ${record.roll}</p>
-                    </div>
-                    <div>
-                        <p><strong>Student:</strong> ${record.name}</p>
-                        <p><strong>School:</strong> ${record.school}</p>
-                        <p><strong>Exam:</strong> ${record.examSession}</p>
-                    </div>
-                </header>
-                <div class="sheet-grid">
-                    <div>
-                        <p><strong>Board:</strong> RBSE Rajasthan</p>
-                        <p><strong>Board Code:</strong> ${record.boardCode}</p>
-                    </div>
-                    <div>
-                        <p><strong>Percentage:</strong> ${percent}%</p>
-                        <p><strong>Grade:</strong> ${grade}</p>
-                        <p class="status">${status}</p>
-                    </div>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Subject</th>
-                            <th>Max Marks</th>
-                            <th>Scored</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${subjectRows}
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td><strong>Total</strong></td>
-                            <td><strong>${maxTotal}</strong></td>
-                            <td><strong>${total}</strong></td>
-                        </tr>
-                    </tfoot>
-                </table>
-                <p style="margin-top: 18px; color: var(--muted);">Data generated from the local EDCB results database and styled for print.</p>
-            </div>
-        `;
     }
 };
 

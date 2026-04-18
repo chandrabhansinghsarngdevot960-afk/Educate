@@ -36,17 +36,10 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const classNum = urlParams.get('class');
-        const roll = urlParams.get('roll');
-
-        let officialUrl = 'https://www.fastresult.in/board-results/2026/rajasthan/10th-r26/';
-        if (classNum === '8') {
-            officialUrl = 'https://www.fastresult.in/board-results/2026/rajasthan/8th-r26/';
-        } else if (classNum === '12') {
-            officialUrl = 'https://www.fastresult.in/board-results/2026/rajasthan/12th-r26/';
+        const resultUrl = urlParams.get('url');
+        if (resultUrl) {
+            document.getElementById('official-iframe').src = resultUrl;
         }
-
-        document.getElementById('official-iframe').src = officialUrl;
     </script>
 </body>
 </html>

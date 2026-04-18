@@ -18,6 +18,8 @@ const EDCB = {
         this.resultRoll = document.getElementById('result-roll');
         this.resultOutput = document.getElementById('result-output');
         this.resetButton = document.getElementById('reset-result');
+        this.resultUrl = document.getElementById('result-url');
+        this.urlField = document.getElementById('url-field');
         this.downloadGrid = document.getElementById('download-grid');
         this.videoGrid = document.getElementById('video-grid');
         this.liveTicker = document.getElementById('live-ticker');
@@ -28,7 +30,6 @@ const EDCB = {
         this.pdfCount = document.getElementById('pdf-count');
         this.videoCount = document.getElementById('video-count');
         this.miniTicker = document.getElementById('mini-ticker');
-        this.printButton = document.getElementById('print-btn');
     },
 
     connectHandlers() {
@@ -39,15 +40,17 @@ const EDCB = {
 
         this.resetButton.addEventListener('click', () => {
             this.resultRoll.value = '';
+            this.resultUrl.value = '';
             this.resultOutput.innerHTML = '';
         });
 
-        this.printButton.addEventListener('click', () => {
-            if (this.resultOutput.innerHTML.trim().length) {
-                window.print();
-            } else {
-                alert('Please generate a marksheet first.');
-            }
+        this.resultClass.addEventListener('change', () => {
+            this.toggleUrlField();
+        });
+
+        document.getElementById('close-pdf').addEventListener('click', () => {
+            document.getElementById('pdf-viewer').style.display = 'none';
+            document.getElementById('pdf-iframe').src = '';
         });
     },
 
@@ -56,6 +59,15 @@ const EDCB = {
         this.resultClass.innerHTML = classes.map(value => `
             <option value="${value}">Class ${value}</option>
         `).join('');
+    },
+
+    toggleUrlField() {
+        if (this.resultClass.value === '12') {
+            this.urlField.style.display = 'block';
+        } else {
+            this.urlField.style.display = 'none';
+            this.resultUrl.value = '';
+        }
     },
 
     loadDashboard(classKey) {
@@ -150,9 +162,18 @@ const EDCB = {
     onResultSearch() {
         const classKey = this.resultClass.value;
         const roll = this.resultRoll.value.trim();
-        if (!roll) {
-            this.resultOutput.innerHTML = `<p>Please enter a roll number.</p>`;
-            return;
+        let resultUrl = '';
+
+        if (classKey === '8') {
+            resultUrl = 'https://rajshaladarpan.rajasthan.gov.in/Class5th_8thExam/Home/Result23_Class5th8th.aspx';
+        } else if (classKey === '10') {
+            resultUrl = 'https://www.fastresult.in/board-results/2026/rajasthan/10th-r26/';
+        } else if (classKey === '12') {
+            resultUrl = this.resultUrl.value.trim();
+            if (!resultUrl) {
+                this.resultOutput.innerHTML = `<p>Please enter the result URL for Class 12.</p>`;
+                return;
+            }
         }
 
         // Show loading animation
@@ -163,17 +184,12 @@ const EDCB = {
             </div>
         `;
 
-        // Simulate loading time
+        // Redirect after animation
         setTimeout(() => {
-            const record = edcbData.classData[classKey].Result_Records[roll];
-            if (record) {
-                this.resultOutput.innerHTML = this.buildMarksheet(record);
-            } else {
-                // Open branded proxy
-                const resultUrl = `result.html?class=${classKey}&roll=${roll}`;
-                window.open(resultUrl, '_blank', 'width=1200,height=800');
-                this.resultOutput.innerHTML = `<p>Redirecting to official RBSE result portal...</p>`;
-            }
+            // Open in branded window
+            const brandedUrl = `result.html?url=${encodeURIComponent(resultUrl)}&class=${classKey}&roll=${roll}`;
+            window.open(brandedUrl, '_blank', 'width=1200,height=800');
+            this.resultOutput.innerHTML = `<p>Opening official RBSE result portal...</p>`;
         }, 2000);
     },
 

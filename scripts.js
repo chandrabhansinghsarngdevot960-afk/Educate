@@ -9,10 +9,12 @@ const EDCB = {
         this.cacheElements();
         this.connectHandlers();
         this.buildClassOptions();
+        this.renderClassButtons();
         this.loadDashboard(this.currentClass);
     },
 
     cacheElements() {
+        this.classButtons = document.getElementById('class-buttons');
         this.resultClass = document.getElementById('result-class');
         this.resultForm = document.getElementById('result-form');
         this.resultRoll = document.getElementById('result-roll');

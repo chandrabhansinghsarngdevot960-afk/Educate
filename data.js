@@ -98,53 +98,6 @@ const edcbData = {
                     { title: 'Biology 2023 Question Paper', link: 'https://example.com/class12/old-biology.pdf', format: 'PDF' },
                     { title: 'Mathematics 2022 Question Paper', link: 'https://example.com/class12/old-maths.pdf', format: 'PDF' }
                 ]
-            },
-            Result_Records: {
-                '120551': {
-                    class: '12',
-                    roll: '120551',
-                    name: 'Priya Kumari',
-                    school: 'Rajasthan Public School, Kota',
-                    examSession: 'RBSE 2026 Annual',
-                    boardCode: 'RBSE-12',
-                    subjects: [
-                        { name: 'Physics', max: 100, marks: 88 },
-                        { name: 'Chemistry', max: 100, marks: 91 },
-                        { name: 'Biology', max: 100, marks: 84 },
-                        { name: 'English', max: 100, marks: 86 },
-                        { name: 'Hindi', max: 100, marks: 89 }
-                    ]
-                },
-                '120664': {
-                    class: '12',
-                    roll: '120664',
-                    name: 'Ankit Patel',
-                    school: 'Central Science School, Bikaner',
-                    examSession: 'RBSE 2026 Annual',
-                    boardCode: 'RBSE-12',
-                    subjects: [
-                        { name: 'Physics', max: 100, marks: 75 },
-                        { name: 'Chemistry', max: 100, marks: 79 },
-                        { name: 'Biology', max: 100, marks: 72 },
-                        { name: 'English', max: 100, marks: 78 },
-                        { name: 'Hindi', max: 100, marks: 80 }
-                    ]
-                },
-                '120789': {
-                    class: '12',
-                    roll: '120789',
-                    name: 'Sneha Jain',
-                    school: 'Modern Higher Secondary, Jodhpur',
-                    examSession: 'RBSE 2026 Annual',
-                    boardCode: 'RBSE-12',
-                    subjects: [
-                        { name: 'Physics', max: 100, marks: 92 },
-                        { name: 'Chemistry', max: 100, marks: 89 },
-                        { name: 'Biology', max: 100, marks: 87 },
-                        { name: 'English', max: 100, marks: 91 },
-                        { name: 'Hindi', max: 100, marks: 88 }
-                    ]
-                }
             }
         }
     },

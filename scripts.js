@@ -9,12 +9,10 @@ const EDCB = {
         this.cacheElements();
         this.connectHandlers();
         this.buildClassOptions();
-        this.renderClassButtons();
         this.loadDashboard(this.currentClass);
     },
 
     cacheElements() {
-        this.classButtons = document.getElementById('class-buttons');
         this.resultClass = document.getElementById('result-class');
         this.resultForm = document.getElementById('result-form');
         this.resultRoll = document.getElementById('result-roll');
@@ -51,11 +49,6 @@ const EDCB = {
                 alert('Please generate a marksheet first.');
             }
         });
-
-        document.getElementById('close-pdf').addEventListener('click', () => {
-            document.getElementById('pdf-viewer').style.display = 'none';
-            document.getElementById('pdf-iframe').src = '';
-        });
     },
 
     buildClassOptions() {
@@ -63,29 +56,6 @@ const EDCB = {
         this.resultClass.innerHTML = classes.map(value => `
             <option value="${value}">Class ${value}</option>
         `).join('');
-    },
-
-    renderClassButtons() {
-        this.classButtons.innerHTML = edcbData.classes.map(value => `
-            <button type="button" data-class="${value}" class="${value === this.currentClass ? 'active' : ''}">
-                Class ${value}
-            </button>
-        `).join('');
-
-        this.classButtons.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', () => {
-                this.currentClass = button.dataset.class;
-                this.updateActiveClass();
-                this.loadDashboard(this.currentClass);
-            });
-        });
-    },
-
-    updateActiveClass() {
-        this.classButtons.querySelectorAll('button').forEach(button => {
-            button.classList.toggle('active', button.dataset.class === this.currentClass);
-        });
-        this.resultClass.value = this.currentClass;
     },
 
     loadDashboard(classKey) {
@@ -128,11 +98,7 @@ const EDCB = {
         const sections = ['Syllabus', 'Model Papers', 'Old Question Papers'];
         this.downloadGrid.innerHTML = sections.map(section => {
             const list = this.selectedClass.Downloads[section].map(item => {
-                if (section === 'Model Papers') {
-                    return `<li><a href="#" onclick="EDCB.showPdf('${item.link}', '${item.title}')">${item.title}<span>${item.format}</span></a></li>`;
-                } else {
-                    return `<li><a href="${item.link}" target="_blank">${item.title}<span>${item.format}</span></a></li>`;
-                }
+                return `<li><a href="${item.link}" target="_blank">${item.title}<span>${item.format}</span></a></li>`;
             }).join('');
             return `
                 <div class="download-card">
@@ -268,12 +234,6 @@ const EDCB = {
                 <p style="margin-top: 18px; color: var(--muted);">Data generated from the local EDCB results database and styled for print.</p>
             </div>
         `;
-    },
-
-    showPdf(link, title) {
-        document.getElementById('pdf-title').textContent = title;
-        document.getElementById('pdf-iframe').src = link;
-        document.getElementById('pdf-viewer').style.display = 'block';
     }
 };
 

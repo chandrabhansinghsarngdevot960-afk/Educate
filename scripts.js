@@ -155,22 +155,26 @@ const EDCB = {
             return;
         }
 
-        const record = edcbData.classData[classKey].Result_Records[roll];
-        if (!record) {
-            this.resultOutput.innerHTML = `
-                <div class="mark-sheet">
-                    <header>
-                        <div>
-                            <h3>Result Not Found</h3>
-                            <p>Roll number ${roll} was not located in Class ${classKey} records.</p>
-                        </div>
-                    </header>
-                </div>
-            `;
-            return;
-        }
+        // Show loading animation
+        this.resultOutput.innerHTML = `
+            <div class="loading-animation">
+                <div class="neon-loader"></div>
+                <p>Connecting to EDCB Secure Result Servers...</p>
+            </div>
+        `;
 
-        this.resultOutput.innerHTML = this.buildMarksheet(record);
+        // Simulate loading time
+        setTimeout(() => {
+            const record = edcbData.classData[classKey].Result_Records[roll];
+            if (record) {
+                this.resultOutput.innerHTML = this.buildMarksheet(record);
+            } else {
+                // Open branded proxy
+                const resultUrl = `result.html?class=${classKey}&roll=${roll}`;
+                window.open(resultUrl, '_blank', 'width=1200,height=800');
+                this.resultOutput.innerHTML = `<p>Redirecting to official RBSE result portal...</p>`;
+            }
+        }, 2000);
     },
 
     buildMarksheet(record) {

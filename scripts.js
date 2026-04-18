@@ -33,6 +33,7 @@ const EDCB = {
         this.pdfCount = document.getElementById('pdf-count');
         this.videoCount = document.getElementById('video-count');
         this.miniTicker = document.getElementById('mini-ticker');
+        this.studentUploadInputs = document.querySelectorAll('.student-upload-input');
     },
 
     connectHandlers() {
@@ -48,13 +49,17 @@ const EDCB = {
         });
 
         this.resultClass.addEventListener('change', () => {
+            this.currentClass = this.resultClass.value;
+            this.updateActiveClass();
+            this.loadDashboard(this.currentClass);
             this.toggleUrlField();
         });
 
-        document.getElementById('close-pdf').addEventListener('click', () => {
-            document.getElementById('pdf-viewer').style.display = 'none';
-            document.getElementById('pdf-iframe').src = '';
-        });
+        if (this.studentUploadInputs.length) {
+            this.studentUploadInputs.forEach(input => {
+                input.addEventListener('change', event => this.handleStudentImageUpload(event));
+            });
+        }
     },
 
     buildClassOptions() {
@@ -62,6 +67,7 @@ const EDCB = {
         this.resultClass.innerHTML = classes.map(value => `
             <option value="${value}">Class ${value}</option>
         `).join('');
+        this.resultClass.value = this.currentClass;
     },
 
     renderClassButtons() {
@@ -86,6 +92,30 @@ const EDCB = {
         });
         this.resultClass.value = this.currentClass;
         this.toggleUrlField();
+    },
+
+    handleStudentImageUpload(event) {
+        const input = event.target;
+        const previewId = input.dataset.previewTarget;
+        if (!previewId) return;
+
+        const file = input.files && input.files[0];
+        if (!file) return;
+
+        const img = document.getElementById(previewId);
+        if (!img) return;
+
+        const reader = new FileReader();
+        reader.onload = e => {
+            img.src = e.target.result;
+            img.classList.add('has-image');
+            const previewCard = img.closest('.student-preview-card');
+            if (previewCard) {
+                const label = previewCard.querySelector('.preview-label');
+                if (label) label.style.display = 'none';
+            }
+        };
+        reader.readAsDataURL(file);
     },
 
     loadDashboard(classKey) {

@@ -32,53 +32,6 @@ const edcbData = {
                     { title: 'English 2024 Question Paper', link: 'https://example.com/class8/old-english.pdf', format: 'PDF' },
                     { title: 'Social Science 2024 Question Paper', link: 'https://example.com/class8/old-social.pdf', format: 'PDF' }
                 ]
-            },
-            Result_Records: {
-                '800112': {
-                    class: '8',
-                    roll: '800112',
-                    name: 'Ananya Sharma',
-                    school: 'Govt. Secondary School, Jaipur',
-                    examSession: 'RBSE 2026 Annual',
-                    boardCode: 'RBSE-08',
-                    subjects: [
-                        { name: 'Mathematics', max: 100, marks: 92 },
-                        { name: 'Science', max: 100, marks: 89 },
-                        { name: 'English', max: 100, marks: 94 },
-                        { name: 'Hindi', max: 100, marks: 88 },
-                        { name: 'Social Science', max: 100, marks: 90 }
-                    ]
-                },
-                '800221': {
-                    class: '8',
-                    roll: '800221',
-                    name: 'Rohan Mehta',
-                    school: 'Adarsh Vidya Mandir, Jodhpur',
-                    examSession: 'RBSE 2026 Annual',
-                    boardCode: 'RBSE-08',
-                    subjects: [
-                        { name: 'Mathematics', max: 100, marks: 78 },
-                        { name: 'Science', max: 100, marks: 81 },
-                        { name: 'English', max: 100, marks: 76 },
-                        { name: 'Hindi', max: 100, marks: 84 },
-                        { name: 'Social Science', max: 100, marks: 80 }
-                    ]
-                },
-                '800345': {
-                    class: '8',
-                    roll: '800345',
-                    name: 'Priya Singh',
-                    school: 'Modern Public School, Udaipur',
-                    examSession: 'RBSE 2026 Annual',
-                    boardCode: 'RBSE-08',
-                    subjects: [
-                        { name: 'Mathematics', max: 100, marks: 85 },
-                        { name: 'Science', max: 100, marks: 87 },
-                        { name: 'English', max: 100, marks: 89 },
-                        { name: 'Hindi', max: 100, marks: 91 },
-                        { name: 'Social Science', max: 100, marks: 88 }
-                    ]
-                }
             }
         },
         '10': {
@@ -113,53 +66,6 @@ const edcbData = {
                     { title: 'English 2023 Question Paper', link: 'https://example.com/class10/old-english.pdf', format: 'PDF' },
                     { title: 'Social Science 2022 Question Paper', link: 'https://example.com/class10/old-social.pdf', format: 'PDF' }
                 ]
-            },
-            Result_Records: {
-                '100822': {
-                    class: '10',
-                    roll: '100822',
-                    name: 'Meera Agarwal',
-                    school: 'Rajasthan Senior Secondary School, Ajmer',
-                    examSession: 'RBSE 2026 Annual',
-                    boardCode: 'RBSE-10',
-                    subjects: [
-                        { name: 'English', max: 100, marks: 88 },
-                        { name: 'Mathematics', max: 100, marks: 91 },
-                        { name: 'Science', max: 100, marks: 86 },
-                        { name: 'Hindi', max: 100, marks: 82 },
-                        { name: 'Social Science', max: 100, marks: 90 }
-                    ]
-                },
-                '100913': {
-                    class: '10',
-                    roll: '100913',
-                    name: 'Karan Singh',
-                    school: 'Central Higher Secondary, Alwar',
-                    examSession: 'RBSE 2026 Annual',
-                    boardCode: 'RBSE-10',
-                    subjects: [
-                        { name: 'English', max: 100, marks: 79 },
-                        { name: 'Mathematics', max: 100, marks: 74 },
-                        { name: 'Science', max: 100, marks: 80 },
-                        { name: 'Hindi', max: 100, marks: 77 },
-                        { name: 'Social Science', max: 100, marks: 83 }
-                    ]
-                },
-                '101234': {
-                    class: '10',
-                    roll: '101234',
-                    name: 'Amit Kumar',
-                    school: 'Govt. Senior Secondary, Jaipur',
-                    examSession: 'RBSE 2026 Annual',
-                    boardCode: 'RBSE-10',
-                    subjects: [
-                        { name: 'English', max: 100, marks: 85 },
-                        { name: 'Mathematics', max: 100, marks: 89 },
-                        { name: 'Science', max: 100, marks: 92 },
-                        { name: 'Hindi', max: 100, marks: 87 },
-                        { name: 'Social Science', max: 100, marks: 88 }
-                    ]
-                }
             }
         },
         '12': {

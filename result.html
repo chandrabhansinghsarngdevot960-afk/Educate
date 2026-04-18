@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDCB Result Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar glass neon-border">
+            <div class="brand">
+                <div class="brand-badge">EDCB</div>
+                <div>
+                    <h1>EDCB Result Portal</h1>
+                    <p>Secure access to official RBSE results</p>
+                </div>
+            </div>
+            <div class="header-meta">
+                <button onclick="window.close()" class="action-btn">Close Portal</button>
+            </div>
+        </header>
+
+        <main class="result-gateway">
+            <div class="gateway-content glass neon-border">
+                <h2>Official RBSE Result</h2>
+                <p>Loading official result page...</p>
+                <iframe id="official-iframe" src="" width="100%" height="600px" style="border: none;"></iframe>
+            </div>
+        </main>
+
+        <footer class="page-footer glass">
+            <p>EDCB | Premium Rajasthan Board Hub • Secure Result Access</p>
+        </footer>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const classNum = urlParams.get('class');
+        const roll = urlParams.get('roll');
+
+        let officialUrl = 'https://www.fastresult.in/board-results/2026/rajasthan/10th-r26/';
+        if (classNum === '8') {
+            officialUrl = 'https://www.fastresult.in/board-results/2026/rajasthan/8th-r26/';
+        } else if (classNum === '12') {
+            officialUrl = 'https://www.fastresult.in/board-results/2026/rajasthan/12th-r26/';
+        }
+
+        document.getElementById('official-iframe').src = officialUrl;
+    </script>
+</body>
+</html>

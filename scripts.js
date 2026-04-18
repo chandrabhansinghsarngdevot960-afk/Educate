@@ -16,6 +16,7 @@ const EDCB = {
         this.resultForm = document.getElementById('result-form');
         this.resultOutput = document.getElementById('result-output');
         this.resetButton = document.getElementById('reset-result');
+        this.gifUploadInput = document.querySelector('.gif-upload-input');
         this.downloadGrid = document.getElementById('download-grid');
         this.videoGrid = document.getElementById('video-grid');
         this.liveTicker = document.getElementById('live-ticker');
@@ -37,6 +38,10 @@ const EDCB = {
         this.resetButton.addEventListener('click', () => {
             this.resultOutput.innerHTML = '';
         });
+
+        if (this.gifUploadInput) {
+            this.gifUploadInput.addEventListener('change', event => this.handleGifUpload(event));
+        }
     },
 
     loadStudentImages() {
@@ -66,6 +71,28 @@ const EDCB = {
                 };
             }
         });
+    },
+
+    handleGifUpload(event) {
+        const input = event.target;
+        const previewId = input.dataset.previewTarget;
+        const file = input.files && input.files[0];
+        if (!file || !previewId) return;
+
+        const img = document.getElementById(previewId);
+        if (!img) return;
+
+        const reader = new FileReader();
+        reader.onload = e => {
+            img.src = e.target.result;
+            img.classList.add('has-image');
+            const previewCard = img.closest('.student-preview-card');
+            if (previewCard) {
+                const label = previewCard.querySelector('.preview-label');
+                if (label) label.style.display = 'none';
+            }
+        };
+        reader.readAsDataURL(file);
     },
 
     loadDashboard(classKey) {

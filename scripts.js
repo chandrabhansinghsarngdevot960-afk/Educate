@@ -51,6 +51,11 @@ const EDCB = {
                 alert('Please generate a marksheet first.');
             }
         });
+
+        document.getElementById('close-pdf').addEventListener('click', () => {
+            document.getElementById('pdf-viewer').style.display = 'none';
+            document.getElementById('pdf-iframe').src = '';
+        });
     },
 
     buildClassOptions() {
@@ -122,9 +127,13 @@ const EDCB = {
     renderDownloads() {
         const sections = ['Syllabus', 'Model Papers', 'Old Question Papers'];
         this.downloadGrid.innerHTML = sections.map(section => {
-            const list = this.selectedClass.Downloads[section].map(item => `
-                <li><a href="${item.link}" target="_blank">${item.title}<span>${item.format}</span></a></li>
-            `).join('');
+            const list = this.selectedClass.Downloads[section].map(item => {
+                if (section === 'Model Papers') {
+                    return `<li><a href="#" onclick="EDCB.showPdf('${item.link}', '${item.title}')">${item.title}<span>${item.format}</span></a></li>`;
+                } else {
+                    return `<li><a href="${item.link}" target="_blank">${item.title}<span>${item.format}</span></a></li>`;
+                }
+            }).join('');
             return `
                 <div class="download-card">
                     <h3>${section}</h3>
@@ -259,6 +268,12 @@ const EDCB = {
                 <p style="margin-top: 18px; color: var(--muted);">Data generated from the local EDCB results database and styled for print.</p>
             </div>
         `;
+    },
+
+    showPdf(link, title) {
+        document.getElementById('pdf-title').textContent = title;
+        document.getElementById('pdf-iframe').src = link;
+        document.getElementById('pdf-viewer').style.display = 'block';
     }
 };
 

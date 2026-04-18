@@ -24,8 +24,9 @@ const edcbData = {
                     { title: 'Science Syllabus', link: 'https://example.com/class8/syllabus-science.pdf', format: 'PDF' }
                 ],
                 'Model Papers': [
-                    { title: 'Maths Model Paper 2026', link: 'https://example.com/class8/model-maths.pdf', format: 'PDF' },
-                    { title: 'Science Model Paper 2026', link: 'https://example.com/class8/model-science.pdf', format: 'PDF' }
+                    { title: 'Secondary Model Paper 2024', link: 'modelpapers/sec_model2024.pdf', format: 'PDF' },
+                    { title: 'Secondary Model Paper 2025', link: 'modelpapers/sec_model2025.pdf', format: 'PDF' },
+                    { title: 'Secondary Model Paper 2026', link: 'modelpapers/sec_model2026.pdf', format: 'PDF' }
                 ],
                 'Old Question Papers': [
                     { title: 'English 2024 Question Paper', link: 'https://example.com/class8/old-english.pdf', format: 'PDF' },
@@ -88,8 +89,10 @@ const edcbData = {
                     { title: 'Science Syllabus', link: 'https://example.com/class10/syllabus-science.pdf', format: 'PDF' }
                 ],
                 'Model Papers': [
-                    { title: 'Maths Model Paper 2026', link: 'https://example.com/class10/model-maths.pdf', format: 'PDF' },
-                    { title: 'Science Model Paper 2026', link: 'https://example.com/class10/model-science.pdf', format: 'PDF' }
+                    { title: 'Secondary Model Paper 2024', link: 'modelpapers/sec_model2024.pdf', format: 'PDF' },
+                    { title: 'Secondary Model Paper 2025', link: 'modelpapers/sec_model2025.pdf', format: 'PDF' },
+                    { title: 'Secondary Model Paper 2026', link: 'modelpapers/sec_model2026.pdf', format: 'PDF' },
+                    { title: '10th Model Paper 2023', link: 'modelpapers/10THnPRA_MQP_2023_111122.pdf', format: 'PDF' }
                 ],
                 'Old Question Papers': [
                     { title: 'English 2023 Question Paper', link: 'https://example.com/class10/old-english.pdf', format: 'PDF' },

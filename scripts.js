@@ -1,29 +1,23 @@
-// --- ADMIN AREA: UPDATE DATA HERE ---
-const newsData = [
-    { title: "Main Examination Results - 2026", link: "https://rajeduboard.rajasthan.gov.in", type: "result" },
-    { title: "Download PDF: New Syllabus 2026", link: "your-pdf-link.pdf", type: "pdf" },
-    { title: "Important Notice for 10th/12th", link: "#", type: "news" }
-];
+document.addEventListener('DOMContentLoaded', () => {
+    // Load News
+    const newsList = document.getElementById('news-list');
+    newsList.innerHTML = myNews.map(item => `
+        <a href="${item.link}" class="news-item" target="_blank">
+            <i class="fas fa-chevron-right" style="font-size: 10px;"></i> ${item.title}
+        </a>
+    `).join('');
 
-const youtubeVideos = [
-    { id: "VIDEO_ID_1", title: "RBSE Prep Class 1" },
-    { id: "VIDEO_ID_2", title: "Maths Special" }
-];
-// ------------------------------------
+    // Load Videos
+    const videoGrid = document.getElementById('video-grid');
+    videoGrid.innerHTML = myVideos.map(vid => `
+        <div class="vid-card">
+            <iframe src="https://www.youtube.com/embed/${vid.id}" frameborder="0" allowfullscreen></iframe>
+            <p style="font-size:12px; text-align:center;">${vid.title}</p>
+        </div>
+    `).join('');
 
-// Load News
-const newsContainer = document.getElementById('news-container');
-newsContainer.innerHTML = newsData.map(news => `
-    <a href="${news.link}" target="_blank" class="news-item">
-        <span>🔹 ${news.title}</span>
-    </a>
-`).join('');
-
-// Load Videos
-const videoContainer = document.getElementById('video-container');
-videoContainer.innerHTML = youtubeVideos.map(vid => `
-    <div class="video-card">
-        <iframe width="100%" src="https://www.youtube.com/embed/${vid.id}" frameborder="0" allowfullscreen></iframe>
-        <p>${vid.title}</p>
-    </div>
-`).join('');
+    // Load Photos
+    document.getElementById('cm-photo').src = photos.cm;
+    document.getElementById('edu-photo').src = photos.minister;
+    document.querySelector('.main-img').src = photos.building;
+});

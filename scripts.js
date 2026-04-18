@@ -11,6 +11,7 @@ const EDCB = {
         this.buildClassOptions();
         this.renderClassButtons();
         this.loadDashboard(this.currentClass);
+        this.loadStudentImages();
         this.toggleUrlField();
     },
 
@@ -33,7 +34,6 @@ const EDCB = {
         this.pdfCount = document.getElementById('pdf-count');
         this.videoCount = document.getElementById('video-count');
         this.miniTicker = document.getElementById('mini-ticker');
-        this.studentUploadInputs = document.querySelectorAll('.student-upload-input');
     },
 
     connectHandlers() {
@@ -54,12 +54,6 @@ const EDCB = {
             this.loadDashboard(this.currentClass);
             this.toggleUrlField();
         });
-
-        if (this.studentUploadInputs.length) {
-            this.studentUploadInputs.forEach(input => {
-                input.addEventListener('change', event => this.handleStudentImageUpload(event));
-            });
-        }
     },
 
     buildClassOptions() {
@@ -94,28 +88,33 @@ const EDCB = {
         this.toggleUrlField();
     },
 
-    handleStudentImageUpload(event) {
-        const input = event.target;
-        const previewId = input.dataset.previewTarget;
-        if (!previewId) return;
-
-        const file = input.files && input.files[0];
-        if (!file) return;
-
-        const img = document.getElementById(previewId);
-        if (!img) return;
-
-        const reader = new FileReader();
-        reader.onload = e => {
-            img.src = e.target.result;
-            img.classList.add('has-image');
-            const previewCard = img.closest('.student-preview-card');
-            if (previewCard) {
-                const label = previewCard.querySelector('.preview-label');
-                if (label) label.style.display = 'none';
+    loadStudentImages() {
+        const images = ['TOP/student1.png', 'TOP/student2.png'];
+        images.forEach((src, index) => {
+            const imgId = `student-preview-${index + 1}`;
+            const img = document.getElementById(imgId);
+            if (img) {
+                img.src = src;
+                img.onload = () => {
+                    img.classList.add('has-image');
+                    const previewCard = img.closest('.student-preview-card');
+                    if (previewCard) {
+                        const label = previewCard.querySelector('.preview-label');
+                        if (label) label.style.display = 'none';
+                    }
+                };
+                img.onerror = () => {
+                    // If image doesn't load, keep the label
+                    img.src = '';
+                    img.classList.remove('has-image');
+                    const previewCard = img.closest('.student-preview-card');
+                    if (previewCard) {
+                        const label = previewCard.querySelector('.preview-label');
+                        if (label) label.style.display = 'block';
+                    }
+                };
             }
-        };
-        reader.readAsDataURL(file);
+        });
     },
 
     loadDashboard(classKey) {

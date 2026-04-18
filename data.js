@@ -105,7 +105,7 @@ const edcbData = {
         {
             category: 'Revision & Concepts',
             videos: [
-                { id: '6vHzpV_6uXM', title: 'Class 8 Science Revision', classes: ['8'] },
+                { id: 'tQhd0Tg3WQI', title: 'Class 10 Science Revision', classes: ['10'] },
                 { id: 'a1Y73sPHKxw', title: 'Class 10 Maths Shortcuts', classes: ['10'] },
                 { id: 'Z8ZxdR6NH2s', title: 'Class 12 Physics Concepts', classes: ['12'] }
             ]

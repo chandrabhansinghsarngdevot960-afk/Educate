@@ -1,37 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDCB - Educational Portal</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+// --- ADMIN AREA: UPDATE DATA HERE ---
+const newsData = [
+    { title: "Main Examination Results - 2026", link: "https://rajeduboard.rajasthan.gov.in", type: "result" },
+    { title: "Download PDF: New Syllabus 2026", link: "your-pdf-link.pdf", type: "pdf" },
+    { title: "Important Notice for 10th/12th", link: "#", type: "news" }
+];
 
-    <header>
-        <h1 class="neon-text">EDCB</h1>
-        <p>RBSE Premium Educational Hub</p>
-    </header>
+const youtubeVideos = [
+    { id: "VIDEO_ID_1", title: "RBSE Prep Class 1" },
+    { id: "VIDEO_ID_2", title: "Maths Special" }
+];
+// ------------------------------------
 
-    <main class="container">
-        <section id="news-section" class="glass-card">
-            <h2 class="neon-blue">Latest RBSE Updates</h2>
-            <div id="news-container">
-                <p>Loading updates...</p>
-            </div>
-        </section>
+// Load News
+const newsContainer = document.getElementById('news-container');
+newsContainer.innerHTML = newsData.map(news => `
+    <a href="${news.link}" target="_blank" class="news-item">
+        <span>🔹 ${news.title}</span>
+    </a>
+`).join('');
 
-        <section class="glass-card">
-            <h2 class="neon-blue">YouTube Lectures</h2>
-            <div class="video-grid" id="video-container">
-                </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Copyrights CB | Powered by EDCB</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+// Load Videos
+const videoContainer = document.getElementById('video-container');
+videoContainer.innerHTML = youtubeVideos.map(vid => `
+    <div class="video-card">
+        <iframe width="100%" src="https://www.youtube.com/embed/${vid.id}" frameborder="0" allowfullscreen></iframe>
+        <p>${vid.title}</p>
+    </div>
+`).join('');

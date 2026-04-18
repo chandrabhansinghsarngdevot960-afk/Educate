@@ -89,7 +89,7 @@ const EDCB = {
     },
 
     loadStudentImages() {
-        const images = ['TOP/.png', 'TOP/student2.png'];
+        const images = ['TOP/student1.png', 'TOP/student2.png'];
         images.forEach((src, index) => {
             const imgId = `student-preview-${index + 1}`;
             const img = document.getElementById(imgId);
@@ -104,13 +104,13 @@ const EDCB = {
                     }
                 };
                 img.onerror = () => {
-                    // If image doesn't load, keep the label
                     img.src = '';
                     img.classList.remove('has-image');
+                    img.alt = 'Image not found';
                     const previewCard = img.closest('.student-preview-card');
                     if (previewCard) {
                         const label = previewCard.querySelector('.preview-label');
-                        if (label) label.style.display = 'block';
+                        if (label) label.style.display = 'none';
                     }
                 };
             }

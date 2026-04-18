@@ -16,7 +16,6 @@ const EDCB = {
         this.resultForm = document.getElementById('result-form');
         this.resultOutput = document.getElementById('result-output');
         this.resetButton = document.getElementById('reset-result');
-        this.gifUploadInput = document.querySelector('.gif-upload-input');
         this.downloadGrid = document.getElementById('download-grid');
         this.videoGrid = document.getElementById('video-grid');
         this.liveTicker = document.getElementById('live-ticker');
@@ -38,61 +37,28 @@ const EDCB = {
         this.resetButton.addEventListener('click', () => {
             this.resultOutput.innerHTML = '';
         });
-
-        if (this.gifUploadInput) {
-            this.gifUploadInput.addEventListener('change', event => this.handleGifUpload(event));
-        }
     },
 
     loadStudentImages() {
-        const images = ['TOP/student1.png', 'TOP/student2.png'];
-        images.forEach((src, index) => {
-            const imgId = `student-preview-${index + 1}`;
-            const img = document.getElementById(imgId);
+        const images = [
+            { id: 'student-preview-1', src: 'TOP/student1.png' },
+            { id: 'student-preview-2', src: 'TOP/student2.png' },
+            { id: 'student-preview-3', src: 'TOP/student3.gif' }
+        ];
+        
+        images.forEach(item => {
+            const img = document.getElementById(item.id);
             if (img) {
-                img.src = src;
+                img.src = item.src;
                 img.onload = () => {
                     img.classList.add('has-image');
-                    const previewCard = img.closest('.student-preview-card');
-                    if (previewCard) {
-                        const label = previewCard.querySelector('.preview-label');
-                        if (label) label.style.display = 'none';
-                    }
                 };
                 img.onerror = () => {
                     img.src = '';
                     img.classList.remove('has-image');
-                    img.alt = 'Image not found';
-                    const previewCard = img.closest('.student-preview-card');
-                    if (previewCard) {
-                        const label = previewCard.querySelector('.preview-label');
-                        if (label) label.style.display = 'none';
-                    }
                 };
             }
         });
-    },
-
-    handleGifUpload(event) {
-        const input = event.target;
-        const previewId = input.dataset.previewTarget;
-        const file = input.files && input.files[0];
-        if (!file || !previewId) return;
-
-        const img = document.getElementById(previewId);
-        if (!img) return;
-
-        const reader = new FileReader();
-        reader.onload = e => {
-            img.src = e.target.result;
-            img.classList.add('has-image');
-            const previewCard = img.closest('.student-preview-card');
-            if (previewCard) {
-                const label = previewCard.querySelector('.preview-label');
-                if (label) label.style.display = 'none';
-            }
-        };
-        reader.readAsDataURL(file);
     },
 
     loadDashboard(classKey) {

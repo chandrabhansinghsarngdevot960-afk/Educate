@@ -13,7 +13,7 @@ const myVideos = [
 
 const photos = {
     // Ye links 100% chalenge, baad mein aap apni files se replace kar sakte hain
-    cm: "https://picsum.photos/seed/cm/200/250", 
+    cm: "https://well-pink-hiryfqelqh.edgeone.app/how-bhajan-lal-sharmas-rpsc-appointments-signal-a-clean-break-250035975-16x9_0.jpg", 
     minister: "https://picsum.photos/seed/minister/200/250",
     building: "https://picsum.photos/seed/board/800/400"
 };

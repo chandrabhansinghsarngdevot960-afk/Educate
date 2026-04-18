@@ -1,19 +1,15 @@
-// SIRF IS FILE ME CHANGES KAREIN CONTENT BADALNE KE LIYE
 const myNews = [
-    { title: "Main Exam Results 2026 - Click Here", link: "https://example.com/result" },
-    { title: "Syllabus for Class 10th PDF", link: "pdfs/syllabus.pdf" },
-    { title: "M.G. Sarvoday Exam Answer Key", link: "https://example.com/key" },
-    { title: "Watch Important Video Guide", link: "https://youtube.com/watch?v=XYZ" }
+    { title: "Main Examination Results - 2026", link: "https://rajeduboard.rajasthan.gov.in" },
+    { title: "Syllabus 2026 PDF Download", link: "syllabus.pdf" },
+    { title: "Important Update for 10th/12th", link: "#" }
 ];
 
 const myVideos = [
-    { id: "dQw4w9WgXcQ", title: "Class 1: Introduction" },
-    { id: "3JZ_D3ELwOQ", title: "Class 2: Science" }
+    { id: "dQw4w9WgXcQ", title: "RBSE Prep Class 1" },
+    { id: "j_R6_6Uf1W8", title: "Maths Special" }
 ];
 
-// Photos ke links (Aap assets folder me photos dalkar ye path badal sakte hain)
 const photos = {
-    cm: "https://via.placeholder.com/150",
-    minister: "https://via.placeholder.com/150",
-    building: "https://via.placeholder.com/600x300"
+    cm: "https://via.placeholder.com/150", // Yahan photo ka link ya path dalein
+    minister: "https://via.placeholder.com/150"
 };

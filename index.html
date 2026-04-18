@@ -1,29 +1,35 @@
-// --- ADMIN AREA: UPDATE DATA HERE ---
-const newsData = [
-    { title: "Main Examination Results - 2026", link: "https://rajeduboard.rajasthan.gov.in", type: "result" },
-    { title: "Download PDF: New Syllabus 2026", link: "your-pdf-link.pdf", type: "pdf" },
-    { title: "Important Notice for 10th/12th", link: "#", type: "news" }
-];
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDCB - Rajasthan Board</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header><h1 class="neon-text">EDCB</h1></header>
+    
+    <div class="main-container">
+        <div class="dignitary-grid">
+            <div class="card"><img id="cm-photo" src="" alt="CM"><h3>Hon'ble CM</h3></div>
+            <div class="card"><img id="edu-photo" src="" alt="Minister"><h3>Education Minister</h3></div>
+        </div>
 
-const youtubeVideos = [
-    { id: "VIDEO_ID_1", title: "RBSE Prep Class 1" },
-    { id: "VIDEO_ID_2", title: "Maths Special" }
-];
-// ------------------------------------
+        <div class="content-layout">
+            <section class="card">
+                <h2 class="neon-blue">Latest News</h2>
+                <div id="news-list"></div>
+            </section>
 
-// Load News
-const newsContainer = document.getElementById('news-container');
-newsContainer.innerHTML = newsData.map(news => `
-    <a href="${news.link}" target="_blank" class="news-item">
-        <span>🔹 ${news.title}</span>
-    </a>
-`).join('');
-
-// Load Videos
-const videoContainer = document.getElementById('video-container');
-videoContainer.innerHTML = youtubeVideos.map(vid => `
-    <div class="video-card">
-        <iframe width="100%" src="https://www.youtube.com/embed/${vid.id}" frameborder="0" allowfullscreen></iframe>
-        <p>${vid.title}</p>
+            <section class="card">
+                <h2 class="neon-blue">YouTube Videos</h2>
+                <div id="video-grid"></div>
+            </section>
+        </div>
     </div>
-`).join('');
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

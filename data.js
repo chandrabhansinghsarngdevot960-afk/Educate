@@ -121,9 +121,9 @@ const edcbData = {
         {
             category: 'Board Quick Tips',
             videos: [
-                { id: 'bM8GcVzadwY', title: 'Worksheet Practice for Class 8', classes: ['8'] },
-                { id: 'Jp8v9uJc1M8', title: 'Biology Diagrams for Class 10', classes: ['10'] },
-                { id: 'C0DPdy98e4c', title: 'English Answer Writing Class 12', classes: ['12'] }
+                { id: 'VRNg9aNrGj8', title: 'Worksheet Practice for Class 8', classes: ['8'] },
+                { id: 'gypZaFA7l8I', title: 'Biology Diagrams for Class 10', classes: ['10'] },
+                { id: 'fjeTqSZAEdY', title: 'English Answer Writing Class 12', classes: ['12'] }
             ]
         }
     ]

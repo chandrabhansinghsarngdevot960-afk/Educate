@@ -63,6 +63,21 @@ const edcbData = {
                         { name: 'Hindi', max: 100, marks: 84 },
                         { name: 'Social Science', max: 100, marks: 80 }
                     ]
+                },
+                '800345': {
+                    class: '8',
+                    roll: '800345',
+                    name: 'Priya Singh',
+                    school: 'Modern Public School, Udaipur',
+                    examSession: 'RBSE 2026 Annual',
+                    boardCode: 'RBSE-08',
+                    subjects: [
+                        { name: 'Mathematics', max: 100, marks: 85 },
+                        { name: 'Science', max: 100, marks: 87 },
+                        { name: 'English', max: 100, marks: 89 },
+                        { name: 'Hindi', max: 100, marks: 91 },
+                        { name: 'Social Science', max: 100, marks: 88 }
+                    ]
                 }
             }
         },
@@ -129,6 +144,21 @@ const edcbData = {
                         { name: 'Hindi', max: 100, marks: 77 },
                         { name: 'Social Science', max: 100, marks: 83 }
                     ]
+                },
+                '101234': {
+                    class: '10',
+                    roll: '101234',
+                    name: 'Amit Kumar',
+                    school: 'Govt. Senior Secondary, Jaipur',
+                    examSession: 'RBSE 2026 Annual',
+                    boardCode: 'RBSE-10',
+                    subjects: [
+                        { name: 'English', max: 100, marks: 85 },
+                        { name: 'Mathematics', max: 100, marks: 89 },
+                        { name: 'Science', max: 100, marks: 92 },
+                        { name: 'Hindi', max: 100, marks: 87 },
+                        { name: 'Social Science', max: 100, marks: 88 }
+                    ]
                 }
             }
         },
@@ -192,6 +222,21 @@ const edcbData = {
                         { name: 'Biology', max: 100, marks: 72 },
                         { name: 'English', max: 100, marks: 78 },
                         { name: 'Hindi', max: 100, marks: 80 }
+                    ]
+                },
+                '120789': {
+                    class: '12',
+                    roll: '120789',
+                    name: 'Sneha Jain',
+                    school: 'Modern Higher Secondary, Jodhpur',
+                    examSession: 'RBSE 2026 Annual',
+                    boardCode: 'RBSE-12',
+                    subjects: [
+                        { name: 'Physics', max: 100, marks: 92 },
+                        { name: 'Chemistry', max: 100, marks: 89 },
+                        { name: 'Biology', max: 100, marks: 87 },
+                        { name: 'English', max: 100, marks: 91 },
+                        { name: 'Hindi', max: 100, marks: 88 }
                     ]
                 }
             }

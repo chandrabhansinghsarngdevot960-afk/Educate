@@ -1,20 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // News Render
-    const newsBox = document.getElementById('news-list');
-    newsBox.innerHTML = myNews.map(n => `
-        <a href="${n.link}" class="news-link" target="_blank">🔹 ${n.title}</a>
+    // Load News Update
+    const newsList = document.getElementById('news-list');
+    newsList.innerHTML = myNews.map(n => `
+        <a href="${n.link}" class="news-item">▶ ${n.title} 🆕</a>
     `).join('');
 
-    // Video Render
-    const videoBox = document.getElementById('video-grid');
-    videoBox.innerHTML = myVideos.map(v => `
-        <div class="video-item">
+    // Load Videos
+    const videoGrid = document.getElementById('video-grid');
+    videoGrid.innerHTML = myVideos.map(v => `
+        <div class="v-card">
             <iframe src="https://www.youtube.com/embed/${v.id}" frameborder="0" allowfullscreen></iframe>
-            <p>${v.title}</p>
+            <p style="text-align:center; font-size:12px;">${v.title}</p>
         </div>
     `).join('');
 
-    // Photos Load
+    // Load Photos with Error Handling
     document.getElementById('cm-photo').src = photos.cm;
     document.getElementById('edu-photo').src = photos.minister;
+    document.getElementById('main-building').src = photos.building;
 });

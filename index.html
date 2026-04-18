@@ -1,67 +1,139 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDCB | RBSE Digital Portal</title>
+    <title>EDCB | Premium Rajasthan Board Hub</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-    <header class="main-nav">
-        <div class="logo-section">
-            <h1 class="neon-text">EDCB</h1>
-            <span>Board of Secondary Education, Rajasthan</span>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="leader-row">
-            <div class="leader-card neon-border">
-                <img id="cm-photo" src="" alt="CM">
-                <p>Shri Bhajan Lal Sharma<br><small>Hon'ble Chief Minister</small></p>
+    <div class="page-shell">
+        <header class="topbar glass neon-border">
+            <div class="brand">
+                <div class="brand-badge">EDCB</div>
+                <div>
+                    <h1>Premium Rajasthan Board Hub</h1>
+                    <p>Cyber-Education dashboard for RBSE Class 8, 10, and 12.</p>
+                </div>
             </div>
-            <div class="leader-card neon-border">
-                <img id="edu-photo" src="" alt="Minister">
-                <p>Shri Madan Dilawar<br><small>Hon'ble Education Minister</small></p>
+            <div class="header-meta">
+                <div id="mini-ticker" class="mini-ticker"></div>
+                <button id="print-btn" class="action-btn">Print Marksheet</button>
             </div>
-        </div>
+        </header>
 
-        <div class="rbse-grid">
+        <section class="class-filter glass">
+            <span>Choose your class dashboard</span>
+            <div id="class-buttons" class="filter-buttons"></div>
+        </section>
+
+        <main class="rbse-grid">
             <aside class="sidebar glass">
-                <h3>Quick Links</h3>
-                <a href="#"><i class="fas fa-link"></i> Examination</a>
-                <a href="#"><i class="fas fa-link"></i> Results</a>
-                <a href="#"><i class="fas fa-link"></i> Books/Model Papers</a>
-                <a href="#"><i class="fas fa-link"></i> Notifications</a>
+                <div class="card">
+                    <h2>Quick Navigation</h2>
+                    <a href="#result-panel">Result Retrieval</a>
+                    <a href="#download-panel">Smart Download Center</a>
+                    <a href="#video-panel">Video Classroom</a>
+                    <a href="#schedule-panel">Exam Schedule</a>
+                </div>
+                <div class="card">
+                    <h2>Official PDF Links</h2>
+                    <div id="pdf-links" class="link-list"></div>
+                </div>
+                <div class="card">
+                    <h2>Live News</h2>
+                    <div id="sidebar-news" class="ticker-list"></div>
+                </div>
             </aside>
 
             <section class="main-content">
-                <div class="glass center-img-box neon-border">
-                    <img id="main-building" src="" alt="Board Building">
-                    <div class="center-text">Board Main Exam 2026 🆕</div>
-                </div>
-            </section>
-
-            <section class="news-panel glass neon-border">
-                <div class="news-header">NEWS UPDATE</div>
-                <div id="news-list">
+                <div class="hero glass neon-border">
+                    <div class="hero-copy">
+                        <span class="eyebrow">Cyber-Education Theme</span>
+                        <h2>EDCB outperforms the board with speed, clarity, and exam-ready flow.</h2>
+                        <p>Class-specific dashboards, smart PDF delivery, real-time result retrieval, and classroom videos — all built with native HTML, CSS and JavaScript.</p>
                     </div>
-            </section>
-        </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <strong>3</strong>
+                            <span>Class dashboards</span>
+                        </div>
+                        <div class="stat-card">
+                            <strong>120+</strong>
+                            <span>Official resources</span>
+                        </div>
+                        <div class="stat-card">
+                            <strong>Live</strong>
+                            <span>RBSE updates</span>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="video-area glass">
-            <h3 class="neon-text">Digital Classroom</h3>
-            <div id="video-grid"></div>
-        </div>
+                <section id="result-panel" class="card glass">
+                    <div class="section-header">
+                        <h2>Result Retrieval Engine</h2>
+                        <p>Enter roll number and class to generate an instant marksheet with print-friendly layout.</p>
+                    </div>
+                    <form id="result-form" class="result-form">
+                        <div class="field-group">
+                            <label for="result-class">Class</label>
+                            <select id="result-class"></select>
+                        </div>
+                        <div class="field-group">
+                            <label for="result-roll">Roll Number</label>
+                            <input id="result-roll" type="text" placeholder="e.g. 100822" maxlength="8" autocomplete="off" />
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="action-btn">Fetch Marksheet</button>
+                            <button type="button" id="reset-result" class="ghost-btn">Reset</button>
+                        </div>
+                    </form>
+                    <div id="result-output" class="result-output"></div>
+                </section>
+
+                <section id="download-panel" class="card glass">
+                    <div class="section-header">
+                        <h2>Smart Download Center</h2>
+                        <p>Each class gets a categorized, searchable local PDF library for syllabus, model papers and old papers.</p>
+                    </div>
+                    <div id="download-grid" class="download-grid"></div>
+                </section>
+
+                <section id="video-panel" class="card glass">
+                    <div class="section-header">
+                        <h2>Video Classroom</h2>
+                        <p>Curated YouTube lessons for exam preparation, revision, and performance tips.</p>
+                    </div>
+                    <div id="video-grid" class="video-grid"></div>
+                </section>
+            </section>
+
+            <aside class="right-panel glass">
+                <div class="card neon-border">
+                    <h2>Live Ticker</h2>
+                    <div id="live-ticker" class="ticker-list"></div>
+                </div>
+                <div class="card">
+                    <h2>Quick Updates</h2>
+                    <ul class="quick-list">
+                        <li><strong id="active-class-count">0</strong> class-specific updates</li>
+                        <li><strong id="pdf-count">0</strong> official PDFs</li>
+                        <li><strong id="video-count">0</strong> video lessons</li>
+                    </ul>
+                </div>
+                <div id="schedule-panel" class="card">
+                    <h2>Exam Schedule</h2>
+                    <div id="schedule-list" class="schedule-list"></div>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="page-footer glass">
+            <p>EDCB | Premium Rajasthan Board Hub • Built for Rajasthan students with the fastest experience and full offline-ready data.</p>
+        </footer>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Copyrights CB | EDCB Hub</p>
-    </footer>
-
     <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

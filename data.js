@@ -113,9 +113,9 @@ const edcbData = {
         {
             category: 'Exam Strategy',
             videos: [
-                { id: 'nahJhRJ_q2E', title: 'Study Plan for Class 8', classes: ['8'] },
+                { id: 'Q4fwFjmYlis', title: 'Study Plan for Class 8', classes: ['8'] },
                 { id: 'c9Nvdx9Cbbk', title: 'Time Management for Class 10', classes: ['10'] },
-                { id: 'G8NKn-5_HtI', title: 'Scoring 95+ in Class 12', classes: ['12'] }
+                { id: 'eIv0nkkv9js', title: 'Scoring 95+ in Class 12', classes: ['12'] }
             ]
         },
         {

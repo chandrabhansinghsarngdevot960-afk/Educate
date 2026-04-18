@@ -12,7 +12,7 @@ const myVideos = [
 
 const photos = {
     // RBSE Site se photos ke real links ya apne assets folder ka path
-    cm: "https://rajeduboard.rajasthan.gov.in/IMAGE/cm-new.jpg", 
+    cm: "https://odishabytes.com/bjp-springs-another-surprise-picks-bhajanlal-sharma-as-rajasthan-cm/", 
     minister: "https://rajeduboard.rajasthan.gov.in/IMAGE/edu-min-new.jpg",
     building: "https://rajeduboard.rajasthan.gov.in/IMAGE/board-building.jpg"
 };

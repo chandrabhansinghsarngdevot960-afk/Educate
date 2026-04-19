@@ -741,9 +741,28 @@ body::before {
     margin: 8px 0;
 }
 
-.news-update-indicator::before {
+.auto-news-item {
+    border-left: 3px solid var(--neon);
+    background: rgba(0, 243, 255, 0.05);
+    position: relative;
+}
+
+.auto-news-item .news-source {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.auto-news-item::before {
     content: '🔄';
-    animation: rotate 2s linear infinite;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    font-size: 0.8rem;
+    opacity: 0.7;
 }
 
 @keyframes rotate {

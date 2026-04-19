@@ -1,6 +1,6 @@
 const EDCB = {
     currentClass: '10',
-    init() {
+    async init() {
         if (typeof edcbData === 'undefined') {
             console.error('data.js did not load correctly.');
             return;
@@ -8,7 +8,7 @@ const EDCB = {
 
         this.cacheElements();
         this.connectHandlers();
-        this.loadDashboard(this.currentClass);
+        await this.loadDashboard(this.currentClass);
         this.loadStudentImages();
     },
 
@@ -61,9 +61,9 @@ const EDCB = {
         });
     },
 
-    loadDashboard(classKey) {
+    async loadDashboard(classKey) {
         this.selectedClass = edcbData.classData[classKey];
-        this.loadAutoUpdatingNews();
+        await this.loadAutoUpdatingNews();
         this.renderMiniTicker();
         this.renderSidebarNews();
         this.renderPdfLinks();
@@ -115,12 +115,26 @@ const EDCB = {
     },
 
     renderSidebarNews() {
-        this.sidebarNews.innerHTML = this.selectedClass.Live_News_Ticker.map(item => `
+        let newsHtml = this.selectedClass.Live_News_Ticker.map(item => `
             <div class="ticker-item">
                 <strong>${item.text}</strong>
                 <small>${item.impact}</small>
             </div>
         `).join('');
+
+        // Add auto-updated news if available
+        if (this.autoNews && this.autoNews.allNews && this.autoNews.allNews.length > 0) {
+            const autoNewsHtml = this.autoNews.allNews.slice(0, 3).map(news => `
+                <div class="ticker-item auto-news-item">
+                    <strong>🔄 ${news.title}</strong>
+                    <small>${news.content.substring(0, 50)}${news.content.length > 50 ? '...' : ''}</small>
+                    <div class="news-source">${news.source || 'Auto-Update'}</div>
+                </div>
+            `).join('');
+            newsHtml = autoNewsHtml + newsHtml;
+        }
+
+        this.sidebarNews.innerHTML = newsHtml;
     },
 
     renderPdfLinks() {
@@ -213,4 +227,4 @@ const EDCB = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => EDCB.init());
+document.addEventListener('DOMContentLoaded', async () => await EDCB.init());

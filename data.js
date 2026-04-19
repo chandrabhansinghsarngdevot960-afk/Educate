@@ -91,12 +91,12 @@ const edcbData = {
                     { title: 'Chemistry Syllabus', link: 'https://example.com/class12/syllabus-chemistry.pdf', format: 'PDF' }
                 ],
                 'Model Papers': [
-                    { title: 'Physics Model Paper 2026', link: 'https://example.com/class12/model-physics.pdf', format: 'PDF' },
-                    { title: 'Chemistry Model Paper 2026', link: 'https://example.com/class12/model-chemistry.pdf', format: 'PDF' }
+                    { title: 'Physics Model Paper 2026 For Class 12', link: 'https://schools.aglasem.com/31750/', format: 'PDF' },
+                    { title: 'Chemistry Model Paper 2026 For Class 12', link: 'https://schools.aglasem.com/31751/', format: 'PDF' }
                 ],
                 'Old Question Papers': [
                     { title: 'Biology 2023 Question Paper', link: 'https://www.scribd.com/document/756522271/227c5908-abb4-11ee-8a87-0a5e36bc6706', format: 'PDF' },
-                    { title: 'Mathematics 2022 Question Paper', link: 'https://example.com/class12/old-maths.pdf', format: 'PDF' }
+                    { title: 'Mathematics 2022 Question Paper', link: 'https://rajeduboard.rajasthan.gov.in/books/PAPERS-2022/Sec/S-08.pdf', format: 'PDF' }
                 ]
             }
         }

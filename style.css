@@ -699,3 +699,54 @@ body::before {
     .mark-sheet th,
     .mark-sheet td { color: #ffffff; border-color: #333; }
 }
+
+/* Auto-Update System Styles */
+.auto-update-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #00f3ff, #be00ff);
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 12px;
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.latest-news {
+    display: inline-block;
+    color: var(--neon);
+    font-weight: 600;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(190, 0, 255, 0.8);
+    }
+}
+
+.news-update-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 12px;
+    color: var(--neon);
+    font-size: 0.9rem;
+    margin: 8px 0;
+}
+
+.news-update-indicator::before {
+    content: '🔄';
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

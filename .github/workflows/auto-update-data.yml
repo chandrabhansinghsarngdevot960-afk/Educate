@@ -1,0 +1,34 @@
+name: Auto Update RBSE Data
+
+on:
+  schedule:
+    # Runs every 6 hours (0:00, 6:00, 12:00, 18:00 UTC)
+    - cron: '0 0,6,12,18 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Fetch and update data
+        run: node scripts/fetchData.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data.js news-updates.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto: Updated RBSE data and news feed at $(date)" && git push)

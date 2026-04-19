@@ -1,11 +1,23 @@
+// Auto-updating data system
+// Last updated: Auto-updates every 6 hours via GitHub Actions
 const edcbData = {
+    // System Configuration
+    config: {
+        autoUpdate: {
+            enabled: true,
+            frequency: '6 hours',
+            method: 'GitHub Actions',
+            sources: ['RBSE Official', 'GitHub', 'News Feeds']
+        },
+        lastSync: new Date().toISOString(),
+        newsDataFile: './news-updates.json'
+    },
+    
     classes: ['8', '10', '12'],
     classData: {
         '8': {
             Official_PDF_Links: {
-                Syllabus: 'https://rajeduboard.rajasthan.gov.in/anudeshika-etc/10_2026.pdf',
-                Model_Papers: 'https://example.com/class8/model-papers.pdf',
-                Old_Question_Papers: 'https://example.com/class8/old-papers.pdf'
+                Syllabus: 'https://rajeduboard.rajasthan.gov.in/anudeshika-etc/10_2026.pdf'
             },
             Live_News_Ticker: [
                 { text: 'Class 8 science model paper released', impact: 'Download today' },
@@ -20,8 +32,6 @@ const edcbData = {
             ],
             Downloads: {
                 'Syllabus': [
-                    { title: 'Mathematics Syllabus', link: 'https://example.com/class8/syllabus-maths.pdf', format: 'PDF' },
-                    { title: 'Science Syllabus', link: 'https://example.com/class8/syllabus-science.pdf', format: 'PDF' }
                 ],
                 'Model Papers': [
                     { title: 'Secondary Model Paper 2024', link: 'modelpapers/sec_model2024.pdf', format: 'PDF' },
@@ -29,20 +39,15 @@ const edcbData = {
                     { title: 'Secondary Model Paper 2026', link: 'modelpapers/sec_model2026.pdf', format: 'PDF' }
                 ],
                 'Old Question Papers': [
-                    { title: 'English 2024 Question Paper', link: 'https://example.com/class8/old-english.pdf', format: 'PDF' },
-                    { title: 'Social Science 2024 Question Paper', link: 'https://example.com/class8/old-social.pdf', format: 'PDF' }
                 ]
             }
         },
         '10': {
             Official_PDF_Links: {
-                Syllabus: '',
-                Model_Papers: 'https://example.com/class10/model-papers.pdf',
-                Old_Question_Papers: 'https://example.com/class10/old-papers.pdf'
+                Syllabus: ''
             },
             Live_News_Ticker: [
                 { text: 'RBSE Class 10 registration closing soon', impact: 'Submit before deadline' },
-                { text: 'राजस्थान बोर्ड 12वीं में श्रीगंगानगर की रहने वाली नकिता ने 93.88% अंक हासिल किए हैं। लेकिन 10 दिन पहले उसकी मौत हो चुकी है। इस कामयाबी के बाद भी निकिता के घर में मातम छाया हुआ है।', impact: 'Follow official format' },
                 { text: 'Live webinar on exam strategy today', impact: 'Join at 7 PM' }
             ],
             YouTube_Video_ID: ['a1Y73sPHKxw', 'qMKpC1zJtb8', 'Jp8v9uJc1M8'],
@@ -53,26 +58,17 @@ const edcbData = {
             ],
             Downloads: {
                 'Syllabus': [
-                    { title: 'Mathematics Syllabus', link: 'https://example.com/class10/syllabus-maths.pdf', format: 'PDF' },
-                    { title: 'Science Syllabus', link: 'https://example.com/class10/syllabus-science.pdf', format: 'PDF' }
                 ],
                 'Model Papers': [
-                    { title: 'Secondary Model Paper 2024', link: 'modelpapers/sec_model2024.pdf', format: 'PDF' },
-                    { title: 'Secondary Model Paper 2025', link: 'modelpapers/sec_model2025.pdf', format: 'PDF' },
-                    { title: 'Secondary Model Paper 2026', link: 'modelpapers/sec_model2026.pdf', format: 'PDF' },
                     { title: '10th Model Paper 2023', link: 'modelpapers/10THnPRA_MQP_2023_111122.pdf', format: 'PDF' }
                 ],
                 'Old Question Papers': [
-                    { title: 'English 2023 Question Paper', link: 'https://example.com/class10/old-english.pdf', format: 'PDF' },
-                    { title: 'Social Science 2022 Question Paper', link: 'https://example.com/class10/old-social.pdf', format: 'PDF' }
                 ]
             }
         },
         '12': {
             Official_PDF_Links: {
-                Syllabus: 'https://example.com/class12/syllabus.pdf',
-                Model_Papers: 'https://example.com/class12/model-papers.pdf',
-                Old_Question_Papers: 'https://example.com/class12/old-papers.pdf'
+                Syllabus: 'https://cbseacademic.nic.in/web_material/CurriculumMain26/SrSec/Physics_SrSec_2025-26.pdf'
             },
             Live_News_Ticker: [
                 { text: 'Class 12 practical exam schedule updated', impact: 'Verify lab timings' },

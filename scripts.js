@@ -63,6 +63,7 @@ const EDCB = {
 
     loadDashboard(classKey) {
         this.selectedClass = edcbData.classData[classKey];
+        this.loadAutoUpdatingNews();
         this.renderMiniTicker();
         this.renderSidebarNews();
         this.renderPdfLinks();
@@ -73,9 +74,44 @@ const EDCB = {
         this.resultOutput.innerHTML = '';
     },
 
+    // Load auto-updating news from news-updates.json
+    async loadAutoUpdatingNews() {
+        try {
+            const response = await fetch('./news-updates.json');
+            if (!response.ok) throw new Error('News file not found');
+            
+            const newsData = await response.json();
+            
+            // Store for use in other functions
+            this.autoNews = newsData;
+            
+            console.log('✅ Auto-update system active');
+            console.log('📰 Last updated:', newsData.lastUpdated);
+            console.log('⏰ Next update:', newsData.autoUpdate.nextUpdate);
+            
+            // Optionally update the ticker with auto-updated news
+            // You can enable this if you want auto news in the ticker
+            
+        } catch (error) {
+            console.warn('Auto-updating news not available (local testing mode)');
+            // In local testing, this is expected
+        }
+    },
+
     renderMiniTicker() {
         const news = this.selectedClass.Live_News_Ticker.slice(0, 1);
-        this.miniTicker.textContent = news.length ? `LIVE: ${news[0].text}` : 'Live updates are coming...';
+        const tickerText = news.length ? `LIVE: ${news[0].text}` : 'Live updates are coming...';
+        this.miniTicker.textContent = tickerText;
+        
+        // If auto-updated news is available, show it too
+        if (this.autoNews && this.autoNews.allNews && this.autoNews.allNews.length > 0) {
+            const latestNews = this.autoNews.allNews[0];
+            this.miniTicker.innerHTML = `
+                <span class="auto-update-badge">🔄 Auto-Update Active</span>
+                <span class="latest-news">📢 ${latestNews.title}</span>
+            `;
+            this.miniTicker.title = `Last updated: ${new Date(this.autoNews.lastUpdated).toLocaleString()}`;
+        }
     },
 
     renderSidebarNews() {

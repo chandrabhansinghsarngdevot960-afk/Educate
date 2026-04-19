@@ -1,0 +1,24 @@
+{
+  "name": "educate-rbse-auto-update",
+  "version": "1.0.0",
+  "description": "Automatic RBSE data and news feed updater with GitHub Actions",
+  "main": "scripts/fetchData.js",
+  "scripts": {
+    "update": "node scripts/fetchData.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "RBSE",
+    "education",
+    "auto-update",
+    "github-actions"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.4.0"
+  },
+  "devDependencies": {}
+}

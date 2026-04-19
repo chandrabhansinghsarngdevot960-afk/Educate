@@ -1,66 +1,50 @@
 {
-  "lastUpdated": "2026-04-19T10:00:00Z",
+  "lastUpdated": "2026-04-19T06:40:55.226Z",
   "autoUpdate": {
     "enabled": true,
     "frequency": "6 hours",
-    "nextUpdate": "2026-04-19T16:00:00Z",
-    "status": "active"
+    "nextUpdate": "2026-04-19T12:40:55.226Z"
   },
   "sources": {
     "rbse": {
       "source": "RBSE Official",
-      "lastUpdated": "2026-04-19T10:00:00Z",
-      "website": "https://rajeduboard.rajasthan.gov.in",
+      "lastUpdated": "2026-04-19T06:40:55.223Z",
       "announcements": [
         {
-          "id": "rbse_exam_schedule_2026",
-          "title": "Board Exam Schedule 2026",
-          "content": "Check official website for complete exam dates and timings",
+          "id": "rbse_1776580855224",
+          "title": "RBSE Updates",
+          "content": "Check official RBSE website for latest announcements",
           "link": "https://rajeduboard.rajasthan.gov.in",
-          "date": "2026-04-19T10:00:00Z",
-          "priority": "high"
+          "date": "2026-04-19T06:40:55.224Z"
         }
       ]
     },
     "github": {
-      "source": "GitHub Resources",
-      "lastUpdated": "2026-04-19T10:00:00Z",
+      "source": "GitHub",
+      "lastUpdated": "2026-04-19T06:40:55.226Z",
       "updates": [
         {
-          "id": "github_study_materials",
-          "title": "New Study Materials",
-          "content": "Educational resources and guides available on GitHub",
-          "date": "2026-04-19T10:00:00Z",
-          "priority": "medium"
+          "id": "github_1776580855226",
+          "title": "Latest Updates",
+          "content": "New educational resources available",
+          "date": "2026-04-19T06:40:55.226Z"
         }
       ]
     }
   },
   "allNews": [
     {
-      "id": "rbse_exam_schedule_2026",
-      "title": "Board Exam Schedule 2026",
-      "content": "Check official website for complete exam dates and timings",
-      "source": "RBSE",
+      "id": "github_1776580855226",
+      "title": "Latest Updates",
+      "content": "New educational resources available",
+      "date": "2026-04-19T06:40:55.226Z"
+    },
+    {
+      "id": "rbse_1776580855224",
+      "title": "RBSE Updates",
+      "content": "Check official RBSE website for latest announcements",
       "link": "https://rajeduboard.rajasthan.gov.in",
-      "date": "2026-04-19T10:00:00Z",
-      "priority": "high"
-    },
-    {
-      "id": "github_study_materials",
-      "title": "New Study Materials",
-      "content": "Educational resources and guides available on GitHub",
-      "source": "GitHub",
-      "date": "2026-04-19T10:00:00Z",
-      "priority": "medium"
-    },
-    {
-      "id": "news_portal_updates",
-      "title": "Education Portal Updates",
-      "content": "Regular updates on exam dates and educational resources",
-      "source": "System",
-      "date": "2026-04-19T10:00:00Z",
-      "priority": "low"
+      "date": "2026-04-19T06:40:55.224Z"
     }
   ]
 }

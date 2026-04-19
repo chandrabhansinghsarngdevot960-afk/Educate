@@ -42,7 +42,7 @@ const edcbData = {
             },
             Live_News_Ticker: [
                 { text: 'RBSE Class 10 registration closing soon', impact: 'Submit before deadline' },
-                { text: 'New answer key guidelines published', impact: 'Follow official format' },
+                { text: 'राजस्थान बोर्ड 12वीं में श्रीगंगानगर की रहने वाली नकिता ने 93.88% अंक हासिल किए हैं। लेकिन 10 दिन पहले उसकी मौत हो चुकी है। इस कामयाबी के बाद भी निकिता के घर में मातम छाया हुआ है।', impact: 'Follow official format' },
                 { text: 'Live webinar on exam strategy today', impact: 'Join at 7 PM' }
             ],
             YouTube_Video_ID: ['a1Y73sPHKxw', 'qMKpC1zJtb8', 'Jp8v9uJc1M8'],

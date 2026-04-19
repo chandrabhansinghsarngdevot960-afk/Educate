@@ -47,9 +47,9 @@ const edcbData = {
             ],
             YouTube_Video_ID: ['a1Y73sPHKxw', 'qMKpC1zJtb8', 'Jp8v9uJc1M8'],
             Exam_Schedule: [
-                { subject: 'English', date: '12 March 2026', time: '10:00 AM', location: 'City Center' },
-                { subject: 'Mathematics', date: '16 March 2026', time: '10:00 AM', location: 'District Hall' },
-                { subject: 'Science', date: '19 March 2026', time: '10:00 AM', location: 'Science Block' }
+                { subject: 'English', date: 'Soon', time: 'Soon', location: 'Soon' },
+                { subject: 'Mathematics', date: 'Soon', time: 'Soon', location: 'Soon' },
+                { subject: 'Science', date: 'Soon', time: 'Soon', location: 'Soon' }
             ],
             Downloads: {
                 'Syllabus': [

@@ -47,9 +47,9 @@ const edcbData = {
             ],
             YouTube_Video_ID: ['a1Y73sPHKxw', 'qMKpC1zJtb8', 'Jp8v9uJc1M8'],
             Exam_Schedule: [
-                { subject: 'English', date: 'Soon', time: 'Soon', location: '' },
-                { subject: 'Mathematics', date: 'Soon', time: 'Soon', location: '' },
-                { subject: 'Science', date: 'Soon', time: 'Soon', location: '' }
+                { subject: 'English', date: 'Soon', time: '', location: '' },
+                { subject: 'Mathematics', date: 'Soon', time: '', location: '' },
+                { subject: 'Science', date: 'Soon', time: '', location: '' }
             ],
             Downloads: {
                 'Syllabus': [

@@ -87,8 +87,8 @@ const edcbData = {
             ],
             Downloads: {
                 'Syllabus': [
-                    { title: 'Physics Syllabus', link: 'https://example.com/class12/syllabus-physics.pdf', format: 'PDF' },
-                    { title: 'Chemistry Syllabus', link: 'https://example.com/class12/syllabus-chemistry.pdf', format: 'PDF' }
+                    { title: 'Physics Syllabus Class XI-XII 2025-26', link: 'https://cbseacademic.nic.in/web_material/CurriculumMain26/SrSec/Physics_SrSec_2025-26.pdf', format: 'PDF' },
+                    { title: 'Chemistry Syllabus Class XI-XII 2025-26', link: 'https://cbseacademic.nic.in/web_material/CurriculumMain26/SrSec/Chemistry_SrSec_2025-26.pdf', format: 'PDF' }
                 ],
                 'Model Papers': [
                     { title: 'Physics Model Paper 2026 For Class 12', link: 'https://schools.aglasem.com/31750/', format: 'PDF' },

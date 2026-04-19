@@ -26,6 +26,7 @@ const EDCB = {
         this.pdfCount = document.getElementById('pdf-count');
         this.videoCount = document.getElementById('video-count');
         this.miniTicker = document.getElementById('mini-ticker');
+        this.autoUpdateStatus = document.getElementById('auto-update-status');
     },
 
     connectHandlers() {
@@ -79,22 +80,42 @@ const EDCB = {
         try {
             const response = await fetch('./news-updates.json');
             if (!response.ok) throw new Error('News file not found');
-            
+
             const newsData = await response.json();
-            
+
             // Store for use in other functions
             this.autoNews = newsData;
-            
+
             console.log('✅ Auto-update system active');
             console.log('📰 Last updated:', newsData.lastUpdated);
             console.log('⏰ Next update:', newsData.autoUpdate.nextUpdate);
-            
-            // Optionally update the ticker with auto-updated news
-            // You can enable this if you want auto news in the ticker
-            
+            console.log('📊 News items loaded:', newsData.allNews?.length || 0);
+
+            // Show status indicator
+            if (this.autoUpdateStatus) {
+                this.autoUpdateStatus.style.display = 'inline-flex';
+                this.autoUpdateStatus.textContent = `🔄 Auto-Update Active (${newsData.allNews?.length || 0} news)`;
+            }
+
+            return true; // Success
+
         } catch (error) {
-            console.warn('Auto-updating news not available (local testing mode)');
-            // In local testing, this is expected
+            console.warn('Auto-updating news not available:', error.message);
+            // Create fallback news data
+            this.autoNews = {
+                lastUpdated: new Date().toISOString(),
+                autoUpdate: { enabled: false, frequency: '6 hours' },
+                allNews: [
+                    {
+                        id: 'fallback_1',
+                        title: 'System Initializing',
+                        content: 'Auto-update system is setting up. News will appear soon.',
+                        source: 'System',
+                        date: new Date().toISOString()
+                    }
+                ]
+            };
+            return false; // Fallback used
         }
     },
 

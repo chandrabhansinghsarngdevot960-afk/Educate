@@ -95,7 +95,7 @@ const edcbData = {
                     { title: 'Chemistry Model Paper 2026', link: 'https://example.com/class12/model-chemistry.pdf', format: 'PDF' }
                 ],
                 'Old Question Papers': [
-                    { title: 'Biology 2023 Question Paper', link: 'https://example.com/class12/old-biology.pdf', format: 'PDF' },
+                    { title: 'Biology 2023 Question Paper', link: 'https://www.scribd.com/document/756522271/227c5908-abb4-11ee-8a87-0a5e36bc6706', format: 'PDF' },
                     { title: 'Mathematics 2022 Question Paper', link: 'https://example.com/class12/old-maths.pdf', format: 'PDF' }
                 ]
             }

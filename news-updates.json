@@ -1,50 +1,50 @@
 {
-  "lastUpdated": "2026-04-19T06:40:55.226Z",
+  "lastUpdated": "2026-04-19T06:51:02.920Z",
   "autoUpdate": {
     "enabled": true,
     "frequency": "6 hours",
-    "nextUpdate": "2026-04-19T12:40:55.226Z"
+    "nextUpdate": "2026-04-19T12:51:02.920Z"
   },
   "sources": {
     "rbse": {
       "source": "RBSE Official",
-      "lastUpdated": "2026-04-19T06:40:55.223Z",
+      "lastUpdated": "2026-04-19T06:51:02.724Z",
       "announcements": [
         {
-          "id": "rbse_1776580855224",
+          "id": "rbse_1776581462887",
           "title": "RBSE Updates",
           "content": "Check official RBSE website for latest announcements",
           "link": "https://rajeduboard.rajasthan.gov.in",
-          "date": "2026-04-19T06:40:55.224Z"
+          "date": "2026-04-19T06:51:02.887Z"
         }
       ]
     },
     "github": {
       "source": "GitHub",
-      "lastUpdated": "2026-04-19T06:40:55.226Z",
+      "lastUpdated": "2026-04-19T06:51:02.920Z",
       "updates": [
         {
-          "id": "github_1776580855226",
+          "id": "github_1776581462920",
           "title": "Latest Updates",
           "content": "New educational resources available",
-          "date": "2026-04-19T06:40:55.226Z"
+          "date": "2026-04-19T06:51:02.920Z"
         }
       ]
     }
   },
   "allNews": [
     {
-      "id": "github_1776580855226",
+      "id": "github_1776581462920",
       "title": "Latest Updates",
       "content": "New educational resources available",
-      "date": "2026-04-19T06:40:55.226Z"
+      "date": "2026-04-19T06:51:02.920Z"
     },
     {
-      "id": "rbse_1776580855224",
+      "id": "rbse_1776581462887",
       "title": "RBSE Updates",
       "content": "Check official RBSE website for latest announcements",
       "link": "https://rajeduboard.rajasthan.gov.in",
-      "date": "2026-04-19T06:40:55.224Z"
+      "date": "2026-04-19T06:51:02.887Z"
     }
   ]
 }

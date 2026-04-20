@@ -99,6 +99,136 @@ const EDCB = {
         }
     },
 
+    async handleAISend() {
+        if (!this.aiSendBtn) return;
+
+        const question = this.aiQuestionInput?.value?.trim();
+        const name = this.aiNameInput?.value?.trim();
+        const imageData = this.currentImageData || null;
+
+        if (!question && !imageData) {
+            this.updateAIStatus('Type a study question or attach a photo first.');
+            return;
+        }
+
+        this.appendChatBubble('You', question || 'Photo question', 'user');
+        this.setThinkingState(true);
+
+        try {
+            const response = await this.callAIApi({ question, name, imageData });
+            if (response?.message) {
+                this.appendChatBubble('EDCB Mentor', response.message, 'bot');
+                this.updateAIStatus('EDCB Mentor sent a step-by-step answer.');
+            } else {
+                this.appendChatBubble('EDCB Mentor', 'Sorry, I could not interpret that. Try again with a clearer question or photo.', 'bot');
+                this.updateAIStatus('Need a better question or photo.');
+            }
+        } catch (error) {
+            console.error(error);
+            this.appendChatBubble('EDCB Mentor', 'The mentor hit a snag. Please try again in a moment.', 'bot');
+            this.updateAIStatus('AI request failed.');
+        } finally {
+            this.setThinkingState(false);
+            this.currentImageData = null;
+            this.aiCameraPreview.hidden = true;
+            if (this.aiFileInput) this.aiFileInput.value = '';
+        }
+    },
+
+    async callAIApi({ question, name, imageData }) {
+        const payload = {
+            question: question || '',
+            name: name || '',
+            imageData: imageData || ''
+        };
+
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error('AI backend returned an error');
+        }
+
+        return response.json();
+    },
+
+    appendChatBubble(label, text, type) {
+        if (!this.aiResponseContent) return;
+        const bubble = document.createElement('div');
+        bubble.className = `chat-bubble ${type}`;
+        bubble.innerHTML = `<small>${label}</small>${text.replace(/\n/g, '<br>')}`;
+        this.aiResponseContent.appendChild(bubble);
+        this.aiResponseContent.scrollTop = this.aiResponseContent.scrollHeight;
+    },
+
+    setThinkingState(active) {
+        if (!this.aiResponseBox) return;
+        this.aiResponseBox.classList.toggle('thinking', active);
+        const label = document.getElementById('ai-thinking-label');
+        if (label) {
+            label.textContent = active ? 'EDCB Mentor is thinking...' : 'Ready to help.';
+        }
+    },
+
+    updateAIStatus(message) {
+        if (this.aiStatusText) {
+            this.aiStatusText.textContent = message;
+        }
+    },
+
+    async openCameraUI() {
+        if (!this.aiCameraPanel || !this.aiCameraVideo) return;
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+            this.cameraStream = stream;
+            this.aiCameraVideo.srcObject = stream;
+            this.aiCameraPanel.hidden = false;
+            this.updateAIStatus('Camera ready. Capture a photo of your question.');
+        } catch (error) {
+            console.warn('Camera access denied', error);
+            this.updateAIStatus('Camera access blocked. Please allow access or use Upload Photo.');
+        }
+    },
+
+    captureCameraFrame() {
+        if (!this.aiCameraVideo || !this.aiCameraCanvas || !this.aiCameraPreview) return;
+        const video = this.aiCameraVideo;
+        const canvas = this.aiCameraCanvas;
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        this.currentImageData = canvas.toDataURL('image/jpeg', 0.92);
+        this.aiCameraPreview.src = this.currentImageData;
+        this.aiCameraPreview.hidden = false;
+        this.updateAIStatus('Photo captured. Press Send to ask EDCB Mentor.');
+    },
+
+    closeCameraUI() {
+        if (this.cameraStream) {
+            this.cameraStream.getTracks().forEach(track => track.stop());
+            this.cameraStream = null;
+        }
+        if (this.aiCameraPanel) {
+            this.aiCameraPanel.hidden = true;
+        }
+        this.updateAIStatus('Camera closed. You can still upload a photo or type a question.');
+    },
+
+    handleImageUpload(files) {
+        if (!files || !files.length) return;
+        const file = files[0];
+        const reader = new FileReader();
+        reader.onload = () => {
+            this.currentImageData = reader.result;
+            this.updateAIStatus('Photo uploaded. Press Send to ask EDCB Mentor.');
+        };
+        reader.readAsDataURL(file);
+    },
+
     loadStudentImages() {
         const images = [
             { id: 'student-preview-1', src: 'TOP/student1.png' },

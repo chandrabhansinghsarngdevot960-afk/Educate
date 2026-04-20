@@ -56,11 +56,10 @@ export default async function handler(req, res) {
     };
 
     try {
-        const response = await fetch('https://gemini.googleapis.com/v1/models/gemini-1.5-mini:generate', {
+        const response = await fetch(`https://gemini.googleapis.com/v1/models/gemini-1.5-mini:generate?key=${encodeURIComponent(GEMINI_API_KEY)}`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${GEMINI_API_KEY}`
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(requestBody)
         });

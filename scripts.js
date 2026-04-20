@@ -30,7 +30,6 @@ const EDCB = {
 
         this.aiTextInputBtn = document.getElementById('text-input-btn');
         this.aiUploadPhotoBtn = document.getElementById('upload-photo-btn');
-        this.aiCameraBtn = document.getElementById('camera-btn');
         this.aiQuestionInput = document.getElementById('ai-question');
         this.aiNameInput = document.getElementById('student-name');
         this.aiFileInput = document.getElementById('ai-file-input');
@@ -38,12 +37,6 @@ const EDCB = {
         this.aiResponseBox = document.getElementById('ai-response-box');
         this.aiResponseContent = document.getElementById('ai-response-content');
         this.aiStatusText = document.getElementById('ai-status-text');
-        this.aiCameraPanel = document.getElementById('ai-camera-panel');
-        this.aiCameraVideo = document.getElementById('ai-camera-video');
-        this.aiCaptureBtn = document.getElementById('ai-capture-btn');
-        this.aiCloseCameraBtn = document.getElementById('ai-close-camera-btn');
-        this.aiCameraPreview = document.getElementById('ai-camera-preview');
-        this.aiCameraCanvas = document.getElementById('ai-camera-canvas');
     },
 
     connectHandlers() {
@@ -68,12 +61,6 @@ const EDCB = {
             });
         }
 
-        if (this.aiCameraBtn) {
-            this.aiCameraBtn.addEventListener('click', () => {
-                this.openCameraUI();
-            });
-        }
-
         if (this.aiFileInput) {
             this.aiFileInput.addEventListener('change', event => {
                 this.handleImageUpload(event.target.files);
@@ -83,18 +70,6 @@ const EDCB = {
         if (this.aiSendBtn) {
             this.aiSendBtn.addEventListener('click', () => {
                 this.handleAISend();
-            });
-        }
-
-        if (this.aiCaptureBtn) {
-            this.aiCaptureBtn.addEventListener('click', () => {
-                this.captureCameraFrame();
-            });
-        }
-
-        if (this.aiCloseCameraBtn) {
-            this.aiCloseCameraBtn.addEventListener('click', () => {
-                this.closeCameraUI();
             });
         }
     },
@@ -130,7 +105,6 @@ const EDCB = {
         } finally {
             this.setThinkingState(false);
             this.currentImageData = null;
-            this.aiCameraPreview.hidden = true;
             if (this.aiFileInput) this.aiFileInput.value = '';
         }
     },
@@ -179,44 +153,6 @@ const EDCB = {
         }
     },
 
-    async openCameraUI() {
-        if (!this.aiCameraPanel || !this.aiCameraVideo) return;
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
-            this.cameraStream = stream;
-            this.aiCameraVideo.srcObject = stream;
-            this.aiCameraPanel.hidden = false;
-            this.updateAIStatus('Camera ready. Capture a photo of your question.');
-        } catch (error) {
-            console.warn('Camera access denied', error);
-            this.updateAIStatus('Camera access blocked. Please allow access or use Upload Photo.');
-        }
-    },
-
-    captureCameraFrame() {
-        if (!this.aiCameraVideo || !this.aiCameraCanvas || !this.aiCameraPreview) return;
-        const video = this.aiCameraVideo;
-        const canvas = this.aiCameraCanvas;
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const context = canvas.getContext('2d');
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        this.currentImageData = canvas.toDataURL('image/jpeg', 0.92);
-        this.aiCameraPreview.src = this.currentImageData;
-        this.aiCameraPreview.hidden = false;
-        this.updateAIStatus('Photo captured. Press Send to ask EDCB Mentor.');
-    },
-
-    closeCameraUI() {
-        if (this.cameraStream) {
-            this.cameraStream.getTracks().forEach(track => track.stop());
-            this.cameraStream = null;
-        }
-        if (this.aiCameraPanel) {
-            this.aiCameraPanel.hidden = true;
-        }
-        this.updateAIStatus('Camera closed. You can still upload a photo or type a question.');
-    },
 
     handleImageUpload(files) {
         if (!files || !files.length) return;

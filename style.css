@@ -1,5 +1,6 @@
 :root {
     --bg: #050505;
+    --glass: rgba(24, 18, 64, 0.78);
     --panel: rgba(18, 21, 33, 0.82);
     --panel-strong: rgba(10, 13, 22, 0.95);
     --neon: #00f3ff;

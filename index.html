@@ -66,6 +66,58 @@
                     </div>
                 </div>
 
+                <section id="ai-study-hub" class="card glass neon-border">
+                    <div class="section-header">
+                        <h2>AI Study Hub</h2>
+                        <p>EDCB Mentor is your legit study friend. Ask questions, upload a photo, or use the camera and get step-by-step help with problems, handwritten notes, and diagrams.</p>
+                    </div>
+                    <div class="ai-grid">
+                        <div class="ai-guide-panel">
+                            <div class="ai-actions">
+                                <button type="button" class="action-btn" id="text-input-btn">Text Input</button>
+                                <button type="button" class="ghost-btn" id="upload-photo-btn">Upload Photo</button>
+                                <button type="button" class="ghost-btn" id="camera-btn">Use Camera</button>
+                            </div>
+                            <div class="ai-status-panel">
+                                <p class="ai-status-heading">Lens-ready study helper</p>
+                                <p id="ai-status-text" class="ai-status-text">Pick a mode, then send your question or photo.</p>
+                            </div>
+                            <div class="ai-chat-preview" id="ai-chat-preview">
+                                <p><strong>Tip:</strong> Try asking “Explain this equation step-by-step” or upload a photo of a handwritten problem.</p>
+                            </div>
+                        </div>
+                        <div class="ai-panel">
+                            <div class="ai-controls">
+                                <input id="student-name" type="text" placeholder="Your name (optional)" />
+                                <textarea id="ai-question" placeholder="Type your question here..." rows="4"></textarea>
+                                <div class="ai-input-actions">
+                                    <label class="file-upload" for="ai-file-input">Upload Photo</label>
+                                    <input type="file" id="ai-file-input" accept="image/*" hidden />
+                                    <button type="button" class="action-btn" id="ai-send-btn">Send to Mentor</button>
+                                </div>
+                            </div>
+                            <div class="ai-camera-panel" id="ai-camera-panel" hidden>
+                                <video id="ai-camera-video" autoplay playsinline></video>
+                                <img id="ai-camera-preview" alt="Captured frame preview" hidden />
+                                <div class="ai-camera-actions">
+                                    <button type="button" class="ghost-btn" id="ai-capture-btn">Capture</button>
+                                    <button type="button" class="ghost-btn" id="ai-close-camera-btn">Close Camera</button>
+                                </div>
+                                <canvas id="ai-camera-canvas" hidden></canvas>
+                            </div>
+                            <div class="ai-response-box" id="ai-response-box">
+                                <div class="ai-response-header">
+                                    <span>EDCB Mentor</span>
+                                    <span id="ai-thinking-label">Ready to help.</span>
+                                </div>
+                                <div id="ai-response-content" class="ai-response-content">
+                                    <div class="chat-bubble bot"><small>EDCB Mentor</small>Ask anything from math to science diagrams and I’ll walk you through it.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <section class="student-frame-panel glass">
                     <div class="section-header">
                         <h2>Student Frames</h2>

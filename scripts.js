@@ -27,6 +27,23 @@ const EDCB = {
         this.videoCount = document.getElementById('video-count');
         this.miniTicker = document.getElementById('mini-ticker');
         this.autoUpdateStatus = document.getElementById('auto-update-status');
+
+        this.aiTextInputBtn = document.getElementById('text-input-btn');
+        this.aiUploadPhotoBtn = document.getElementById('upload-photo-btn');
+        this.aiCameraBtn = document.getElementById('camera-btn');
+        this.aiQuestionInput = document.getElementById('ai-question');
+        this.aiNameInput = document.getElementById('student-name');
+        this.aiFileInput = document.getElementById('ai-file-input');
+        this.aiSendBtn = document.getElementById('ai-send-btn');
+        this.aiResponseBox = document.getElementById('ai-response-box');
+        this.aiResponseContent = document.getElementById('ai-response-content');
+        this.aiStatusText = document.getElementById('ai-status-text');
+        this.aiCameraPanel = document.getElementById('ai-camera-panel');
+        this.aiCameraVideo = document.getElementById('ai-camera-video');
+        this.aiCaptureBtn = document.getElementById('ai-capture-btn');
+        this.aiCloseCameraBtn = document.getElementById('ai-close-camera-btn');
+        this.aiCameraPreview = document.getElementById('ai-camera-preview');
+        this.aiCameraCanvas = document.getElementById('ai-camera-canvas');
     },
 
     connectHandlers() {
@@ -38,6 +55,48 @@ const EDCB = {
         this.resetButton.addEventListener('click', () => {
             this.resultOutput.innerHTML = '';
         });
+
+        if (this.aiTextInputBtn) {
+            this.aiTextInputBtn.addEventListener('click', () => {
+                this.aiQuestionInput?.focus();
+            });
+        }
+
+        if (this.aiUploadPhotoBtn) {
+            this.aiUploadPhotoBtn.addEventListener('click', () => {
+                this.aiFileInput?.click();
+            });
+        }
+
+        if (this.aiCameraBtn) {
+            this.aiCameraBtn.addEventListener('click', () => {
+                this.openCameraUI();
+            });
+        }
+
+        if (this.aiFileInput) {
+            this.aiFileInput.addEventListener('change', event => {
+                this.handleImageUpload(event.target.files);
+            });
+        }
+
+        if (this.aiSendBtn) {
+            this.aiSendBtn.addEventListener('click', () => {
+                this.handleAISend();
+            });
+        }
+
+        if (this.aiCaptureBtn) {
+            this.aiCaptureBtn.addEventListener('click', () => {
+                this.captureCameraFrame();
+            });
+        }
+
+        if (this.aiCloseCameraBtn) {
+            this.aiCloseCameraBtn.addEventListener('click', () => {
+                this.closeCameraUI();
+            });
+        }
     },
 
     loadStudentImages() {

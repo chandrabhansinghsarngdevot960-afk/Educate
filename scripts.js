@@ -100,8 +100,9 @@ const EDCB = {
             }
         } catch (error) {
             console.error(error);
-            this.appendChatBubble('EDCB Mentor', 'The mentor hit a snag. Please try again in a moment.', 'bot');
-            this.updateAIStatus('AI request failed.');
+            const message = error?.message || 'The mentor hit a snag. Please try again in a moment.';
+            this.appendChatBubble('EDCB Mentor', message, 'bot');
+            this.updateAIStatus(`AI request failed: ${message}`);
         } finally {
             this.setThinkingState(false);
             this.currentImageData = null;
@@ -122,11 +123,13 @@ const EDCB = {
             body: JSON.stringify(payload)
         });
 
+        const body = await response.json().catch(() => null);
         if (!response.ok) {
-            throw new Error('AI backend returned an error');
+            const message = body?.error || response.statusText || 'AI backend returned an error';
+            throw new Error(message);
         }
 
-        return response.json();
+        return body;
     },
 
     appendChatBubble(label, text, type) {

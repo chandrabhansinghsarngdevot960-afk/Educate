@@ -117,19 +117,24 @@ const EDCB = {
             imageData: imageData || ''
         };
 
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
 
-        const body = await response.json().catch(() => null);
-        if (!response.ok) {
-            const message = body?.error || response.statusText || 'AI backend returned an error';
-            throw new Error(message);
+            const body = await response.json().catch(() => null);
+            if (!response.ok) {
+                const message = body?.error || response.statusText || 'AI backend returned an error';
+                throw new Error(message);
+            }
+
+            return body;
+        } catch (error) {
+            this.updateAIStatus('Backend unavailable, trying direct Gemini fallback...');
+            return this.callGeminiDirect(payload);
         }
-
-        return body;
     },
 
     appendChatBubble(label, text, type) {
@@ -139,6 +144,74 @@ const EDCB = {
         bubble.innerHTML = `<small>${label}</small>${text.replace(/\n/g, '<br>')}`;
         this.aiResponseContent.appendChild(bubble);
         this.aiResponseContent.scrollTop = this.aiResponseContent.scrollHeight;
+    },
+
+    async callGeminiDirect(payload) {
+        const key = 'AIzaSyDpKP6AShxDF7kh2chMTedtE8hdzUAf1Jo';
+        const question = (payload.question || '').trim();
+        const name = (payload.name || '').trim();
+        const imageData = payload.imageData || null;
+
+        const systemPrompt = `You are EDCB Mentor, a legit study friend. Answer study questions step-by-step. If a student uploads a photo, analyze it instantly. Talk casually, use students' names (if provided), and be encouraging. Avoid robotic formal language. Your job is to help them understand, not just pass.`;
+        const namePrefix = name ? `Hey ${name}, ` : '';
+        const textPrompt = question
+            ? `${namePrefix}${question}`
+            : `${namePrefix}Please analyze this photo and explain everything step-by-step.`;
+
+        const promptMessage = {
+            role: 'system',
+            content: systemPrompt
+        };
+
+        const userMessage = imageData
+            ? {
+                  role: 'user',
+                  content: [
+                      { type: 'input_text', text: textPrompt },
+                      { type: 'input_image', image_uri: imageData }
+                  ]
+              }
+            : {
+                  role: 'user',
+                  content: textPrompt
+              };
+
+        const requestBody = {
+            prompt: { messages: [promptMessage, userMessage] },
+            temperature: 0.35,
+            max_output_tokens: 900,
+            candidate_count: 1
+        };
+
+        const response = await fetch(`https://gemini.googleapis.com/v1/models/gemini-1.5-mini:generate?key=${encodeURIComponent(key)}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(requestBody)
+        });
+
+        const data = await response.json().catch(() => null);
+        if (!response.ok) {
+            const message = data?.error?.message || response.statusText || 'Direct Gemini request failed';
+            throw new Error(message);
+        }
+
+        const candidate = data?.candidates?.[0];
+        let message = '';
+        if (candidate) {
+            if (typeof candidate.content === 'string') {
+                message = candidate.content;
+            } else if (Array.isArray(candidate.content)) {
+                message = candidate.content.map(item => item.text || '').join('');
+            } else if (candidate.content?.text) {
+                message = candidate.content.text;
+            }
+        }
+
+        if (!message) {
+            throw new Error('Direct Gemini returned no answer.');
+        }
+
+        return { message };
     },
 
     setThinkingState(active) {

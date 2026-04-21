@@ -2,71 +2,108 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-// Function to fetch data from URLs
-function fetchData(url) {
+// Gemini API key from environment
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+if (!GEMINI_API_KEY) {
+    console.error('❌ GEMINI_API_KEY environment variable is required');
+    process.exit(1);
+}
+
+// Function to call Gemini API
+async function callGemini(prompt) {
+    const requestBody = {
+        prompt: { messages: [{ role: 'user', content: prompt }] },
+        temperature: 0.7,
+        max_output_tokens: 1000,
+        candidate_count: 1
+    };
+
     return new Promise((resolve, reject) => {
-        https.get(url, (res) => {
-            let data = '';
-            res.on('data', chunk => data += chunk);
-            res.on('end', () => resolve(data));
-        }).on('error', reject);
+        const data = JSON.stringify(requestBody);
+        const options = {
+            hostname: 'gemini.googleapis.com',
+            path: `/v1/models/gemini-1.5-mini:generate?key=${encodeURIComponent(GEMINI_API_KEY)}`,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': data.length
+            }
+        };
+
+        const req = https.request(options, (res) => {
+            let body = '';
+            res.on('data', (chunk) => body += chunk);
+            res.on('end', () => {
+                try {
+                    const response = JSON.parse(body);
+                    if (response.candidates && response.candidates[0]) {
+                        resolve(response.candidates[0].content);
+                    } else {
+                        reject(new Error('No response from Gemini'));
+                    }
+                } catch (error) {
+                    reject(error);
+                }
+            });
+        });
+
+        req.on('error', reject);
+        req.write(data);
+        req.end();
     });
 }
 
-// Function to parse RBSE announcements (simplified - you may need to scrape)
-async function fetchRBSEData() {
+// Function to generate RBSE-style announcements using Gemini
+async function generateRBSEData() {
     try {
-        // RBSE Official Website - exam schedules
-        const rbseUrl = 'https://rajeduboard.rajasthan.gov.in';
-        console.log('Fetching RBSE data...');
+        console.log('Generating RBSE data with Gemini...');
+        const prompt = `Generate 3-5 realistic RBSE (Rajasthan Board of Secondary Education) announcements about exam schedules, results, or important notices. Format as JSON array with objects containing: id (unique string), title, content (detailed), link (realistic URL), date (ISO string). Make them educational and relevant.`;
         
-        // Note: Actual scraping would need cheerio or puppeteer
+        const response = await callGemini(prompt);
+        const announcements = JSON.parse(response.replace(/```json\n?|\n?```/g, ''));
+        
         return {
-            source: 'RBSE Official',
+            source: 'Gemini AI Generated',
             lastUpdated: new Date().toISOString(),
-            announcements: [
-                {
-                    id: `rbse_${Date.now()}`,
-                    title: 'RBSE Updates',
-                    content: 'Check official RBSE website for latest announcements',
-                    link: rbseUrl,
-                    date: new Date().toISOString()
-                }
-            ]
+            announcements: announcements.map(item => ({
+                ...item,
+                id: `rbse_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+            }))
         };
     } catch (error) {
-        console.error('RBSE Fetch Error:', error.message);
+        console.error('RBSE Generation Error:', error.message);
         return null;
     }
 }
 
-// Function to fetch GitHub releases/updates
-async function fetchGitHubData() {
+// Function to generate educational updates using Gemini
+async function generateEducationalUpdates() {
     try {
-        console.log('Fetching GitHub updates...');
-        // You can fetch from specific repos here
+        console.log('Generating educational updates with Gemini...');
+        const prompt = `Generate 3-5 educational updates about study tips, new learning resources, or academic news for RBSE students. Format as JSON array with objects containing: id (unique string), title, content (helpful and encouraging), date (ISO string). Focus on Rajasthan education board context.`;
+        
+        const response = await callGemini(prompt);
+        const updates = JSON.parse(response.replace(/```json\n?|\n?```/g, ''));
+        
         return {
-            source: 'GitHub',
+            source: 'Gemini AI Generated',
             lastUpdated: new Date().toISOString(),
-            updates: [
-                {
-                    id: `github_${Date.now()}`,
-                    title: 'Latest Updates',
-                    content: 'New educational resources available',
-                    date: new Date().toISOString()
-                }
-            ]
+            updates: updates.map(item => ({
+                ...item,
+                id: `edu_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+            }))
         };
     } catch (error) {
-        console.error('GitHub Fetch Error:', error.message);
+        console.error('Educational Updates Generation Error:', error.message);
         return null;
     }
 }
 
 // Function to generate news feed
 async function generateNewsFeed() {
-    const rbseData = await fetchRBSEData();
-    const githubData = await fetchGitHubData();
+    const rbseData = await generateRBSEData();
+    const githubData = await generateEducationalUpdates();
     
     const newsFeed = {
         lastUpdated: new Date().toISOString(),

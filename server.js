@@ -4,7 +4,7 @@ const path = require('path');
 const url = require('url');
 
 const PORT = process.env.PORT || 3000;
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyDpKP6AShxDF7kh2chMTedtE8hdzUAf1Jo';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const ROOT_DIR = path.resolve(__dirname);
 
 const MIME_TYPES = {

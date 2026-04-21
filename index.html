@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDCB | EDCB Rajasthan Board </title>
     <link rel="stylesheet" href="style.css">
+    <!-- DevTools & Inspect Prevention -->
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        
+        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J
+        document.addEventListener('keydown', e => {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'C') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J')) {
+                e.preventDefault();
+            }
+        });
+        
+        // Detect DevTools opening
+        const checkDevTools = setInterval(() => {
+            const start = new Date().getTime();
+            debugger;
+            const end = new Date().getTime();
+            if (end - start > 100) {
+                // DevTools is open
+                document.body.style.display = 'none';
+                alert('Access Denied: Inspect/DevTools is not allowed');
+                window.location.href = 'about:blank';
+            }
+        }, 1000);
+        
+        // Disable console
+        console.log = () => {};
+        console.warn = () => {};
+        console.error = () => {};
+    </script>
 </head>
 <body>
     <div class="page-shell">

@@ -72,6 +72,96 @@ const EDCB = {
                 this.handleAISend();
             });
         }
+
+        // Feature button handlers
+        document.querySelectorAll('.feature-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const feature = e.target.dataset.feature;
+                this.showFeaturePanel(feature);
+            });
+        });
+
+        // Quiz handlers
+        this.quizSubject = document.getElementById('quiz-subject');
+        this.quizDifficulty = document.getElementById('quiz-difficulty');
+        this.startQuizBtn = document.getElementById('start-quiz');
+        this.quizContent = document.getElementById('quiz-content');
+        this.quizResults = document.getElementById('quiz-results');
+
+        if (this.startQuizBtn) {
+            this.startQuizBtn.addEventListener('click', () => this.startQuiz());
+        }
+
+        // Planner handlers
+        this.plannerDate = document.getElementById('planner-date');
+        this.plannerSubject = document.getElementById('planner-subject');
+        this.plannerTopic = document.getElementById('planner-topic');
+        this.plannerDuration = document.getElementById('planner-duration');
+        this.addPlanBtn = document.getElementById('add-plan');
+        this.plannerCalendar = document.getElementById('planner-calendar');
+
+        if (this.addPlanBtn) {
+            this.addPlanBtn.addEventListener('click', () => this.addStudyPlan());
+        }
+
+        // Flashcard handlers
+        this.flashcardFront = document.getElementById('flashcard-front');
+        this.flashcardBack = document.getElementById('flashcard-back');
+        this.flashcardSubject = document.getElementById('flashcard-subject');
+        this.addFlashcardBtn = document.getElementById('add-flashcard');
+        this.flashcardDeck = document.getElementById('flashcard-deck');
+        this.prevCardBtn = document.getElementById('prev-card');
+        this.nextCardBtn = document.getElementById('next-card');
+        this.flipCardBtn = document.getElementById('flip-card');
+        this.cardCounter = document.getElementById('card-counter');
+
+        if (this.addFlashcardBtn) {
+            this.addFlashcardBtn.addEventListener('click', () => this.addFlashcard());
+        }
+        if (this.prevCardBtn) this.prevCardBtn.addEventListener('click', () => this.navigateCard(-1));
+        if (this.nextCardBtn) this.nextCardBtn.addEventListener('click', () => this.navigateCard(1));
+        if (this.flipCardBtn) this.flipCardBtn.addEventListener('click', () => this.flipCard());
+
+        // Timer handlers
+        this.startTimerBtn = document.getElementById('start-timer');
+        this.pauseTimerBtn = document.getElementById('pause-timer');
+        this.resetTimerBtn = document.getElementById('reset-timer');
+        this.timerDisplay = document.getElementById('timer-display');
+        this.studyDuration = document.getElementById('study-duration');
+        this.breakDuration = document.getElementById('break-duration');
+        this.sessionCount = document.getElementById('session-count');
+        this.timerStats = document.getElementById('timer-stats');
+
+        if (this.startTimerBtn) this.startTimerBtn.addEventListener('click', () => this.startTimer());
+        if (this.pauseTimerBtn) this.pauseTimerBtn.addEventListener('click', () => this.pauseTimer());
+        if (this.resetTimerBtn) this.resetTimerBtn.addEventListener('click', () => this.resetTimer());
+
+        // Calculator handlers
+        this.addGradeRowBtn = document.getElementById('add-grade-row');
+        this.calculateGradeBtn = document.getElementById('calculate-grade');
+        this.gradeResult = document.getElementById('grade-result');
+
+        if (this.addGradeRowBtn) this.addGradeRowBtn.addEventListener('click', () => this.addGradeRow());
+        if (this.calculateGradeBtn) this.calculateGradeBtn.addEventListener('click', () => this.calculateGrade());
+
+        // Dictionary handlers
+        this.dictSearch = document.getElementById('dict-search');
+        this.searchWordBtn = document.getElementById('search-word');
+        this.dictionaryResult = document.getElementById('dictionary-result');
+
+        if (this.searchWordBtn) this.searchWordBtn.addEventListener('click', () => this.searchDictionary());
+
+        // Theme handlers
+        document.querySelectorAll('.theme-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                const theme = e.currentTarget.dataset.theme;
+                this.switchTheme(theme);
+            });
+        });
+
+        document.getElementById('neon-effects')?.addEventListener('change', (e) => this.toggleNeon(e.target.checked));
+        document.getElementById('glass-morphism')?.addEventListener('change', (e) => this.toggleGlass(e.target.checked));
+        document.getElementById('animations')?.addEventListener('change', (e) => this.toggleAnimations(e.target.checked));
     },
 
     async handleAISend() {
@@ -446,6 +536,629 @@ const EDCB = {
             window.open(brandedUrl, '_blank', 'width=1200,height=800');
             this.resultOutput.innerHTML = `<p>Opening official RBSE result portal...</p>`;
         }, 2000);
+    },
+
+    // ===== NEW FEATURE METHODS =====
+
+    showFeaturePanel(feature) {
+        // Hide all feature panels
+        document.querySelectorAll('.feature-panel').forEach(panel => {
+            panel.style.display = 'none';
+        });
+
+        // Show selected feature panel
+        const panel = document.getElementById(`${feature}-panel`);
+        if (panel) {
+            panel.style.display = 'block';
+            panel.scrollIntoView({ behavior: 'smooth' });
+
+            // Initialize feature if needed
+            switch(feature) {
+                case 'quiz':
+                    this.initializeQuiz();
+                    break;
+                case 'flashcards':
+                    this.initializeFlashcards();
+                    break;
+                case 'planner':
+                    this.initializePlanner();
+                    break;
+                case 'timer':
+                    this.initializeTimer();
+                    break;
+                case 'tracker':
+                    this.initializeTracker();
+                    break;
+                case 'calculator':
+                    this.initializeCalculator();
+                    break;
+                case 'dictionary':
+                    this.initializeDictionary();
+                    break;
+                case 'theme':
+                    this.initializeTheme();
+                    break;
+            }
+        }
+    },
+
+    // Quiz System
+    initializeQuiz() {
+        this.currentQuiz = null;
+        this.quizScore = 0;
+        this.quizQuestions = [];
+        this.currentQuestionIndex = 0;
+    },
+
+    async startQuiz() {
+        const subject = this.quizSubject.value;
+        const difficulty = this.quizDifficulty.value;
+
+        if (!subject) {
+            alert('Please select a subject');
+            return;
+        }
+
+        // Load quiz data from news-updates.json (which contains quiz data)
+        try {
+            const response = await fetch('./news-updates.json');
+            const data = await response.json();
+
+            if (data.sources?.quizzes?.quizzes?.[subject]) {
+                this.quizQuestions = data.sources.quizzes.quizzes[subject]
+                    .filter(q => !difficulty || q.difficulty === difficulty)
+                    .slice(0, 10); // Take 10 questions
+
+                if (this.quizQuestions.length === 0) {
+                    alert('No quiz questions available for this subject and difficulty');
+                    return;
+                }
+
+                this.currentQuestionIndex = 0;
+                this.quizScore = 0;
+                this.showQuestion();
+                this.quizResults.style.display = 'none';
+                this.quizContent.style.display = 'block';
+            } else {
+                alert('Quiz data not available. Please wait for auto-update.');
+            }
+        } catch (error) {
+            alert('Failed to load quiz data');
+        }
+    },
+
+    showQuestion() {
+        const question = this.quizQuestions[this.currentQuestionIndex];
+        this.quizContent.innerHTML = `
+            <div class="question-card">
+                <h3>Question ${this.currentQuestionIndex + 1}/10</h3>
+                <p class="question-text">${question.question}</p>
+                <div class="options">
+                    ${question.options.map((option, index) => `
+                        <button class="option-btn" data-index="${index}">${option}</button>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        // Add event listeners to options
+        this.quizContent.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => this.answerQuestion(parseInt(e.target.dataset.index)));
+        });
+    },
+
+    answerQuestion(selectedIndex) {
+        const question = this.quizQuestions[this.currentQuestionIndex];
+        const selectedAnswer = question.options[selectedIndex];
+        const isCorrect = selectedAnswer === question.answer;
+
+        if (isCorrect) this.quizScore++;
+
+        // Show result
+        this.quizContent.innerHTML += `
+            <div class="answer-feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                <p>${isCorrect ? '✅ Correct!' : '❌ Incorrect'}</p>
+                <p>Correct answer: ${question.answer}</p>
+            </div>
+        `;
+
+        setTimeout(() => {
+            this.currentQuestionIndex++;
+            if (this.currentQuestionIndex < this.quizQuestions.length) {
+                this.showQuestion();
+            } else {
+                this.showQuizResults();
+            }
+        }, 2000);
+    },
+
+    showQuizResults() {
+        const percentage = Math.round((this.quizScore / this.quizQuestions.length) * 100);
+        this.quizContent.style.display = 'none';
+        this.quizResults.style.display = 'block';
+        this.quizResults.innerHTML = `
+            <div class="quiz-results-card">
+                <h3>Quiz Complete!</h3>
+                <div class="score-display">
+                    <div class="score-circle">${percentage}%</div>
+                    <p>You scored ${this.quizScore} out of ${this.quizQuestions.length}</p>
+                </div>
+                <div class="performance-message">
+                    ${percentage >= 80 ? '🎉 Excellent work!' : 
+                      percentage >= 60 ? '👍 Good job!' : 
+                      '📚 Keep practicing!'}
+                </div>
+                <button id="retake-quiz" class="action-btn">Take Another Quiz</button>
+            </div>
+        `;
+
+        document.getElementById('retake-quiz').addEventListener('click', () => this.startQuiz());
+    },
+
+    // Study Planner
+    initializePlanner() {
+        this.studyPlans = JSON.parse(localStorage.getItem('edcb-study-plans') || '[]');
+        this.renderPlanner();
+    },
+
+    addStudyPlan() {
+        const date = this.plannerDate.value;
+        const subject = this.plannerSubject.value;
+        const topic = this.plannerTopic.value;
+        const duration = parseInt(this.plannerDuration.value);
+
+        if (!date || !subject || !topic || !duration) {
+            alert('Please fill all fields');
+            return;
+        }
+
+        const plan = {
+            id: Date.now(),
+            date,
+            subject,
+            topic,
+            duration,
+            completed: false
+        };
+
+        this.studyPlans.push(plan);
+        this.saveStudyPlans();
+        this.renderPlanner();
+
+        // Clear form
+        this.plannerDate.value = '';
+        this.plannerSubject.value = '';
+        this.plannerTopic.value = '';
+        this.plannerDuration.value = '';
+    },
+
+    renderPlanner() {
+        const today = new Date().toISOString().split('T')[0];
+        const weekPlans = this.studyPlans.filter(plan => {
+            const planDate = new Date(plan.date);
+            const todayDate = new Date(today);
+            const diffTime = planDate - todayDate;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays >= 0 && diffDays <= 7;
+        });
+
+        this.plannerCalendar.innerHTML = weekPlans.map(plan => `
+            <div class="plan-item ${plan.completed ? 'completed' : ''}">
+                <div class="plan-header">
+                    <span class="plan-date">${new Date(plan.date).toLocaleDateString()}</span>
+                    <span class="plan-subject">${plan.subject}</span>
+                </div>
+                <div class="plan-content">
+                    <h4>${plan.topic}</h4>
+                    <p>${plan.duration} minutes</p>
+                    <button class="complete-btn" data-id="${plan.id}">
+                        ${plan.completed ? '✓ Completed' : 'Mark Complete'}
+                    </button>
+                </div>
+            </div>
+        `).join('');
+
+        // Add event listeners
+        this.plannerCalendar.querySelectorAll('.complete-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(e.target.dataset.id);
+                this.togglePlanComplete(id);
+            });
+        });
+    },
+
+    togglePlanComplete(id) {
+        const plan = this.studyPlans.find(p => p.id === id);
+        if (plan) {
+            plan.completed = !plan.completed;
+            this.saveStudyPlans();
+            this.renderPlanner();
+        }
+    },
+
+    saveStudyPlans() {
+        localStorage.setItem('edcb-study-plans', JSON.stringify(this.studyPlans));
+    },
+
+    // Flashcards
+    initializeFlashcards() {
+        this.flashcards = JSON.parse(localStorage.getItem('edcb-flashcards') || '[]');
+        this.currentCardIndex = 0;
+        this.showingFront = true;
+        this.renderFlashcards();
+    },
+
+    addFlashcard() {
+        const front = this.flashcardFront.value.trim();
+        const back = this.flashcardBack.value.trim();
+        const subject = this.flashcardSubject.value;
+
+        if (!front || !back || !subject) {
+            alert('Please fill all fields');
+            return;
+        }
+
+        const card = {
+            id: Date.now(),
+            front,
+            back,
+            subject,
+            created: new Date().toISOString()
+        };
+
+        this.flashcards.push(card);
+        this.saveFlashcards();
+        this.renderFlashcards();
+
+        // Clear form
+        this.flashcardFront.value = '';
+        this.flashcardBack.value = '';
+    },
+
+    renderFlashcards() {
+        if (this.flashcards.length === 0) {
+            this.flashcardDeck.innerHTML = '<p>No flashcards yet. Add some above!</p>';
+            this.cardCounter.textContent = '0/0';
+            return;
+        }
+
+        const card = this.flashcards[this.currentCardIndex];
+        this.flashcardDeck.innerHTML = `
+            <div class="flashcard ${this.showingFront ? 'front' : 'back'}">
+                <div class="card-content">
+                    ${this.showingFront ? card.front : card.back}
+                </div>
+                <div class="card-subject">${card.subject}</div>
+            </div>
+        `;
+
+        this.cardCounter.textContent = `${this.currentCardIndex + 1}/${this.flashcards.length}`;
+    },
+
+    navigateCard(direction) {
+        if (this.flashcards.length === 0) return;
+
+        this.currentCardIndex += direction;
+        if (this.currentCardIndex < 0) this.currentCardIndex = this.flashcards.length - 1;
+        if (this.currentCardIndex >= this.flashcards.length) this.currentCardIndex = 0;
+
+        this.showingFront = true;
+        this.renderFlashcards();
+    },
+
+    flipCard() {
+        this.showingFront = !this.showingFront;
+        this.renderFlashcards();
+    },
+
+    saveFlashcards() {
+        localStorage.setItem('edcb-flashcards', JSON.stringify(this.flashcards));
+    },
+
+    // Study Timer
+    initializeTimer() {
+        this.timerRunning = false;
+        this.timerPaused = false;
+        this.timeLeft = 25 * 60; // 25 minutes in seconds
+        this.isBreak = false;
+        this.currentSession = 1;
+        this.totalSessions = parseInt(this.sessionCount.value) || 4;
+        this.updateTimerDisplay();
+    },
+
+    startTimer() {
+        if (this.timerRunning) return;
+
+        this.timerRunning = true;
+        this.timerInterval = setInterval(() => {
+            this.timeLeft--;
+            this.updateTimerDisplay();
+
+            if (this.timeLeft <= 0) {
+                this.timerComplete();
+            }
+        }, 1000);
+
+        this.startTimerBtn.textContent = 'Running...';
+        this.pauseTimerBtn.disabled = false;
+    },
+
+    pauseTimer() {
+        if (!this.timerRunning) return;
+
+        this.timerRunning = false;
+        clearInterval(this.timerInterval);
+        this.startTimerBtn.textContent = 'Resume';
+        this.pauseTimerBtn.disabled = true;
+    },
+
+    resetTimer() {
+        clearInterval(this.timerInterval);
+        this.timerRunning = false;
+        this.timerPaused = false;
+        this.timeLeft = (this.isBreak ? parseInt(this.breakDuration.value) : parseInt(this.studyDuration.value)) * 60;
+        this.startTimerBtn.textContent = 'Start';
+        this.pauseTimerBtn.disabled = false;
+        this.updateTimerDisplay();
+    },
+
+    timerComplete() {
+        clearInterval(this.timerInterval);
+        this.timerRunning = false;
+
+        // Play notification sound (if supported)
+        if ('Notification' in window && Notification.permission === 'granted') {
+            new Notification('EDCB Timer', {
+                body: this.isBreak ? 'Break time over! Back to studying.' : 'Study session complete! Take a break.',
+                icon: '/favicon.ico'
+            });
+        }
+
+        // Switch between study and break
+        this.isBreak = !this.isBreak;
+        this.timeLeft = (this.isBreak ? parseInt(this.breakDuration.value) : parseInt(this.studyDuration.value)) * 60;
+
+        if (!this.isBreak) {
+            this.currentSession++;
+            if (this.currentSession > this.totalSessions) {
+                this.currentSession = 1;
+                alert('All sessions complete! Great work!');
+            }
+        }
+
+        this.updateTimerDisplay();
+        this.startTimerBtn.textContent = 'Start';
+    },
+
+    updateTimerDisplay() {
+        const minutes = Math.floor(this.timeLeft / 60);
+        const seconds = this.timeLeft % 60;
+        this.timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        // Update session info
+        const sessionInfo = `Session ${this.currentSession}/${this.totalSessions} - ${this.isBreak ? 'Break' : 'Study'}`;
+        this.timerStats.innerHTML = `
+            <div>Current: ${sessionInfo}</div>
+            <div>Next: ${this.isBreak ? 'Study' : 'Break'}</div>
+        `;
+    },
+
+    // Progress Tracker
+    initializeTracker() {
+        this.loadProgressData();
+        this.renderProgressChart();
+        this.renderSubjectProgress();
+    },
+
+    loadProgressData() {
+        this.progressData = JSON.parse(localStorage.getItem('edcb-progress') || '{}');
+        this.progressData.totalStudyTime = this.progressData.totalStudyTime || 0;
+        this.progressData.quizzesCompleted = this.progressData.quizzesCompleted || 0;
+        this.progressData.averageScore = this.progressData.averageScore || 0;
+        this.progressData.subjects = this.progressData.subjects || {};
+    },
+
+    renderProgressChart() {
+        // Simple progress visualization
+        const chart = document.getElementById('progress-chart');
+        const totalTime = Math.floor(this.progressData.totalStudyTime / 60); // hours
+        const quizzes = this.progressData.quizzesCompleted;
+        const avgScore = this.progressData.averageScore;
+
+        chart.innerHTML = `
+            <div class="progress-bars">
+                <div class="progress-bar">
+                    <label>Study Hours: ${totalTime}h</label>
+                    <div class="bar" style="width: ${Math.min(totalTime * 10, 100)}%"></div>
+                </div>
+                <div class="progress-bar">
+                    <label>Quizzes: ${quizzes}</label>
+                    <div class="bar" style="width: ${Math.min(quizzes * 10, 100)}%"></div>
+                </div>
+                <div class="progress-bar">
+                    <label>Average Score: ${avgScore}%</label>
+                    <div class="bar" style="width: ${avgScore}%"></div>
+                </div>
+            </div>
+        `;
+
+        // Update stats
+        document.getElementById('total-study-time').textContent = `${Math.floor(totalTime / 60)}h ${totalTime % 60}m`;
+        document.getElementById('quizzes-completed').textContent = quizzes;
+        document.getElementById('average-score').textContent = `${avgScore}%`;
+    },
+
+    renderSubjectProgress() {
+        const container = document.getElementById('subject-progress');
+        const subjects = Object.keys(this.progressData.subjects);
+
+        container.innerHTML = subjects.map(subject => {
+            const data = this.progressData.subjects[subject];
+            return `
+                <div class="subject-progress-item">
+                    <h4>${subject}</h4>
+                    <div class="subject-stats">
+                        <span>Quizzes: ${data.quizzes || 0}</span>
+                        <span>Avg Score: ${data.averageScore || 0}%</span>
+                        <span>Study Time: ${Math.floor((data.studyTime || 0) / 60)}h</span>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    },
+
+    // Grade Calculator
+    initializeCalculator() {
+        this.gradeRows = [];
+        this.addGradeRow(); // Add first row
+    },
+
+    addGradeRow() {
+        const row = document.createElement('div');
+        row.className = 'grade-row';
+        row.innerHTML = `
+            <input type="text" placeholder="Subject" class="subject-input" />
+            <input type="number" placeholder="Marks Obtained" class="marks-input" min="0" max="100" />
+            <input type="number" placeholder="Total Marks" class="total-input" min="1" max="100" />
+            <input type="number" placeholder="Weight (%)" class="weight-input" min="1" max="100" value="100" />
+            <button class="remove-grade">×</button>
+        `;
+
+        document.querySelector('.grade-inputs').appendChild(row);
+
+        // Add remove functionality
+        row.querySelector('.remove-grade').addEventListener('click', () => {
+            row.remove();
+        });
+    },
+
+    calculateGrade() {
+        const rows = document.querySelectorAll('.grade-row');
+        let totalWeightedScore = 0;
+        let totalWeight = 0;
+
+        rows.forEach(row => {
+            const subject = row.querySelector('.subject-input').value.trim();
+            const marks = parseFloat(row.querySelector('.marks-input').value);
+            const total = parseFloat(row.querySelector('.total-input').value);
+            const weight = parseFloat(row.querySelector('.weight-input').value);
+
+            if (subject && !isNaN(marks) && !isNaN(total) && !isNaN(weight)) {
+                const percentage = (marks / total) * 100;
+                totalWeightedScore += (percentage * weight);
+                totalWeight += weight;
+            }
+        });
+
+        if (totalWeight === 0) {
+            this.gradeResult.innerHTML = '<p>Please enter valid grade data</p>';
+            return;
+        }
+
+        const finalGrade = totalWeightedScore / totalWeight;
+        const letterGrade = this.getLetterGrade(finalGrade);
+
+        this.gradeResult.innerHTML = `
+            <div class="grade-result-card">
+                <h3>Final Grade: ${finalGrade.toFixed(2)}%</h3>
+                <div class="letter-grade">${letterGrade}</div>
+                <div class="grade-breakdown">
+                    <p>Weighted Average Calculation</p>
+                    <p>Total Weighted Score: ${totalWeightedScore.toFixed(2)}</p>
+                    <p>Total Weight: ${totalWeight}</p>
+                </div>
+            </div>
+        `;
+    },
+
+    getLetterGrade(percentage) {
+        if (percentage >= 90) return 'A+ (Outstanding)';
+        if (percentage >= 80) return 'A (Excellent)';
+        if (percentage >= 70) return 'B (Good)';
+        if (percentage >= 60) return 'C (Satisfactory)';
+        if (percentage >= 50) return 'D (Pass)';
+        return 'F (Fail)';
+    },
+
+    // Dictionary
+    initializeDictionary() {
+        this.dictionaryData = {
+            'algorithm': 'A step-by-step procedure for solving a problem',
+            'variable': 'A storage location with a symbolic name',
+            'function': 'A block of code that performs a specific task',
+            'array': 'A data structure that stores multiple values',
+            'loop': 'A programming construct that repeats a block of code',
+            'database': 'An organized collection of data',
+            'network': 'A group of interconnected computers',
+            'encryption': 'The process of converting data into a coded format',
+            'debugging': 'The process of finding and fixing errors in code',
+            'interface': 'A point where two systems meet and interact'
+        };
+    },
+
+    searchDictionary() {
+        const word = this.dictSearch.value.trim().toLowerCase();
+        if (!word) {
+            this.dictionaryResult.innerHTML = '<p>Please enter a word to search</p>';
+            return;
+        }
+
+        const definition = this.dictionaryData[word];
+        if (definition) {
+            this.dictionaryResult.innerHTML = `
+                <div class="dictionary-entry">
+                    <h3>${word.charAt(0).toUpperCase() + word.slice(1)}</h3>
+                    <p>${definition}</p>
+                    <div class="word-actions">
+                        <button class="bookmark-word">Bookmark</button>
+                        <button class="pronounce-word">Pronounce</button>
+                    </div>
+                </div>
+            `;
+        } else {
+            this.dictionaryResult.innerHTML = `
+                <div class="no-result">
+                    <p>Word not found in dictionary</p>
+                    <p>Try: algorithm, variable, function, array, loop, database, network, encryption, debugging, interface</p>
+                </div>
+            `;
+        }
+    },
+
+    // Theme Switcher
+    initializeTheme() {
+        this.currentTheme = localStorage.getItem('edcb-theme') || 'light';
+        this.applyTheme(this.currentTheme);
+    },
+
+    switchTheme(theme) {
+        this.currentTheme = theme;
+        this.applyTheme(theme);
+        localStorage.setItem('edcb-theme', theme);
+    },
+
+    applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // Update active theme option
+        document.querySelectorAll('.theme-option').forEach(option => {
+            option.classList.toggle('active', option.dataset.theme === theme);
+        });
+    },
+
+    toggleNeon(enabled) {
+        document.documentElement.classList.toggle('neon-disabled', !enabled);
+        localStorage.setItem('edcb-neon', enabled);
+    },
+
+    toggleGlass(enabled) {
+        document.documentElement.classList.toggle('glass-disabled', !enabled);
+        localStorage.setItem('edcb-glass', enabled);
+    },
+
+    toggleAnimations(enabled) {
+        document.documentElement.classList.toggle('animations-disabled', !enabled);
+        localStorage.setItem('edcb-animations', enabled);
     }
 };
 

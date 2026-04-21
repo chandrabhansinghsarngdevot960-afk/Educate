@@ -66,11 +66,82 @@
                     </div>
                 </div>
 
-                <section id="ai-study-hub" class="card glass neon-border">
+                <section id="features-dashboard" class="card glass neon-border">
                     <div class="section-header">
-                        <h2>AI Study Hub</h2>
-                        <p>EDCB Mentor is your legit study friend. Ask questions, upload a photo, or use the camera and get step-by-step help with problems, handwritten notes, and diagrams.</p>
+                        <h2>EDCB Feature Dashboard (100+ Features)</h2>
+                        <p>Complete self-managing educational platform with auto-updates, quizzes, planners, and more.</p>
                     </div>
+                    <div class="features-grid">
+                        <div class="feature-category">
+                            <h3>📚 Study Tools</h3>
+                            <div class="feature-buttons">
+                                <button class="feature-btn" data-feature="quiz">Quiz Generator</button>
+                                <button class="feature-btn" data-feature="flashcards">Flashcards</button>
+                                <button class="feature-btn" data-feature="planner">Study Planner</button>
+                                <button class="feature-btn" data-feature="timer">Study Timer</button>
+                                <button class="feature-btn" data-feature="notes">Note Organizer</button>
+                                <button class="feature-btn" data-feature="calculator">Grade Calculator</button>
+                                <button class="feature-btn" data-feature="dictionary">Dictionary</button>
+                                <button class="feature-btn" data-feature="search">Smart Search</button>
+                            </div>
+                        </div>
+                        <div class="feature-category">
+                            <h3>📊 Progress & Analytics</h3>
+                            <div class="feature-buttons">
+                                <button class="feature-btn" data-feature="tracker">Progress Tracker</button>
+                                <button class="feature-btn" data-feature="stats">Study Statistics</button>
+                                <button class="feature-btn" data-feature="achievements">Achievements</button>
+                                <button class="feature-btn" data-feature="goals">Goal Setting</button>
+                                <button class="feature-btn" data-feature="reports">Performance Reports</button>
+                                <button class="feature-btn" data-feature="analytics">Learning Analytics</button>
+                            </div>
+                        </div>
+                        <div class="feature-category">
+                            <h3>⚙️ Customization</h3>
+                            <div class="feature-buttons">
+                                <button class="feature-btn" data-feature="theme">Theme Switcher</button>
+                                <button class="feature-btn" data-feature="font">Font Settings</button>
+                                <button class="feature-btn" data-feature="language">Language Switch</button>
+                                <button class="feature-btn" data-feature="layout">Layout Options</button>
+                                <button class="feature-btn" data-feature="shortcuts">Keyboard Shortcuts</button>
+                                <button class="feature-btn" data-feature="accessibility">Accessibility</button>
+                            </div>
+                        </div>
+                        <div class="feature-category">
+                            <h3>💾 Data Management</h3>
+                            <div class="feature-buttons">
+                                <button class="feature-btn" data-feature="backup">Auto Backup</button>
+                                <button class="feature-btn" data-feature="export">Export Data</button>
+                                <button class="feature-btn" data-feature="import">Import Data</button>
+                                <button class="feature-btn" data-feature="sync">Cloud Sync</button>
+                                <button class="feature-btn" data-feature="reset">Reset Data</button>
+                                <button class="feature-btn" data-feature="storage">Storage Manager</button>
+                            </div>
+                        </div>
+                        <div class="feature-category">
+                            <h3>🎯 Advanced Features</h3>
+                            <div class="feature-buttons">
+                                <button class="feature-btn" data-feature="mindmap">Mind Map Creator</button>
+                                <button class="feature-btn" data-feature="scheduler">Smart Scheduler</button>
+                                <button class="feature-btn" data-feature="reminder">Smart Reminders</button>
+                                <button class="feature-btn" data-feature="collaboration">Study Groups</button>
+                                <button class="feature-btn" data-feature="tutorials">Video Tutorials</button>
+                                <button class="feature-btn" data-feature="practice">Practice Mode</button>
+                            </div>
+                        </div>
+                        <div class="feature-category">
+                            <h3>🔧 Utilities</h3>
+                            <div class="feature-buttons">
+                                <button class="feature-btn" data-feature="converter">Unit Converter</button>
+                                <button class="feature-btn" data-feature="math">Math Solver</button>
+                                <button class="feature-btn" data-feature="formula">Formula Sheet</button>
+                                <button class="feature-btn" data-feature="periodic">Periodic Table</button>
+                                <button class="feature-btn" data-feature="map">Concept Map</button>
+                                <button class="feature-btn" data-feature="bookmark">Bookmark Manager</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                     <div class="ai-grid">
                         <div class="ai-guide-panel">
                             <div class="ai-actions">
@@ -164,6 +235,196 @@
                     </div>
                     <div id="video-grid" class="video-grid"></div>
                 </section>
+
+                <!-- Feature Panels -->
+                <div id="feature-panels" class="feature-panels">
+                    <!-- Quiz System -->
+                    <section id="quiz-panel" class="feature-panel card glass" style="display: none;">
+                        <div class="section-header">
+                            <h2>🎯 Interactive Quiz System</h2>
+                            <p>Test your knowledge with auto-generated questions across all subjects.</p>
+                        </div>
+                        <div class="quiz-controls">
+                            <select id="quiz-subject">
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="English">English</option>
+                                <option value="Hindi">Hindi</option>
+                                <option value="Social Science">Social Science</option>
+                            </select>
+                            <select id="quiz-difficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                            <button id="start-quiz" class="action-btn">Start Quiz</button>
+                        </div>
+                        <div id="quiz-content" class="quiz-content"></div>
+                        <div id="quiz-results" class="quiz-results" style="display: none;"></div>
+                    </section>
+
+                    <!-- Study Planner -->
+                    <section id="planner-panel" class="feature-panel card glass" style="display: none;">
+                        <div class="section-header">
+                            <h2>📅 Smart Study Planner</h2>
+                            <p>Create personalized study schedules and track your progress.</p>
+                        </div>
+                        <div class="planner-controls">
+                            <input type="date" id="planner-date" />
+                            <select id="planner-subject">
+                                <option value="">Select Subject</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="English">English</option>
+                            </select>
+                            <input type="text" id="planner-topic" placeholder="Topic to study" />
+                            <input type="number" id="planner-duration" placeholder="Duration (minutes)" min="15" max="480" />
+                            <button id="add-plan" class="action-btn">Add to Plan</button>
+                        </div>
+                        <div id="planner-calendar" class="planner-calendar"></div>
+                    </section>
+
+                    <!-- Flashcards -->
+                    <section id="flashcards-panel" class="feature-panel card glass" style="display: none;">
+                        <div class="section-header">
+                            <h2>🃏 Digital Flashcards</h2>
+                            <p>Create and review flashcards for better memorization.</p>
+                        </div>
+                        <div class="flashcard-controls">
+                            <input type="text" id="flashcard-front" placeholder="Front (Question)" />
+                            <input type="text" id="flashcard-back" placeholder="Back (Answer)" />
+                            <select id="flashcard-subject">
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="English">English</option>
+                            </select>
+                            <button id="add-flashcard" class="action-btn">Add Flashcard</button>
+                        </div>
+                        <div id="flashcard-deck" class="flashcard-deck"></div>
+                        <div class="flashcard-navigation">
+                            <button id="prev-card" class="nav-btn">Previous</button>
+                            <span id="card-counter">0/0</span>
+                            <button id="next-card" class="nav-btn">Next</button>
+                            <button id="flip-card" class="action-btn">Flip</button>
+                        </div>
+                    </section>
+
+                    <!-- Study Timer -->
+                    <section id="timer-panel" class="feature-panel card glass" style="display: none;">
+                        <div class="section-header">
+                            <h2>⏱️ Pomodoro Study Timer</h2>
+                            <p>Boost productivity with focused study sessions and breaks.</p>
+                        </div>
+                        <div class="timer-display">
+                            <div id="timer-circle" class="timer-circle">
+                                <span id="timer-display">25:00</span>
+                            </div>
+                            <div class="timer-controls">
+                                <button id="start-timer" class="action-btn">Start</button>
+                                <button id="pause-timer" class="ghost-btn">Pause</button>
+                                <button id="reset-timer" class="ghost-btn">Reset</button>
+                            </div>
+                        </div>
+                        <div class="timer-settings">
+                            <label>Study Duration: <input type="number" id="study-duration" value="25" min="5" max="60" /> min</label>
+                            <label>Break Duration: <input type="number" id="break-duration" value="5" min="1" max="30" /> min</label>
+                            <label>Sessions: <input type="number" id="session-count" value="4" min="1" max="10" /></label>
+                        </div>
+                        <div id="timer-stats" class="timer-stats"></div>
+                    </section>
+
+                    <!-- Progress Tracker -->
+                    <section id="tracker-panel" class="feature-panel card glass" style="display: none;">
+                        <div class="section-header">
+                            <h2>📈 Progress Tracker</h2>
+                            <p>Monitor your learning progress across all subjects.</p>
+                        </div>
+                        <div class="progress-overview">
+                            <div class="progress-chart" id="progress-chart"></div>
+                            <div class="progress-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Total Study Time</span>
+                                    <span class="stat-value" id="total-study-time">0h 0m</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Quizzes Completed</span>
+                                    <span class="stat-value" id="quizzes-completed">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Average Score</span>
+                                    <span class="stat-value" id="average-score">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="subject-progress" class="subject-progress"></div>
+                    </section>
+
+                    <!-- Calculator -->
+                    <section id="calculator-panel" class="feature-panel card glass" style="display: none;">
+                        <div class="section-header">
+                            <h2>🧮 Grade Calculator</h2>
+                            <p>Calculate your grades and predict final results.</p>
+                        </div>
+                        <div class="calculator-form">
+                            <div class="grade-inputs">
+                                <div class="grade-row">
+                                    <input type="text" placeholder="Subject" class="subject-input" />
+                                    <input type="number" placeholder="Marks Obtained" class="marks-input" min="0" max="100" />
+                                    <input type="number" placeholder="Total Marks" class="total-input" min="1" max="100" />
+                                    <input type="number" placeholder="Weight (%)" class="weight-input" min="1" max="100" />
+                                    <button class="remove-grade">×</button>
+                                </div>
+                            </div>
+                            <button id="add-grade-row" class="action-btn">Add Subject</button>
+                            <button id="calculate-grade" class="action-btn">Calculate Grade</button>
+                        </div>
+                        <div id="grade-result" class="grade-result"></div>
+                    </section>
+
+                    <!-- Dictionary -->
+                    <section id="dictionary-panel" class="feature-panel card glass" style="display: none;">
+                        <div class="section-header">
+                            <h2>📖 Smart Dictionary</h2>
+                            <p>Look up definitions, synonyms, and usage examples.</p>
+                        </div>
+                        <div class="dictionary-search">
+                            <input type="text" id="dict-search" placeholder="Enter word to search..." />
+                            <button id="search-word" class="action-btn">Search</button>
+                        </div>
+                        <div id="dictionary-result" class="dictionary-result"></div>
+                    </section>
+
+                    <!-- Theme Switcher -->
+                    <section id="theme-panel" class="feature-panel card glass" style="display: none;">
+                        <div class="section-header">
+                            <h2>🎨 Theme Customizer</h2>
+                            <p>Personalize your learning environment.</p>
+                        </div>
+                        <div class="theme-options">
+                            <div class="theme-option" data-theme="light">
+                                <div class="theme-preview light-theme"></div>
+                                <span>Light</span>
+                            </div>
+                            <div class="theme-option" data-theme="dark">
+                                <div class="theme-preview dark-theme"></div>
+                                <span>Dark</span>
+                            </div>
+                            <div class="theme-option" data-theme="blue">
+                                <div class="theme-preview blue-theme"></div>
+                                <span>Blue</span>
+                            </div>
+                            <div class="theme-option" data-theme="green">
+                                <div class="theme-preview green-theme"></div>
+                                <span>Green</span>
+                            </div>
+                        </div>
+                        <div class="theme-settings">
+                            <label><input type="checkbox" id="neon-effects" /> Neon Effects</label>
+                            <label><input type="checkbox" id="glass-morphism" checked /> Glass Morphism</label>
+                            <label><input type="checkbox" id="animations" checked /> Animations</label>
+                        </div>
+                    </section>
+                </div>
             </section>
 
             <aside class="right-panel glass">

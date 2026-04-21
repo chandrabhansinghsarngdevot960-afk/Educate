@@ -1,50 +1,1633 @@
 {
-  "lastUpdated": "2026-04-19T06:51:02.920Z",
+  "lastUpdated": "2026-04-21T06:12:23.783Z",
   "autoUpdate": {
     "enabled": true,
     "frequency": "6 hours",
-    "nextUpdate": "2026-04-19T12:51:02.920Z"
+    "method": "Self-Contained Generation",
+    "nextUpdate": "2026-04-21T12:12:23.783Z"
   },
   "sources": {
     "rbse": {
-      "source": "RBSE Official",
-      "lastUpdated": "2026-04-19T06:51:02.724Z",
+      "source": "Self-Generated Content System",
+      "lastUpdated": "2026-04-21T06:12:23.319Z",
       "announcements": [
         {
-          "id": "rbse_1776581462887",
-          "title": "RBSE Updates",
-          "content": "Check official RBSE website for latest announcements",
+          "id": "rbse_1776751943299_jxfwicm4o",
+          "title": "RBSE Unit Test examination scheduled for 2026-05-02",
+          "content": "Important announcement from Rajasthan Board of Secondary Education. RBSE Unit Test examination scheduled for 2026-05-02. Please check the official website for more details.",
           "link": "https://rajeduboard.rajasthan.gov.in",
-          "date": "2026-04-19T06:51:02.887Z"
+          "date": "2026-04-21T06:12:23.310Z",
+          "category": "announcement",
+          "priority": "high"
+        },
+        {
+          "id": "rbse_1776751943310_dd1nu7yg1",
+          "title": "Result declaration for Mid-term expected by 2026-05-14",
+          "content": "Important announcement from Rajasthan Board of Secondary Education. Result declaration for Mid-term expected by 2026-05-14. Please check the official website for more details.",
+          "link": "https://rajeduboard.rajasthan.gov.in",
+          "date": "2026-04-21T06:12:23.310Z",
+          "category": "announcement",
+          "priority": "normal"
+        },
+        {
+          "id": "rbse_1776751943310_jg29obqkk",
+          "title": "Teacher training program scheduled for 2026-04-30",
+          "content": "Important announcement from Rajasthan Board of Secondary Education. Teacher training program scheduled for 2026-04-30. Please check the official website for more details.",
+          "link": "https://rajeduboard.rajasthan.gov.in",
+          "date": "2026-04-21T06:12:23.310Z",
+          "category": "announcement",
+          "priority": "normal"
+        },
+        {
+          "id": "rbse_1776751943316_o9d9o1ytz",
+          "title": "Teacher training program scheduled for 2026-05-10",
+          "content": "Important announcement from Rajasthan Board of Secondary Education. Teacher training program scheduled for 2026-05-10. Please check the official website for more details.",
+          "link": "https://rajeduboard.rajasthan.gov.in",
+          "date": "2026-04-21T06:12:23.318Z",
+          "category": "announcement",
+          "priority": "high"
+        },
+        {
+          "id": "rbse_1776751943319_wo4vw966t",
+          "title": "New model papers available for 8 Social Science",
+          "content": "Important announcement from Rajasthan Board of Secondary Education. New model papers available for 8 Social Science. Please check the official website for more details.",
+          "link": "https://rajeduboard.rajasthan.gov.in",
+          "date": "2026-04-21T06:12:23.319Z",
+          "category": "announcement",
+          "priority": "normal"
         }
       ]
     },
-    "github": {
-      "source": "GitHub",
-      "lastUpdated": "2026-04-19T06:51:02.920Z",
+    "educational": {
+      "source": "Self-Generated Content System",
+      "lastUpdated": "2026-04-21T06:12:23.566Z",
       "updates": [
         {
-          "id": "github_1776581462920",
-          "title": "Latest Updates",
-          "content": "New educational resources available",
-          "date": "2026-04-19T06:51:02.920Z"
+          "id": "tip_1776751943565_7kqmooib0",
+          "title": "Study Tip of the Day",
+          "content": "Join study groups for better understanding",
+          "date": "2026-04-21T06:12:23.565Z",
+          "category": "study-tip",
+          "subject": "Social Science",
+          "helpful": 20
+        },
+        {
+          "id": "tip_1776751943565_dxlbkjgr0",
+          "title": "Study Tip of the Day",
+          "content": "Create mind maps for Chemistry chapters",
+          "date": "2026-04-21T06:12:23.565Z",
+          "category": "study-tip",
+          "subject": "Chemistry",
+          "helpful": 29
+        },
+        {
+          "id": "tip_1776751943565_d1ddy3vtt",
+          "title": "Study Tip of the Day",
+          "content": "Discuss difficult topics with teachers",
+          "date": "2026-04-21T06:12:23.565Z",
+          "category": "study-tip",
+          "subject": "Geography",
+          "helpful": 52
+        },
+        {
+          "id": "news_1776751943566_avpnfs0wj",
+          "title": "English speaking course free for students",
+          "content": "English speaking course free for students. This initiative aims to improve educational outcomes for students across Rajasthan.",
+          "date": "2026-04-21T06:12:23.566Z",
+          "category": "news",
+          "source": "EDCB Updates"
+        },
+        {
+          "id": "news_1776751943566_jwa5en7sn",
+          "title": "Digital classroom initiative expands to rural areas",
+          "content": "Digital classroom initiative expands to rural areas. This initiative aims to improve educational outcomes for students across Rajasthan.",
+          "date": "2026-04-21T06:12:23.566Z",
+          "category": "news",
+          "source": "EDCB Updates"
         }
       ]
+    },
+    "quizzes": {
+      "lastUpdated": "2026-04-21T06:12:23.783Z",
+      "quizzes": {
+        "Mathematics": [
+          {
+            "id": "quiz_1776751943770_fmdh3hdqr",
+            "subject": "Mathematics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.770Z"
+          },
+          {
+            "id": "quiz_1776751943771_sf9h77rf1",
+            "subject": "Mathematics",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.771Z"
+          },
+          {
+            "id": "quiz_1776751943771_wrltiusqc",
+            "subject": "Mathematics",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.771Z"
+          },
+          {
+            "id": "quiz_1776751943772_zb4diusut",
+            "subject": "Mathematics",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.772Z"
+          },
+          {
+            "id": "quiz_1776751943772_5ilf2xsu9",
+            "subject": "Mathematics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.772Z"
+          },
+          {
+            "id": "quiz_1776751943774_x9gvkqa0p",
+            "subject": "Mathematics",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.774Z"
+          },
+          {
+            "id": "quiz_1776751943774_ur3y7mqwl",
+            "subject": "Mathematics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.774Z"
+          },
+          {
+            "id": "quiz_1776751943774_qowc7x0gs",
+            "subject": "Mathematics",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.774Z"
+          },
+          {
+            "id": "quiz_1776751943774_o18buj592",
+            "subject": "Mathematics",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.774Z"
+          },
+          {
+            "id": "quiz_1776751943774_btaoc8l08",
+            "subject": "Mathematics",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.774Z"
+          }
+        ],
+        "Science": [
+          {
+            "id": "quiz_1776751943775_8bkare5eq",
+            "subject": "Science",
+            "question": "What is the powerhouse of the cell?",
+            "options": [
+              "Nucleus",
+              "Mitochondria",
+              "Ribosome",
+              "Golgi"
+            ],
+            "answer": "Mitochondria",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_rkxsda930",
+            "subject": "Science",
+            "question": "Which planet is known as Red Planet?",
+            "options": [
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn"
+            ],
+            "answer": "Mars",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_6zc4jn5zk",
+            "subject": "Science",
+            "question": "What is the powerhouse of the cell?",
+            "options": [
+              "Nucleus",
+              "Mitochondria",
+              "Ribosome",
+              "Golgi"
+            ],
+            "answer": "Mitochondria",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_gd4x56asc",
+            "subject": "Science",
+            "question": "What is the chemical symbol for water?",
+            "options": [
+              "HO",
+              "H₂O",
+              "O₂H",
+              "OH₂"
+            ],
+            "answer": "H₂O",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_5ri97f394",
+            "subject": "Science",
+            "question": "What is the powerhouse of the cell?",
+            "options": [
+              "Nucleus",
+              "Mitochondria",
+              "Ribosome",
+              "Golgi"
+            ],
+            "answer": "Mitochondria",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_ng6qddeyn",
+            "subject": "Science",
+            "question": "What is the chemical symbol for water?",
+            "options": [
+              "HO",
+              "H₂O",
+              "O₂H",
+              "OH₂"
+            ],
+            "answer": "H₂O",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_hgctbgdt1",
+            "subject": "Science",
+            "question": "Which planet is known as Red Planet?",
+            "options": [
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn"
+            ],
+            "answer": "Mars",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_1860885rw",
+            "subject": "Science",
+            "question": "What is the chemical symbol for water?",
+            "options": [
+              "HO",
+              "H₂O",
+              "O₂H",
+              "OH₂"
+            ],
+            "answer": "H₂O",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_3ukywaw2h",
+            "subject": "Science",
+            "question": "What is the chemical symbol for water?",
+            "options": [
+              "HO",
+              "H₂O",
+              "O₂H",
+              "OH₂"
+            ],
+            "answer": "H₂O",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_8t3k8r6d3",
+            "subject": "Science",
+            "question": "What is the chemical symbol for water?",
+            "options": [
+              "HO",
+              "H₂O",
+              "O₂H",
+              "OH₂"
+            ],
+            "answer": "H₂O",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.775Z"
+          }
+        ],
+        "English": [
+          {
+            "id": "quiz_1776751943775_1rp2jotz6",
+            "subject": "English",
+            "question": "Choose the correct spelling:",
+            "options": [
+              "Neccessary",
+              "Necessary",
+              "Necesary",
+              "Necessery"
+            ],
+            "answer": "Necessary",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_0i75b3ihs",
+            "subject": "English",
+            "question": "What is the past tense of 'go'?",
+            "options": [
+              "Goed",
+              "Went",
+              "Going",
+              "Gone"
+            ],
+            "answer": "Went",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_d89hf3xai",
+            "subject": "English",
+            "question": "Choose the correct spelling:",
+            "options": [
+              "Neccessary",
+              "Necessary",
+              "Necesary",
+              "Necessery"
+            ],
+            "answer": "Necessary",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_vpvrp9kcb",
+            "subject": "English",
+            "question": "Choose the correct spelling:",
+            "options": [
+              "Neccessary",
+              "Necessary",
+              "Necesary",
+              "Necessery"
+            ],
+            "answer": "Necessary",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_6sbqdrddk",
+            "subject": "English",
+            "question": "Choose the correct spelling:",
+            "options": [
+              "Neccessary",
+              "Necessary",
+              "Necesary",
+              "Necessery"
+            ],
+            "answer": "Necessary",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_wcx5msdpg",
+            "subject": "English",
+            "question": "What is the synonym of 'happy'?",
+            "options": [
+              "Sad",
+              "Joyful",
+              "Angry",
+              "Tired"
+            ],
+            "answer": "Joyful",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_jwojeq9og",
+            "subject": "English",
+            "question": "Choose the correct spelling:",
+            "options": [
+              "Neccessary",
+              "Necessary",
+              "Necesary",
+              "Necessery"
+            ],
+            "answer": "Necessary",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_vux30jeaz",
+            "subject": "English",
+            "question": "What is the synonym of 'happy'?",
+            "options": [
+              "Sad",
+              "Joyful",
+              "Angry",
+              "Tired"
+            ],
+            "answer": "Joyful",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_ktlzvtesj",
+            "subject": "English",
+            "question": "Choose the correct spelling:",
+            "options": [
+              "Neccessary",
+              "Necessary",
+              "Necesary",
+              "Necessery"
+            ],
+            "answer": "Necessary",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.775Z"
+          },
+          {
+            "id": "quiz_1776751943775_ue16kc32h",
+            "subject": "English",
+            "question": "What is the past tense of 'go'?",
+            "options": [
+              "Goed",
+              "Went",
+              "Going",
+              "Gone"
+            ],
+            "answer": "Went",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.775Z"
+          }
+        ],
+        "Hindi": [
+          {
+            "id": "quiz_1776751943776_3z235me2w",
+            "subject": "Hindi",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_16nf0gmq1",
+            "subject": "Hindi",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_c0auoiwrl",
+            "subject": "Hindi",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_a7f1lpikn",
+            "subject": "Hindi",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_1dtplpbc9",
+            "subject": "Hindi",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_h3du08eb2",
+            "subject": "Hindi",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_woh0xcf0w",
+            "subject": "Hindi",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_98n462xjf",
+            "subject": "Hindi",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_aswpc263n",
+            "subject": "Hindi",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_781ph6syt",
+            "subject": "Hindi",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.776Z"
+          }
+        ],
+        "Social Science": [
+          {
+            "id": "quiz_1776751943776_s620meyv6",
+            "subject": "Social Science",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_mmdc4fta4",
+            "subject": "Social Science",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_h2pg959wr",
+            "subject": "Social Science",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_9zbfeitqr",
+            "subject": "Social Science",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_p4hwdqhci",
+            "subject": "Social Science",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_x0px6oaho",
+            "subject": "Social Science",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_i1ey6i38w",
+            "subject": "Social Science",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_qnz6nrfih",
+            "subject": "Social Science",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_3miwvpt5t",
+            "subject": "Social Science",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.776Z"
+          },
+          {
+            "id": "quiz_1776751943776_l943nhwkm",
+            "subject": "Social Science",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.776Z"
+          }
+        ],
+        "Physics": [
+          {
+            "id": "quiz_1776751943777_gmcnwnn01",
+            "subject": "Physics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_ro7v59lge",
+            "subject": "Physics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_atjob4tk0",
+            "subject": "Physics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_8njyxkjap",
+            "subject": "Physics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_bh04zqs86",
+            "subject": "Physics",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_w6dnop40d",
+            "subject": "Physics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_j8rdsg38i",
+            "subject": "Physics",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_1pud0ppbl",
+            "subject": "Physics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_yntgoi2m7",
+            "subject": "Physics",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_numvx951f",
+            "subject": "Physics",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          }
+        ],
+        "Chemistry": [
+          {
+            "id": "quiz_1776751943777_qyzdc962k",
+            "subject": "Chemistry",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_9zvsb2ylt",
+            "subject": "Chemistry",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_xqqtda74l",
+            "subject": "Chemistry",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_ahe4jfens",
+            "subject": "Chemistry",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_t5fudbjp1",
+            "subject": "Chemistry",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_ao44uit74",
+            "subject": "Chemistry",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_v0tnugma5",
+            "subject": "Chemistry",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_wcllyiv8j",
+            "subject": "Chemistry",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_9dmirti2g",
+            "subject": "Chemistry",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_rxtcxryr7",
+            "subject": "Chemistry",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          }
+        ],
+        "Biology": [
+          {
+            "id": "quiz_1776751943777_jvvoqje2n",
+            "subject": "Biology",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_6a5akuc44",
+            "subject": "Biology",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_72jsbf1r5",
+            "subject": "Biology",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_3ndgo5wb1",
+            "subject": "Biology",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_h2r0y9rdg",
+            "subject": "Biology",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_4oizfu9ys",
+            "subject": "Biology",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_qyyl7ofm9",
+            "subject": "Biology",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_62wc5ml1s",
+            "subject": "Biology",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_ws22we19a",
+            "subject": "Biology",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.777Z"
+          },
+          {
+            "id": "quiz_1776751943777_u85lhs1us",
+            "subject": "Biology",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.777Z"
+          }
+        ],
+        "History": [
+          {
+            "id": "quiz_1776751943778_8bbhzmyhz",
+            "subject": "History",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.778Z"
+          },
+          {
+            "id": "quiz_1776751943778_dujpvu0f2",
+            "subject": "History",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.778Z"
+          },
+          {
+            "id": "quiz_1776751943778_e0v2f0vz1",
+            "subject": "History",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.778Z"
+          },
+          {
+            "id": "quiz_1776751943778_ednjcsr0o",
+            "subject": "History",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.778Z"
+          },
+          {
+            "id": "quiz_1776751943778_v7b61o8le",
+            "subject": "History",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.778Z"
+          },
+          {
+            "id": "quiz_1776751943778_uh9z0vrto",
+            "subject": "History",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.778Z"
+          },
+          {
+            "id": "quiz_1776751943782_iarndjaca",
+            "subject": "History",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_3rznbff8x",
+            "subject": "History",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_durfof397",
+            "subject": "History",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_rvx64flw2",
+            "subject": "History",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.782Z"
+          }
+        ],
+        "Geography": [
+          {
+            "id": "quiz_1776751943782_imwv86elx",
+            "subject": "Geography",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "medium",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_g6nai6b3w",
+            "subject": "Geography",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_0kvhyopq1",
+            "subject": "Geography",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_jsrgo8wav",
+            "subject": "Geography",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_myuubs3f9",
+            "subject": "Geography",
+            "question": "Solve: 2x + 3 = 7",
+            "options": [
+              "x = 1",
+              "x = 2",
+              "x = 3",
+              "x = 4"
+            ],
+            "answer": "x = 2",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_k9atteexe",
+            "subject": "Geography",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_6g50xf05m",
+            "subject": "Geography",
+            "question": "Area of circle with radius 7cm?",
+            "options": [
+              "44 cm²",
+              "154 cm²",
+              "22 cm²",
+              "77 cm²"
+            ],
+            "answer": "154 cm²",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_nob6ezuzr",
+            "subject": "Geography",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_zirvoxrlh",
+            "subject": "Geography",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "easy",
+            "date": "2026-04-21T06:12:23.782Z"
+          },
+          {
+            "id": "quiz_1776751943782_clkx3jtdo",
+            "subject": "Geography",
+            "question": "What is 15% of 200?",
+            "options": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ],
+            "answer": "30",
+            "difficulty": "hard",
+            "date": "2026-04-21T06:12:23.782Z"
+          }
+        ]
+      },
+      "totalQuestions": 100
     }
   },
   "allNews": [
     {
-      "id": "github_1776581462920",
-      "title": "Latest Updates",
-      "content": "New educational resources available",
-      "date": "2026-04-19T06:51:02.920Z"
+      "id": "news_1776751943566_avpnfs0wj",
+      "title": "English speaking course free for students",
+      "content": "English speaking course free for students. This initiative aims to improve educational outcomes for students across Rajasthan.",
+      "date": "2026-04-21T06:12:23.566Z",
+      "category": "news",
+      "source": "EDCB Updates"
     },
     {
-      "id": "rbse_1776581462887",
-      "title": "RBSE Updates",
-      "content": "Check official RBSE website for latest announcements",
+      "id": "news_1776751943566_jwa5en7sn",
+      "title": "Digital classroom initiative expands to rural areas",
+      "content": "Digital classroom initiative expands to rural areas. This initiative aims to improve educational outcomes for students across Rajasthan.",
+      "date": "2026-04-21T06:12:23.566Z",
+      "category": "news",
+      "source": "EDCB Updates"
+    },
+    {
+      "id": "tip_1776751943565_7kqmooib0",
+      "title": "Study Tip of the Day",
+      "content": "Join study groups for better understanding",
+      "date": "2026-04-21T06:12:23.565Z",
+      "category": "study-tip",
+      "subject": "Social Science",
+      "helpful": 20
+    },
+    {
+      "id": "tip_1776751943565_dxlbkjgr0",
+      "title": "Study Tip of the Day",
+      "content": "Create mind maps for Chemistry chapters",
+      "date": "2026-04-21T06:12:23.565Z",
+      "category": "study-tip",
+      "subject": "Chemistry",
+      "helpful": 29
+    },
+    {
+      "id": "tip_1776751943565_d1ddy3vtt",
+      "title": "Study Tip of the Day",
+      "content": "Discuss difficult topics with teachers",
+      "date": "2026-04-21T06:12:23.565Z",
+      "category": "study-tip",
+      "subject": "Geography",
+      "helpful": 52
+    },
+    {
+      "id": "rbse_1776751943319_wo4vw966t",
+      "title": "New model papers available for 8 Social Science",
+      "content": "Important announcement from Rajasthan Board of Secondary Education. New model papers available for 8 Social Science. Please check the official website for more details.",
       "link": "https://rajeduboard.rajasthan.gov.in",
-      "date": "2026-04-19T06:51:02.887Z"
+      "date": "2026-04-21T06:12:23.319Z",
+      "category": "announcement",
+      "priority": "normal"
+    },
+    {
+      "id": "rbse_1776751943316_o9d9o1ytz",
+      "title": "Teacher training program scheduled for 2026-05-10",
+      "content": "Important announcement from Rajasthan Board of Secondary Education. Teacher training program scheduled for 2026-05-10. Please check the official website for more details.",
+      "link": "https://rajeduboard.rajasthan.gov.in",
+      "date": "2026-04-21T06:12:23.318Z",
+      "category": "announcement",
+      "priority": "high"
+    },
+    {
+      "id": "rbse_1776751943299_jxfwicm4o",
+      "title": "RBSE Unit Test examination scheduled for 2026-05-02",
+      "content": "Important announcement from Rajasthan Board of Secondary Education. RBSE Unit Test examination scheduled for 2026-05-02. Please check the official website for more details.",
+      "link": "https://rajeduboard.rajasthan.gov.in",
+      "date": "2026-04-21T06:12:23.310Z",
+      "category": "announcement",
+      "priority": "high"
+    },
+    {
+      "id": "rbse_1776751943310_dd1nu7yg1",
+      "title": "Result declaration for Mid-term expected by 2026-05-14",
+      "content": "Important announcement from Rajasthan Board of Secondary Education. Result declaration for Mid-term expected by 2026-05-14. Please check the official website for more details.",
+      "link": "https://rajeduboard.rajasthan.gov.in",
+      "date": "2026-04-21T06:12:23.310Z",
+      "category": "announcement",
+      "priority": "normal"
+    },
+    {
+      "id": "rbse_1776751943310_jg29obqkk",
+      "title": "Teacher training program scheduled for 2026-04-30",
+      "content": "Important announcement from Rajasthan Board of Secondary Education. Teacher training program scheduled for 2026-04-30. Please check the official website for more details.",
+      "link": "https://rajeduboard.rajasthan.gov.in",
+      "date": "2026-04-21T06:12:23.310Z",
+      "category": "announcement",
+      "priority": "normal"
     }
-  ]
+  ],
+  "features": {
+    "totalNewsItems": 10,
+    "totalQuizQuestions": 100,
+    "lastQuizUpdate": "2026-04-21T06:12:23.783Z",
+    "systemStatus": "Self-Maintaining"
+  }
 }

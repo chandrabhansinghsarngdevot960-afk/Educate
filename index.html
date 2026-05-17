@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andaaz Community™</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <h1>ANDAAZ™</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#events">Events</a>
+    <a href="#giveaway">Giveaway</a>
+    <a href="#join">Join</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <canvas id="bg"></canvas>
+
+  <div class="hero-content">
+    <h2>Andaaz Community™</h2>
+    <p>Gaming • Chill • Events • Aura Farming</p>
+
+    <div class="buttons">
+      <a href="https://discord.gg/andaaz" class="btn glow">Join Discord</a>
+      <a href="https://top.gg/" class="btn outline">Vote</a>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <h2>Features</h2>
+  <div class="grid">
+    <div class="card">🔥 Active</div>
+    <div class="card">🎮 Gaming</div>
+    <div class="card">🛡️ Security</div>
+    <div class="card">✨ Premium</div>
+  </div>
+</section>
+
+<section id="events">
+  <h2>Create Event</h2>
+
+  <input id="eventName" placeholder="Event Name">
+  <input id="eventTime" type="datetime-local">
+  <button onclick="createEvent()" class="btn glow">Create</button>
+
+  <div id="eventList"></div>
+</section>
+
+<section id="giveaway">
+  <h2>Giveaway System</h2>
+
+  <input id="giveName" placeholder="Prize Name">
+  <input id="giveTime" type="datetime-local">
+  <button onclick="createGiveaway()" class="btn glow">Start</button>
+
+  <div id="giveList"></div>
+</section>
+
+<section id="join">
+  <h2>Join Andaaz</h2>
+  <a href="https://discord.gg/andaaz" class="btn glow big">Enter Now</a>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

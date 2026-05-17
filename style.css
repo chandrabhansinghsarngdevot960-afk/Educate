@@ -1,0 +1,22 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Inter, sans-serif; }
+body { background: #0a0c10; color: #fff; overflow-x: hidden; }
+#particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.container { position: relative; z-index: 2; max-width: 1300px; margin: 0 auto; padding: 2rem; }
+.glass-card { background: rgba(20, 24, 32, 0.65); backdrop-filter: blur(12px); border-radius: 2rem; border: 1px solid rgba(88, 101, 242, 0.3); transition: 0.3s; }
+.glass-card:hover { border-color: #5865f2; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(88,101,242,0.2); }
+.hero { text-align: center; padding: 3rem 2rem; margin-bottom: 3rem; }
+.btn { display: inline-block; padding: 0.8rem 2rem; border-radius: 3rem; font-weight: bold; text-decoration: none; margin: 0.5rem; transition: 0.2s; }
+.btn-discord { background: #5865f2; color: white; }
+.btn-vote { background: #ff6b4a; color: white; }
+.btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+.stats { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; font-size: 1.2rem; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; margin: 3rem 0; }
+.feature { text-align: center; padding: 2rem 1rem; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; margin: 2rem 0; }
+.event-card, .giveaway-card { padding: 1.5rem; border-radius: 1.5rem; }
+.countdown { font-size: 1.8rem; font-weight: bold; font-family: monospace; background: #00000050; padding: 0.3rem; border-radius: 1rem; text-align: center; }
+.vote-section { text-align: center; padding: 2rem; margin: 3rem 0; }
+.vote-benefits { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; }
+footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid #2c2f36; }
+.footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+@media (max-width: 700px) { .stats { flex-direction: column; } .footer-content { flex-direction: column; } }

@@ -3,83 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andaaz Community | Elite Discord Hub</title>
-    <meta name="description" content="Join the premium Andaaz Discord community. Exclusive giveaways, gaming events, and a vibrant family. Vote for us on Top.gg!">
-    <meta property="og:image" content="https://your-domain.com/og-image.jpg">
+    <title>Andaaz Community | Premium Discord Hub</title>
+    <meta name="description" content="Join the elite Andaaz Discord community - Daily giveaways, epic events, gaming nights & 10k+ active members. Vote for us on Top.gg!">
+    <meta name="keywords" content="Discord, Andaaz, Giveaways, Gaming Community, Top.gg">
+    <meta property="og:title" content="Andaaz Community">
+    <meta property="og:description" content="Premium Discord server with epic giveaways & events">
+    <meta property="og:image" content="https://i.imgur.com/AndaazBanner.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Particles Canvas Background -->
     <canvas id="particle-canvas"></canvas>
+
     <div class="container">
-        <!-- Hero Section with Join & Vote -->
-        <header class="hero glass-card">
-            <div class="logo">
-                <h1><i class="fab fa-discord"></i> Andaaz Community</h1>
-                <p class="tagline">Where Legends Unite • 10,000+ Members</p>
+        
+        <!-- Hero Section with Join & Vote Buttons -->
+        <div class="hero glass-card">
+            <div class="logo-area">
+                <i class="fab fa-discord"></i>
+                <h1>Andaaz <span>Community</span></h1>
+                <p class="tagline">Where Legends Unite • 10,000+ Strong Family</p>
             </div>
-            <div class="cta-buttons">
-                <a href="https://discord.gg/andaaz" target="_blank" class="btn btn-discord"><i class="fab fa-discord"></i> Join Discord</a>
-                <a href="https://top.gg/discord/servers/843367253218467840/vote" target="_blank" class="btn btn-vote"><i class="fas fa-chart-simple"></i> Vote on Top.gg</a>
+            
+            <div class="button-group">
+                <a href="https://discord.gg/andaaz" target="_blank" class="btn btn-discord">
+                    <i class="fab fa-discord"></i> Join Discord Now
+                </a>
+                <a href="https://top.gg/discord/servers/843367253218467840/vote" target="_blank" class="btn btn-vote">
+                    <i class="fas fa-chart-line"></i> Vote on Top.gg
+                </a>
             </div>
-            <div class="stats">
-                <div><i class="fas fa-users"></i> <span id="member-count">...</span> Members</div>
-                <div><i class="fas fa-calendar-week"></i> <span id="event-count">0</span> Active Events</div>
-                <div><i class="fas fa-gift"></i> <span id="giveaway-count">0</span> Giveaways</div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <span id="member-count">Loading...</span>
+                    <label>Active Members</label>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="event-count">0</span>
+                    <label>Live Events</label>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-gift"></i>
+                    <span id="giveaway-count">0</span>
+                    <label>Active Giveaways</label>
+                </div>
             </div>
-        </header>
+        </div>
 
-        <!-- Features Grid -->
-        <section class="features">
-            <div class="feature glass-card"><i class="fas fa-trophy"></i><h3>Premium Giveaways</h3><p>Nitro, Hardware, Game Keys</p></div>
-            <div class="feature glass-card"><i class="fas fa-gamepad"></i><h3>Game Nights</h3><p>Valorant, GTA, Among Us</p></div>
-            <div class="feature glass-card"><i class="fas fa-music"></i><h3>24/7 Music Zone</h3><p>Listen with friends</p></div>
-            <div class="feature glass-card"><i class="fas fa-shield-alt"></i><h3>Safe Community</h3><p>Active mods & verification</p></div>
-        </section>
+        <!-- Features Section -->
+        <div class="features-section">
+            <div class="feature glass-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Premium Giveaways</h3>
+                <p>Nitro • Game Keys • Merchandise</p>
+            </div>
+            <div class="feature glass-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>Daily Game Nights</h3>
+                <p>Valorant • GTA • Among Us • BGMI</p>
+            </div>
+            <div class="feature glass-card">
+                <i class="fas fa-music"></i>
+                <h3>24/7 Music Zone</h3>
+                <p>Listen with friends 24x7</p>
+            </div>
+            <div class="feature glass-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Safe & Verified</h3>
+                <p>Active mods • Verification system</p>
+            </div>
+        </div>
 
-        <!-- Events & Giveaways Sections -->
-        <section><h2 class="section-title"><i class="fas fa-calendar-alt"></i> Live Events</h2><div id="eventsContainer" class="cards-grid"></div></section>
-        <section><h2 class="section-title"><i class="fas fa-gift"></i> Active Giveaways</h2><div id="giveawaysContainer" class="cards-grid"></div></section>
+        <!-- ANNOUNCEMENTS SECTION (New) -->
+        <div class="section-header">
+            <i class="fas fa-bullhorn"></i>
+            <h2>Latest Announcements</h2>
+        </div>
+        <div class="announcements-container" id="announcementsContainer">
+            <div class="announcement glass-card">
+                <div class="announcement-badge">📢 HOT</div>
+                <h3>🎉 10K Member Celebration Giveaway!</h3>
+                <p>We're giving away 5x Discord Nitro and 3x Gaming Mouses! Join Discord and type !giveaway to enter.</p>
+                <small><i class="far fa-clock"></i> Posted 2 hours ago</small>
+            </div>
+            <div class="announcement glass-card">
+                <div class="announcement-badge">⚡ URGENT</div>
+                <h3>🎮 Valorant Tournament Tomorrow</h3>
+                <p>Register now! Prize pool: 5000 INR + Discord Nitro. Check #tournaments channel.</p>
+                <small><i class="far fa-clock"></i> Posted 1 day ago</small>
+            </div>
+            <div class="announcement glass-card">
+                <div class="announcement-badge">✨ NEW</div>
+                <h3>🤝 Partnered with Top.gg</h3>
+                <p>Vote for us daily and get exclusive @Voter role + rewards! Link above 👆</p>
+                <small><i class="far fa-clock"></i> Posted 3 days ago</small>
+            </div>
+        </div>
 
-        <!-- Voting Section (Top.gg Widget) -->
-        <section class="vote-section glass-card">
-            <h2><i class="fas fa-heart"></i> Support Us with a Vote!</h2>
-            <p>Help Andaaz reach #1 on Top.gg — every vote unlocks special rewards in Discord.</p>
-            <iframe src="https://top.gg/widget/843367253218467840" height="100" width="500" frameborder="0" class="vote-widget"></iframe>
+        <!-- EVENTS SECTION -->
+        <div class="section-header">
+            <i class="fas fa-calendar-week"></i>
+            <h2>Upcoming Events</h2>
+        </div>
+        <div id="eventsContainer" class="cards-grid"></div>
+
+        <!-- GIVEAWAYS SECTION -->
+        <div class="section-header">
+            <i class="fas fa-gift"></i>
+            <h2>Active Giveaways</h2>
+        </div>
+        <div id="giveawaysContainer" class="cards-grid"></div>
+
+        <!-- TOP.GG VOTE WIDGET SECTION -->
+        <div class="vote-widget-section glass-card">
+            <h2><i class="fas fa-heart" style="color: #ff6b4a;"></i> Support Us by Voting!</h2>
+            <p>Every vote helps Andaaz grow bigger and unlocks exclusive Discord rewards</p>
             <div class="vote-benefits">
-                <span>⭐ Vote Rewards: @Voter Role</span>
-                <span>🎁 100 Coins</span>
-                <span>🚀 Extra Giveaway Entry</span>
+                <span><i class="fas fa-star"></i> @Voter Role</span>
+                <span><i class="fas fa-coins"></i> 100 Server Coins</span>
+                <span><i class="fas fa-ticket-alt"></i> Double Giveaway Entry</span>
             </div>
-        </section>
+            <div class="vote-embed">
+                <iframe src="https://top.gg/widget/843367253218467840" height="100" width="100%" frameborder="0" style="max-width:500px; border-radius: 1rem;"></iframe>
+            </div>
+            <a href="https://top.gg/discord/servers/843367253218467840/vote" target="_blank" class="btn btn-vote" style="margin-top: 1rem;">
+                <i class="fas fa-thumbs-up"></i> Vote Now on Top.gg
+            </a>
+        </div>
 
-        <!-- Footer with Copyright & Details -->
+        <!-- Footer -->
         <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Andaaz Community™</h4>
-                    <p>Est. 2021 • A premium gaming & social hub</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><i class="fab fa-discord"></i> Andaaz Community™</h4>
+                    <p>Established 2021 • Premium Gaming Hub</p>
                     <p><i class="fas fa-envelope"></i> support@andaaz.com</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-col">
                     <h4>Quick Links</h4>
-                    <a href="#">Rules</a> | <a href="#">Partners</a> | <a href="#">Staff Apps</a>
+                    <a href="https://discord.gg/andaaz">Join Discord</a>
+                    <a href="https://top.gg/discord/servers/843367253218467840/vote">Vote on Top.gg</a>
+                    <a href="#">Server Rules</a>
                 </div>
-                <div class="footer-section">
+                <div class="footer-col">
                     <h4>Legal</h4>
-                    <p>© 2025 Andaaz Community. All rights reserved.</p>
-                    <p>Discord is a trademark of Discord Inc.</p>
+                    <p>© 2025 Andaaz Community</p>
+                    <p>All Rights Reserved</p>
+                    <p>Discord is trademark of Discord Inc.</p>
                 </div>
+            </div>
+            <div class="copyright">
+                <p>Made with <i class="fas fa-heart"></i> for Andaaz Family | Not affiliated with Discord Inc.</p>
             </div>
         </footer>
     </div>
 
-    <script type="module">
-        import { events } from './events.js';
-        import { giveaways } from './giveaway.js';
-        window.eventsData = events;
-        window.giveawaysData = giveaways;
-    </script>
+    <script src="events.js"></script>
+    <script src="giveaway.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

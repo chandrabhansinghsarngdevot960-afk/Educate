@@ -1,22 +1,22 @@
 window.eventsData = [
     {
         id: "event1",
-        name: "🎤 Friday AMA with Founder",
-        datetime: "2026-05-23T19:00:00"
+        name: "Pfp Event Coming Soon",
+        datetime: "2026-06-01T19:00:00"
     },
     {
         id: "event2", 
-        name: "🎮 Valorant Tournament",
-        datetime: "2026-05-25T16:00:00"
+        name: "🎧 Music Event",
+        datetime: "2026-08-01T18:00:00"
     },
     {
         id: "event3",
-        name: "🎵 Karaoke Night",
-        datetime: "2026-05-26T20:30:00"
+        name: "🎮 Gaming Event",
+        datetime: "2026-11-06T20:00:00"
     },
     {
         id: "event4",
-        name: "💰 Crypto & NFTs Discussion",
-        datetime: "2026-05-28T18:00:00"
+        name: "🎉 Surprise Event",
+        datetime: "Soon"
     }
 ];

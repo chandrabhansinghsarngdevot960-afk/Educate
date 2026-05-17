@@ -1,22 +1,17 @@
 window.eventsData = [
     {
         id: "event1",
-        name: "Pfp Event Coming Soon",
+        name: "🎤 PFP Event (Profile Picture Party)",
         datetime: "2026-06-01T19:00:00"
     },
     {
         id: "event2", 
-        name: "🎧 Music Event",
-        datetime: "2026-08-01T18:00:00"
+        name: "🎵 Music Listening Party",
+        datetime: "2026-07-03T20:00:00"
     },
     {
         id: "event3",
-        name: "🎮 Gaming Event",
-        datetime: "2026-11-06T20:00:00"
-    },
-    {
-        id: "event4",
-        name: "🎉 Surprise Event",
-        datetime: "Soon"
+        name: "🎮 Gaming Tournament (Diwali Special)",
+        datetime: "2026-11-14T18:00:00"
     }
 ];
